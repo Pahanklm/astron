@@ -391,6 +391,9 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  color: #29166F;
+  font-size: 20px;
+  font-weight: 400;
   margin-bottom: 38px;
   margin-top: 23px;
 }
