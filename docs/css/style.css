@@ -368,8 +368,8 @@ a {
   border: 1px solid rgba(0, 147, 221, 0.3);
   overflow: hidden;
   position: relative;
-  -webkit-transition: border-color 0.5s;
-  transition: border-color 0.5s;
+  -webkit-transition: border-color 1s;
+  transition: border-color 1s;
   cursor: pointer;
 }
 
