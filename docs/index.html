@@ -1,11 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-@@include('html/head.html',{
-"title":"главная"
-})
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<title>главная</title>
+</head>
 
 <body>
-	@@include('html/header.html',{})
+	<header class="header">
+    <div class="container">
+        <div class="top">
+            <img class="top__logo" src="../img/header/logo.svg" alt="Логотип">
+            <nav class="top__nav">
+                <ul class="top__nav-list">
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПРО КОМПАНІЮ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПОСЛУГИ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ВІДГУКИ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПИТАННЯ</h3>
+                    </li>
+                </ul>
+            </nav>
+            <div class="top__contacts">
+                <ol class="top__contacts-list">
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/maps.svg" alt="Иконка карты">
+                        <a class="top__contacts-link" href="">м. Кременчук, вул. Перемоги, 4</a>
+                    </li>
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/clock.svg" alt="Иконка часов">
+                        <p class="top__contacts-text">Пн-Пт : з 10 : 00 до 17 : 00</p>
+                    </li>
+                </ol>
+                <ol class="top__contacts-list">
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/viber.svg" alt="Иконка Viber">
+                        <a class="top__contacts-link" href="">+38 098 303 44 77</a>
+                    </li>
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/telegram.svg" alt="Иконка Telegram">
+                        <a class="top__contacts-link" href="">+38 050 735 66 77</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</header>
 
 
 	<div class="wrapper">
@@ -176,7 +228,51 @@
 	</div>
 
 
-	@@include('html/footer.html',{})
+	<footer>
+    <div class="container">
+        <div class="top">
+            <img class="top__logo" src="../img/header/logo.svg" alt="Логотип">
+            <nav class="top__nav">
+                <ul class="top__nav-list">
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПРО КОМПАНІЮ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПОСЛУГИ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ВІДГУКИ</h3>
+                    </li>
+                    <li class="top__nav-item">
+                        <h3 class="top__nav-text">ПИТАННЯ</h3>
+                    </li>
+                </ul>
+            </nav>
+            <div class="top__contacts">
+                <ol class="top__contacts-list">
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/maps.svg" alt="Иконка карты">
+                        <a class="top__contacts-link" href="">м. Кременчук, вул. Перемоги, 4</a>
+                    </li>
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/clock.svg" alt="Иконка часов">
+                        <p class="top__contacts-text">Пн-Пт : з 10 : 00 до 17 : 00</p>
+                    </li>
+                </ol>
+                <ol class="top__contacts-list">
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/viber.svg" alt="Иконка Viber">
+                        <a class="top__contacts-link" href="">+38 098 303 44 77</a>
+                    </li>
+                    <li class="top__contacts-item">
+                        <img class="top__contacts-img" src="../img/header/telegram.svg" alt="Иконка Telegram">
+                        <a class="top__contacts-link" href="">+38 050 735 66 77</a>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</footer>
 	<script src="js/app.min.js"></script>
 </body>
 

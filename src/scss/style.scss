@@ -2,3 +2,310 @@
 @import "vars";
 @import "reset";
 @import "fonts";
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px 0;
+    align-items: center;
+
+    &__nav-list {
+        display: flex;
+        gap: 50px;
+    }
+
+    &__nav-text {
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+
+        &:hover {
+            color: #0093DD;
+            transition: 0.5s all;
+        }
+    }
+
+    &__contacts {
+        display: flex;
+    }
+
+    &__contacts-list {
+        &:not(:last-child) {
+            margin-right: 55px;
+        }
+    }
+
+    &__contacts-item {
+        display: flex;
+        align-items: center;
+        gap: 13px;
+
+        &:not(:last-child) {
+            margin-bottom: 23px;
+        }
+
+    }
+
+    &__contacts-link {
+        color: black;
+
+        &:hover {
+            color: #0093DD;
+            transition: 0.5s all;
+        }
+    }
+
+}
+
+// top-end
+
+.about {
+
+    &__container {
+        display: flex;
+        margin-top: 90px;
+
+        position: relative;
+    }
+
+    &__left-title {
+        font-size: 36px;
+        font-weight: 500;
+        text-transform: uppercase;
+
+        margin-bottom: 30px;
+
+        color: #29166F;
+    }
+
+    &__left-subtitle {
+        font-size: 24px;
+        font-weight: 500;
+
+        margin-bottom: 63px;
+
+        text-transform: uppercase;
+    }
+
+    &__left-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        &:not(:last-child) {
+            padding-bottom: 36px;
+        }
+    }
+
+    &__left-btn {
+        @include button;
+
+        padding: 20px 165px;
+        margin-top: 73px;
+    }
+
+
+    &__right-img {
+        position: absolute;
+        left: 548px;
+    }
+}
+
+// about-end
+
+.quality {
+
+    &__container {
+        margin-top: 100px;
+    }
+
+    &__title {
+        margin-bottom: 50px;
+    }
+}
+
+.swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+.quality {
+
+    &__slick__img-resolution {
+        cursor: pointer;
+
+
+        &:hover {
+            content: url('/img/slick/resolution-hover.png');
+        }
+    }
+
+
+    &__slick__img-certificate {
+        cursor: pointer;
+
+
+        &:hover {
+            content: url('/img/slick/certificate-hover.png');
+        }
+    }
+}
+
+
+
+// quality-end
+
+.astron {
+
+    &__container {
+        display: flex;
+        margin-top: 100px;
+        gap: 30px;
+    }
+
+
+    &__left-title {
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        margin-bottom: 50px;
+    }
+
+    &__left-text {
+        font-size: 20px;
+        font-weight: 400;
+        max-width: 594px;
+        max-height: 408px;
+
+        margin-bottom: 50px;
+    }
+
+    &__left-btn {
+        @include button;
+
+        padding: 20px 165px;
+    }
+
+
+    &__right-img {
+        margin-top: 50px;
+    }
+}
+
+// stron-end
+.mixer {
+    &__title {
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+
+.control {
+    font-size: 16px;
+    font-weight: 400;
+    color: #29166F;
+
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    padding: 10px 62px 10px 20px;
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    &:hover {
+        border-radius: 10px;
+        background: #FFF500;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+.images__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 906px;
+    gap: 20px;
+
+}
+
+.mix {
+    flex: 0 0 calc(33.33% - 20px);
+    position: relative;
+    /* Добавлено */
+}
+
+.image-border {
+    border: 2px solid #ccc;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 147, 221, 0.30);
+    overflow: hidden;
+    position: relative;
+    transition: border-color 0.5s;
+    cursor: pointer;
+}
+
+.filtr-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 23px;
+    transition: opacity 0.3s;
+    /* Добавлено */
+}
+
+.card__title {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 38px;
+    margin-top: 23px;
+}
+
+.card-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #FFF500;
+    color: black;
+    border: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.mix:hover .image-border {
+    border-color: transparent;
+}
+
+.mix:hover .filtr-item img {
+    opacity: 0;
+}
+
+.mix:hover .card-button {
+    opacity: 1;
+}
+
+
+
+// mixer-end

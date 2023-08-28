@@ -1,0 +1,11 @@
+@mixin button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #FFF500;
+    border: none;
+    border-radius: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
