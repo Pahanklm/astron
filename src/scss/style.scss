@@ -294,9 +294,8 @@
 }
 
 .mix:hover .image-border {
-    border-color: transparent;
+    border-color: #29166F;
     transform: scale(1.1);
-    /* Увеличение на 10% при наведении */
     transition: transform 0.5s ease-in-out;
 }
 

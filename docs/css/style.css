@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 html,
 body {
   height: 100%;
@@ -411,11 +409,10 @@ a {
 }
 
 .mix:hover .image-border {
-  border-color: transparent;
+  border-color: #29166F;
   -webkit-transform: scale(1.1);
       -ms-transform: scale(1.1);
           transform: scale(1.1);
-  /* Увеличение на 10% при наведении */
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
