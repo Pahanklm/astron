@@ -48,6 +48,7 @@
 
     &__contacts-link {
         color: black;
+        font-variant-numeric: lining-nums tabular-nums;
 
         &:hover {
             color: #0093DD;
@@ -138,7 +139,7 @@
 
 
         &:hover {
-            content: url('/img/slick/resolution-hover.png');
+            content: url('@img/slick/resolution-hover.png');
         }
     }
 
@@ -148,7 +149,7 @@
 
 
         &:hover {
-            content: url('/img/slick/certificate-hover.png');
+            content: url('@img/slick/certificate-hover.png');
         }
     }
 }
@@ -309,3 +310,27 @@
 
 
 // mixer-end
+
+.footer {
+    background: var(--blue-30, rgba(0, 147, 221, 0.30));
+}
+
+.bottom {
+    display: flex;
+
+    &__privacy {
+        margin-left: 163px;
+        margin-right: 47px;
+    }
+
+    &__link {}
+
+    &__img {
+        margin-right: 30px;
+    }
+
+    &__text {
+        margin-left: 39px;
+        margin-right: 114px;
+    }
+}

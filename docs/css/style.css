@@ -30,7 +30,7 @@ body {
 }
 
 .container {
-  max-width: 1218px;
+  max-width: 1248px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -153,6 +153,7 @@ a {
 
 .top__contacts-link {
   color: black;
+  font-variant-numeric: lining-nums tabular-nums;
 }
 
 .top__contacts-link:hover {
@@ -422,4 +423,28 @@ a {
 
 .mix:hover .card-button {
   opacity: 1;
+}
+
+.footer {
+  background: var(--blue-30, rgba(0, 147, 221, 0.3));
+}
+
+.bottom {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.bottom__privacy {
+  margin-left: 163px;
+  margin-right: 47px;
+}
+
+.bottom__img {
+  margin-right: 30px;
+}
+
+.bottom__text {
+  margin-left: 39px;
+  margin-right: 114px;
 }
