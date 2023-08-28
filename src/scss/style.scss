@@ -251,11 +251,9 @@
 .mix {
     flex: 0 0 calc(33.33% - 20px);
     position: relative;
-    /* Добавлено */
 }
 
 .image-border {
-    border: 2px solid #ccc;
     border-radius: 20px;
     border: 1px solid rgba(0, 147, 221, 0.30);
     overflow: hidden;
@@ -270,7 +268,7 @@
     display: block;
     margin-bottom: 23px;
     transition: opacity 0.3s;
-    /* Добавлено */
+
 }
 
 .card__title {
@@ -297,12 +295,12 @@
 
 .mix:hover .image-border {
     border-color: transparent;
-    width: 300px;
+    transform: scale(1.1);
+    /* Увеличение на 10% при наведении */
+    transition: transform 0.5s ease-in-out;
 }
 
-.mix:hover .filtr-item img {
-    opacity: 0;
-}
+
 
 .mix:hover .card-button {
     opacity: 1;
@@ -313,7 +311,7 @@
 // mixer-end
 
 .footer {
-    background: var(--blue-30, rgba(0, 147, 221, 0.30));
+    background: rgba(0, 147, 221, 0.30);
 }
 
 .bottom {
