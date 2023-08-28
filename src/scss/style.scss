@@ -291,6 +291,7 @@
     pointer-events: none;
     opacity: 0;
     transition: opacity 0.5s;
+    border-radius: 20px;
 }
 
 .mix:hover .image-border {

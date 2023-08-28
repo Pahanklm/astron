@@ -406,6 +406,7 @@ a {
   opacity: 0;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
+  border-radius: 20px;
 }
 
 .mix:hover .image-border {
