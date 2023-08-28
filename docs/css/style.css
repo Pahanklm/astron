@@ -246,7 +246,7 @@ a {
 }
 
 .quality__slick__img-resolution:hover {
-  content: url("/img/slick/resolution-hover.png");
+  content: url("..//img/slick/resolution-hover.png");
 }
 
 .quality__slick__img-certificate {
