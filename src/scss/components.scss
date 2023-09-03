@@ -1,0 +1,386 @@
+.quality {
+
+    &__container {
+        margin-top: 100px;
+    }
+
+    &__title {
+        margin-bottom: 50px;
+    }
+}
+
+.swiper-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+}
+
+
+.quality {
+
+    &__slick__img-resolution {
+        cursor: pointer;
+
+
+        &:hover {
+            content: url('../img/slick/resolution-hover.png');
+        }
+    }
+
+
+    &__slick__img-certificate {
+        cursor: pointer;
+
+
+        &:hover {
+            content: url('../img/slick/certificate-hover.png');
+        }
+    }
+}
+
+// quality-end
+
+
+
+.mixer {
+    &__title {
+        font-size: 20px;
+        font-weight: 400;
+        text-transform: uppercase;
+
+        margin-top: 100px;
+        margin-bottom: 50px;
+    }
+
+    &__container {
+        display: flex;
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        margin-right: 30px;
+
+    }
+}
+
+
+.control {
+    font-size: 16px;
+    font-weight: 400;
+    color: #29166F;
+
+    background-color: white;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    padding: 10px 62px 10px 20px;
+
+    &:not(:last-child) {
+        margin-bottom: 12px;
+    }
+
+    &:hover {
+        border-radius: 10px;
+        background: #FFF500;
+        transition: 0.5s ease-in-out;
+    }
+}
+
+.images__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 906px;
+    gap: 20px;
+
+}
+
+.mix {
+    display: flex;
+    height: 380px;
+}
+
+
+.image-border {
+    border-radius: 20px;
+    border: 1px solid rgba(0, 147, 221, 0.30);
+    overflow: hidden;
+    position: relative;
+    transition: border-color 1s;
+    cursor: pointer;
+}
+
+.filtr-item img {
+    width: 100%;
+    transition: opacity 0.3s;
+
+}
+
+.card__title {
+    display: flex;
+    justify-content: center;
+    color: #29166F;
+    font-size: 20px;
+    font-weight: 400;
+
+    margin-bottom: 38px;
+    margin-top: 23px;
+}
+
+.card-button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    background-color: #FFF500;
+    color: black;
+    border: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s;
+    border-radius: 20px;
+
+}
+
+.mix:hover .image-border {
+    border-color: #0093DD;
+    transform: scale(1.05);
+    transition: transform 0.5s ease-in-out;
+}
+
+
+.mix:hover .card-button {
+    opacity: 1;
+}
+
+
+
+.button-animation {
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Добавляем стили для активной кнопки страницы */
+.button-animation.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.fade-in {
+    opacity: 0 !important;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Анимация для появления элементов */
+.fade-in.show {
+    opacity: 1 !important;
+}
+
+// mixer-end
+
+
+.radio {
+    display: flex;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    width: 400px;
+    border: 1px solid rgba(0, 147, 221, 0.30);
+}
+
+.radio-container {
+    display: block;
+    cursor: pointer;
+}
+
+/* Стилизация инпута радиокнопки */
+.radio-container input[type="radio"] {
+    display: none;
+
+}
+
+/* Стилизация картинки и показ выбора */
+.radio-container img {
+    padding: 10px 35px;
+    height: 40px;
+    width: 100px;
+
+    transition: background-color 0.5s ease-in-out;
+}
+
+/* Показ выбора при выбранной радиокнопке */
+
+.radio-container input[type="radio"]:checked+img {
+    background-color: #FFF500;
+}
+
+
+.choices.is-focused {
+    border-radius: 20px;
+    border: 1px solid #0093DD;
+}
+
+
+
+.is-open .choices__inner {
+    border-radius: 20px;
+}
+
+.is-focused .choices__inner,
+.is-open .choices__inner {
+    border: none;
+}
+
+.choices {
+    border-radius: 20px;
+    border: 1px solid #0093DD;
+
+    &::after {
+        content: url('../img/request/arrow-down.svg') !important;
+        border-style: none !important;
+        transition: 0.3s all !important;
+        width: auto !important;
+        height: auto !important;
+        top: 40% !important;
+        right: 30px !important;
+    }
+
+    /* Изменение при активном состоянии списка */
+    &.is-open::after {
+        content: url('../img/request/arrow-up.svg') !important;
+        border-style: none !important;
+        transition: 0.3s all !important;
+        width: auto !important;
+        height: auto !important;
+        top: 45% !important;
+        right: 30px !important;
+    }
+}
+
+
+
+.choices__inner {
+    background-color: #fff !important;
+    height: 50px;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
+}
+
+.choices__list--single {
+    padding-left: 30px !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center;
+}
+
+.choices[data-type*='select-one']::after {
+    border-style: none;
+}
+
+.choices__list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-right: 6px;
+    padding-top: 10px;
+}
+
+.choices__list:last-child {
+    margin-bottom: 10px;
+}
+
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+    border: none;
+
+}
+
+.choices__list--dropdown .choices__item--selectable.is-highlighted,
+.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+    background-color: #0fa958;
+    color: white;
+    border-radius: 10px;
+}
+
+.choices__list[aria-expanded] .choices__item {
+    display: flex;
+    font-weight: 400;
+    width: 330px;
+    font-size: 16px;
+    padding: 10px 0 10px 20px !important;
+    margin-left: 10px;
+}
+
+.choices__item--choice:hover {
+    background: #FFF500 !important;
+    color: black !important;
+
+}
+
+
+.choices__list--dropdown,
+.choices__list[aria-expanded] {
+    border-radius: 20px !important;
+    border: 1px solid var(--blue, #0093DD) !important;
+}
+
+.is-focuse .choices__inner,
+.is-open .choices__inner {
+    border-radius: 20px !important;
+}
+
+.is-highlighted {
+    background-color: inherit !important;
+    color: black !important;
+
+}
+
+/* Стили скроллбара */
+.choices__list--dropdown .choices__list::-webkit-scrollbar {
+    width: 15px;
+    border-radius: 10px;
+    background: var(--blue-30, rgba(0, 147, 221, 0.30));
+}
+
+/* Стили полосы скроллбара */
+.choices__list--dropdown .choices__list::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #0093DD;
+}
+
+.choices__list--dropdown .choices__list:hover::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #0093DD;
+
+}
+
+
+
+
+
+
+
+// request-end
+
+.pagination__buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.button {
+
+    &__prev {
+        background-color: #FFF500;
+    }
+
+    &__next {
+        background-color: #FFF500;
+    }
+}
+
+
+// pagination-end
