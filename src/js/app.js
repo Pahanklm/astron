@@ -240,9 +240,12 @@ function checkFields() {
   const phoneValid = /^(?:\+?380|380)?\d{10}$/.test(phoneValue);
 
   if (!nameValue) {
-    hideErrorMessage(nameInput, nameError);
     showErrorMessage(nameInput, nameError);
-  } else {
+  }
+  else if (!nameValid) {
+    showErrorMessage(nameInput, nameError);
+  }
+  else {
     hideErrorMessage(nameInput, nameError);
   }
 
