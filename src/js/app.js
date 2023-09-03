@@ -34,6 +34,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   const mixer = mixitup(containerEl, {
+    animation: {
+      enable: false // Отключение анимации
+    },
     load: {
       filter: '.Круглі'
     },
