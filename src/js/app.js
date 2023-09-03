@@ -237,7 +237,7 @@ function checkFields() {
   const phoneValue = phoneInput.value.trim();
 
   const nameValid = /^[а-яА-ЯёЁіІїЇґҐ\s'-]{3,15}$/u.test(nameValue);
-  const phoneValid = /^(?:\+?380|380)?\d{9}$/.test(phoneValue);
+  const phoneValid = /^(?:\+?380|380)?\d{10}$/.test(phoneValue);
 
   if (!nameValue) {
     hideErrorMessage(nameInput, nameError);
