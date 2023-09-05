@@ -95,21 +95,18 @@ a {
   text-decoration: none;
 }
 
-.quality__container {
-  margin-top: 100px;
-}
-
 .quality__title {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 100px;
   margin-bottom: 50px;
 }
 
-.swiper-wrapper {
+.quality__container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   gap: 16px;
 }
 
@@ -433,7 +430,7 @@ a {
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
   border-radius: 20px !important;
-  border: 1px solid var(--blue, #0093DD) !important;
+  border: 1px solid --blue, #0093DD !important;
 }
 
 .is-focuse .choices__inner,
@@ -553,6 +550,47 @@ a {
 
 .ac .ac-trigger::after {
   content: "" !important;
+}
+
+.feedback__title {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.swiper-wrapper {
+  gap: 30px;
+}
+
+.swiper-slide {
+  padding: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--blue-30, rgba(0, 147, 221, 0.3));
+  max-width: 300px !important;
+  max-height: 212px !important;
+}
+
+.swiper-slide-title {
+  color: #29166F;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.swiper-slide-date {
+  color: rgba(0, 0, 0, 0.3);
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.swiper-slide-comment {
+  font-size: 16px;
+  font-weight: 400;
+  max-width: 306px;
+  height: 133px;
 }
 
 .top {
@@ -735,6 +773,7 @@ a {
   display: -ms-flexbox;
   display: flex;
   margin-top: 100px;
+  margin-bottom: 130px;
   max-height: 800px;
 }
 
@@ -966,6 +1005,125 @@ a {
 
 .faq__img {
   max-height: 576px;
+}
+
+.contacts__title {
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+
+.contacts__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.contacts__left {
+  margin-right: 30px;
+}
+
+.contacts__left-phones {
+  margin-bottom: 40px;
+}
+
+.contacts__left-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 10px;
+  margin-top: 21px;
+}
+
+.contacts__left-text {
+  color: #000;
+}
+
+.contacts__left-number {
+  font-variant-numeric: lining-nums tabular-nums;
+  color: #000;
+}
+
+.contacts__left-mail {
+  margin-bottom: 40px;
+}
+
+.contacts__left-social {
+  margin-bottom: 40px;
+}
+
+.contacts__left-schedule {
+  border-radius: 20px;
+  border: 1px solid rgba(0, 147, 221, 0.3);
+  padding: 20px 136px 20px 20px;
+}
+
+.contacts__left-scheduletitle {
+  color: #29166F;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.contacts__left-work {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 221px;
+  margin-bottom: 15px;
+}
+
+.contacts__left-break {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 221px;
+}
+
+.contacts__right-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.contacts__right-title {
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 21px;
+}
+
+.contacts__right-text {
+  color: #000;
+}
+
+.viber-contacts {
+  margin-bottom: 18px;
 }
 
 .footer {

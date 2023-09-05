@@ -7,10 +7,11 @@ import Accordion from 'accordion-js';
 flsFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const swiper = new Swiper('.swiper', {
+  const swiper2 = new Swiper('.swiper', {
+    slidesPerView: 3,
     loop: false,
-    enabled: false,
   });
+
 
   // swiper-end
 
