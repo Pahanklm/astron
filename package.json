@@ -47,6 +47,7 @@
     "webpack-stream": "latest"
   },
   "dependencies": {
+    "accordion-js": "^3.3.4",
     "choices.js": "^10.2.0",
     "jquery": "^3.7.1",
     "jQuery": "^1.7.4",

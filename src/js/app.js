@@ -2,6 +2,7 @@ import * as flsFunctions from "./modules/functions.js";
 import Swiper from 'swiper';
 import mixitup from 'mixitup';
 import Choices from 'choices.js';
+import Accordion from 'accordion-js';
 
 flsFunctions.isWebp();
 
@@ -10,6 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     loop: false,
     enabled: false,
   });
+
+  // swiper-end
+
+  new Accordion('.accordion-container', {
+  });
+  // accordion-end
 
   const containerEl = document.querySelector('.images__container');
   const filterButtons = document.querySelectorAll('.control'); // Получаем все кнопки фильтров
@@ -214,6 +221,28 @@ document.addEventListener("DOMContentLoaded", function () {
       toggleButtons();
       updatePageNumbers(currentPage);
     }
+  });
+
+
+
+
+  // робота с аккордионом 
+  const acElements = document.querySelectorAll('.ac');
+
+  acElements.forEach((acElement) => {
+    const triggerButton = acElement.querySelector('.ac-trigger');
+    const acTitle = acElement.querySelector('.ac-title');
+
+    triggerButton.addEventListener('click', function () {
+      const isExpanded = triggerButton.getAttribute('aria-expanded') === 'false';
+
+      // Изменяем атрибут aria-expanded
+      triggerButton.setAttribute('aria-expanded', !isExpanded);
+
+      // Добавляем/удаляем класс active в зависимости от состояния
+      triggerButton.classList.toggle('active', !isExpanded);
+      acTitle.classList.toggle('active', !isExpanded);
+    });
   });
 })
 
