@@ -485,6 +485,12 @@
     border: 1px solid var(--blue-30, rgba(0, 147, 221, 0.30));
     max-width: 300px !important;
     max-height: 212px !important;
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 0.5s ease-in-out;
+    }
+
 }
 
 .swiper-slide-title {

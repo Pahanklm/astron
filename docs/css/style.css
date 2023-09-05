@@ -572,6 +572,16 @@ a {
   max-height: 212px !important;
 }
 
+.swiper-slide:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
 .swiper-slide-title {
   color: #29166F;
   font-size: 20px;
@@ -917,10 +927,6 @@ a {
   margin-left: 100px;
 }
 
-.lookmore {
-  position: relative;
-}
-
 .lookmore__container {
   margin-top: 100px;
 }
@@ -962,6 +968,7 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  position: relative;
 }
 
 .lookmore__images-img:hover {
@@ -976,8 +983,8 @@ a {
 
 .lookmore__img-images {
   position: absolute;
-  right: 81px;
-  top: 323px;
+  right: -100px;
+  top: 70px;
   z-index: -1;
 }
 

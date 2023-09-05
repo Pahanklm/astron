@@ -154,7 +154,7 @@
     }
 }
 
-// stron-end
+// astron-end
 
 .request {
 
@@ -305,7 +305,6 @@
 // readystamps-end
 
 .lookmore {
-    position: relative;
 
     &__container {
         margin-top: 100px;
@@ -339,6 +338,8 @@
     &__images {
         display: flex;
         flex-direction: row;
+        position: relative;
+
 
     }
 
@@ -351,8 +352,8 @@
 
     &__img-images {
         position: absolute;
-        right: 81px;
-        top: 323px;
+        right: -100px;
+        top: 70px;
         z-index: -1;
     }
 }
