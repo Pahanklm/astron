@@ -343,7 +343,12 @@
 
     }
 
-    &__images-img {}
+    &__images-img {
+        &:hover {
+            transform: scale(1.05);
+            transition: transform 0.5s ease-in-out;
+        }
+    }
 
     &__img-images {
         position: absolute;
@@ -377,7 +382,9 @@
     flex-direction: row;
     gap: 30px;
 
-    &__img {}
+    &__img {
+        max-height: 576px;
+    }
 }
 
 

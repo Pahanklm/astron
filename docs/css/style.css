@@ -925,6 +925,16 @@ a {
           flex-direction: row;
 }
 
+.lookmore__images-img:hover {
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: -webkit-transform 0.5s ease-in-out;
+  transition: -webkit-transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, -webkit-transform 0.5s ease-in-out;
+}
+
 .lookmore__img-images {
   position: absolute;
   right: 81px;
@@ -952,6 +962,10 @@ a {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 30px;
+}
+
+.faq__img {
+  max-height: 576px;
 }
 
 .footer {
