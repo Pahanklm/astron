@@ -261,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Здесь вы можете настроить содержимое дополнительных элементов, например, изображение
           extraItem.innerHTML = `
             <div class="image-border">
-              <img src="img/mixer/error.png" alt="sample">
+              <img src="../../img/mixer/error.png" alt="sample">
             </div>
           `;
           containerEl.appendChild(extraItem);
