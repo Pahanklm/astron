@@ -180,30 +180,29 @@ a {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 906px;
+  max-height: 670px;
   gap: 20px;
-}
-
-.mix {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 380px;
 }
 
 .image-border {
   border-radius: 20px;
   border: 1px solid rgba(0, 147, 221, 0.3);
-  overflow: hidden;
   position: relative;
   -webkit-transition: border-color 1s;
   transition: border-color 1s;
   cursor: pointer;
+  width: 282px;
+  height: 320px;
 }
 
 .filtr-item img {
-  width: 100%;
+  position: absolute;
+  top: 78px;
+  right: 39px;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
+  width: 202px;
+  height: 202px;
 }
 
 .card__title {
@@ -213,11 +212,12 @@ a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  text-align: center;
   color: #29166F;
   font-size: 20px;
   font-weight: 400;
-  margin-bottom: 38px;
-  margin-top: 23px;
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .card-button {
@@ -238,9 +238,9 @@ a {
 
 .mix:hover .image-border {
   border-color: #0093DD;
-  -webkit-transform: scale(1.05);
-      -ms-transform: scale(1.05);
-          transform: scale(1.05);
+  -webkit-transform: scale(1.1);
+      -ms-transform: scale(1.1);
+          transform: scale(1.1);
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
@@ -463,26 +463,72 @@ a {
   background: #0093DD;
 }
 
-.pagination__buttons {
+.pagination {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.pagination__buttons {
+  display: inline-block;
+  height: 40px;
+  padding: 0px 20px;
+  margin-top: 30px;
+}
+
+.pagination-in {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 20px;
-  gap: 10px;
+  content: "";
+  border-radius: 20px;
+  gap: 20px;
+  height: 40px;
+  border: 1px solid var(--blue-30, rgba(0, 147, 221, 0.3));
+  padding: 0 20px;
+}
+
+.pagination-in__numbers {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 20px;
+}
+
+.button-animation {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 13px 21px;
+  color: var(--black-30, rgba(0, 0, 0, 0.3));
+}
+
+.button-animation.active {
+  border-radius: 10px;
+  background: var(--Yellow, #FFF500);
+  color: black;
 }
 
 .button__prev {
-  background-color: #FFF500;
+  border: none;
+  background: url("../img/mixer/back.svg") no-repeat center;
+  width: 17px;
+  height: 21px;
+  cursor: pointer;
 }
 
 .button__next {
-  background-color: #FFF500;
+  border: none;
+  background: url("../img/mixer/next.svg") no-repeat center;
+  width: 17px;
+  height: 21px;
+  cursor: pointer;
 }
 
 .accordion-container {
@@ -1056,9 +1102,21 @@ a {
   color: #000;
 }
 
+.contacts__left-text:hover {
+  color: #0093DD;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
+}
+
 .contacts__left-number {
   font-variant-numeric: lining-nums tabular-nums;
   color: #000;
+}
+
+.contacts__left-number:hover {
+  color: #0093DD;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
 }
 
 .contacts__left-mail {
@@ -1127,6 +1185,12 @@ a {
 
 .contacts__right-text {
   color: #000;
+}
+
+.contacts__right-text:hover {
+  color: #0093DD;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
 }
 
 .viber-contacts {

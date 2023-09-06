@@ -427,11 +427,21 @@
 
     &__left-text {
         color: #000;
+
+        &:hover {
+            color: #0093DD;
+            transition: 0.5s all;
+        }
     }
 
     &__left-number {
         font-variant-numeric: lining-nums tabular-nums;
         color: #000;
+
+        &:hover {
+            color: #0093DD;
+            transition: 0.5s all;
+        }
     }
 
     &__left-mail {
@@ -493,6 +503,11 @@
 
     &__right-text {
         color: #000;
+
+        &:hover {
+            color: #0093DD;
+            transition: 0.5s all;
+        }
 
     }
 }
