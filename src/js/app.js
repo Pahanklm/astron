@@ -245,7 +245,6 @@ document.addEventListener("DOMContentLoaded", function () {
     // Если текущее количество элементов меньше, чем itemsPerPage
     if (currentItems.length < nextMultiple) {
       const numExtraItems = nextMultiple - currentItems.length;
-      console.log(numExtraItems);
 
       // Находим первый элемент с классом "current"
       const firstCurrentItem = document.querySelector('.current');
@@ -262,7 +261,7 @@ document.addEventListener("DOMContentLoaded", function () {
           // Здесь вы можете настроить содержимое дополнительных элементов, например, изображение
           extraItem.innerHTML = `
             <div class="image-border">
-              <img src="../img/mixer/error.png" alt="sample">
+              <img src="/img/mixer/error.png" alt="sample">
             </div>
           `;
           containerEl.appendChild(extraItem);
