@@ -262,6 +262,11 @@ document.addEventListener("DOMContentLoaded", function () {
           extraItem.innerHTML = `
             <div class="image-border">
               <img src="img/mixer/error.png" alt="sample">
+              <img src="@img/mixer/error.png" alt="sample">
+              <img src="../img/mixer/error.png" alt="sample">
+              <img src="../../img/mixer/error.png" alt="sample">
+              <img src="/../img/mixer/error.png" alt="sample">
+              <img src="@/img/mixer/error.png" alt="sample">
             </div>
           `;
           containerEl.appendChild(extraItem);
