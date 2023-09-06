@@ -54,6 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
           currentPage = 1;
           const items = containerEl.querySelectorAll('.mix');
           items.forEach(item => item.classList.remove('current'));
+          checkAndAddExtraItems();
           filteredItems();
           showItemsOnPage(currentPage);
           toggleButtons();
@@ -113,6 +114,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     return currentItems;
   }
+  // Вызываем функцию для проверки и добавления дополнительных элементов
+  checkAndAddExtraItems();
 
 
   // добавляем нумерацию страниц
@@ -223,6 +226,58 @@ document.addEventListener("DOMContentLoaded", function () {
       updatePageNumbers(currentPage);
     }
   });
+
+  function findNextMultipleOfItemsPerPage(number) {
+    const remainder = number % itemsPerPage;
+    if (remainder === 0) {
+      return number;
+    } else {
+      return number + (itemsPerPage - remainder);
+    }
+  }
+
+
+  function checkAndAddExtraItems() {
+    const currentItems = Array.from(filteredItems()); // Преобразуем NodeList в массив
+    const totalCurrentItems = currentItems.length;
+    const nextMultiple = findNextMultipleOfItemsPerPage(totalCurrentItems);
+
+    // Если текущее количество элементов меньше, чем itemsPerPage
+    if (currentItems.length < nextMultiple) {
+      const numExtraItems = nextMultiple - currentItems.length;
+      console.log(numExtraItems);
+
+      // Находим первый элемент с классом "current"
+      const firstCurrentItem = document.querySelector('.current');
+
+      if (firstCurrentItem) {
+        const extraItemClass = firstCurrentItem.classList[1]; // Получаем второй класс первого элемента с классом "current"
+
+        // Создаем и добавляем дополнительные элементы
+        for (let i = 0; i < numExtraItems; i++) {
+          const extraItem = document.createElement('div');
+          extraItem.classList.add('mix');
+          extraItem.classList.add(extraItemClass); // Добавляем класс из первого элемента с классом "current"
+          extraItem.classList.add('filtr-item');
+          // Здесь вы можете настроить содержимое дополнительных элементов, например, изображение
+          extraItem.innerHTML = `
+            <div class="image-border">
+              <img src="../img/mixer/error.png" alt="sample">
+            </div>
+          `;
+          containerEl.appendChild(extraItem);
+
+          // Добавляем новый элемент в массив currentItems
+          currentItems.push(extraItem);
+        }
+      }
+    }
+  }
+
+
+
+
+
 
 
 
