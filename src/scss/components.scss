@@ -37,6 +37,13 @@
 // quality-end
 
 
+.mixitup-control-active {
+    background: #FFF500 !important;
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+
+
+}
 
 .mixer {
     &__title {
@@ -179,7 +186,7 @@
 
 .radio {
     display: flex;
-    border-radius: 20px;
+    border-radius: 50px;
     margin-bottom: 20px;
     overflow: hidden;
     width: 400px;
@@ -232,6 +239,7 @@
 .choices {
     border-radius: 20px;
     border: 1px solid #0093DD;
+    margin-bottom: 20px !important;
 
     &::after {
         content: url('../img/request/arrow-down.svg') !important;
@@ -414,6 +422,11 @@
         width: 17px;
         height: 21px;
         cursor: pointer;
+        fill: black;
+
+        &:disabled {
+            opacity: 0.3;
+        }
 
     }
 
@@ -423,7 +436,12 @@
         width: 17px;
         height: 21px;
         cursor: pointer;
+        color: #007bff;
+        fill: black;
 
+        &:disabled {
+            opacity: 0.3;
+        }
     }
 }
 
@@ -562,6 +580,36 @@
     font-weight: 400;
     max-width: 306px;
     height: 133px;
+}
+
+.swiper-navigation {
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.swiper-button-disabled {}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position: relative !important;
+    margin-top: 0 !important;
+    left: auto !important;
+
+}
+
+.swiper-button-next {
+    content: url('../img/comments/arrow.svg');
+    width: 20px !important;
+    height: 20px !important;
+}
+
+.swiper-button-prev {
+    content: url('../img/comments/arrow.svg');
+    transform: rotate(180deg);
+    width: 20px !important;
+    height: 20px !important;
 }
 
 

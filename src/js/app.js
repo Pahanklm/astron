@@ -1,5 +1,4 @@
 import * as flsFunctions from "./modules/functions.js";
-import Swiper from 'swiper';
 import mixitup from 'mixitup';
 import Choices from 'choices.js';
 import Accordion from 'accordion-js';
@@ -7,9 +6,13 @@ import Accordion from 'accordion-js';
 flsFunctions.isWebp();
 
 document.addEventListener("DOMContentLoaded", function () {
-  const swiper2 = new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper', {
     slidesPerView: 3,
     loop: false,
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    }
   });
 
 
@@ -22,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const containerEl = document.querySelector('.images__container');
   const filterButtons = document.querySelectorAll('.control'); // Получаем все кнопки фильтров
 
-  let activeFilter = '.Круглі';
+  let activeFilter = '.зLogo';
   let sameFilter = false;
 
   function doubleCLicked() {
@@ -46,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
       enable: false // Отключение анимации
     },
     load: {
-      filter: '.Круглі'
+      filter: '.зLogo'
     },
     callbacks: {
       onMixEnd: (state) => {
@@ -262,11 +265,6 @@ document.addEventListener("DOMContentLoaded", function () {
           extraItem.innerHTML = `
             <div class="image-border">
               <img src="img/mixer/error.png" alt="sample">
-              <img src="@img/mixer/error.png" alt="sample">
-              <img src="../img/mixer/error.png" alt="sample">
-              <img src="../../img/mixer/error.png" alt="sample">
-              <img src="/../img/mixer/error.png" alt="sample">
-              <img src="@/img/mixer/error.png" alt="sample">
             </div>
           `;
           containerEl.appendChild(extraItem);

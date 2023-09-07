@@ -7,8 +7,10 @@
 .top {
     display: flex;
     justify-content: space-between;
-    padding: 40px 0;
     align-items: center;
+
+    margin-top: 30px;
+
 
     &__nav-list {
         display: flex;
@@ -42,7 +44,7 @@
         gap: 13px;
 
         &:not(:last-child) {
-            margin-bottom: 23px;
+            margin-bottom: 20px;
         }
 
     }
@@ -65,7 +67,7 @@
 
     &__container {
         display: flex;
-        margin-top: 90px;
+        margin-top: 50px;
 
         position: relative;
     }
@@ -84,7 +86,7 @@
         font-size: 24px;
         font-weight: 500;
 
-        margin-bottom: 63px;
+        margin-bottom: 60px;
 
         text-transform: uppercase;
     }
@@ -93,6 +95,8 @@
         display: flex;
         align-items: center;
         gap: 10px;
+        font-size: 20px;
+        font-weight: 400;
 
         &:not(:last-child) {
             padding-bottom: 36px;
@@ -103,7 +107,7 @@
         @include button;
 
         padding: 20px 165px;
-        margin-top: 73px;
+        margin-top: 70px;
     }
 
 
@@ -120,7 +124,6 @@
 
     &__container {
         display: flex;
-        margin-top: 100px;
         gap: 30px;
     }
 
@@ -129,6 +132,8 @@
         font-size: 20px;
         font-weight: 400;
         text-transform: uppercase;
+        margin-top: 100px;
+
 
         margin-bottom: 50px;
     }
@@ -149,9 +154,6 @@
     }
 
 
-    &__right-img {
-        margin-top: 50px;
-    }
 }
 
 // astron-end
@@ -162,7 +164,7 @@
         display: flex;
 
         margin-top: 100px;
-        margin-bottom: 130px;
+        margin-bottom: 50px;
         max-height: 800px;
     }
 
@@ -179,8 +181,7 @@
 
     &__message {
         width: 490px;
-        padding: 30px 45px;
-
+        padding: 0 45px;
         border-radius: 20px;
         border: 1px solid #0093DD;
     }
@@ -257,7 +258,7 @@
         margin-bottom: 5px;
 
         &:nth-child(7) {
-            margin-bottom: 15px;
+            margin-bottom: 25px;
         }
     }
 
@@ -266,6 +267,7 @@
         justify-content: center;
         text-align: center;
         opacity: 0.7;
+        margin-bottom: 30px;
     }
 
     &__message-error {
@@ -315,7 +317,7 @@
         font-weight: 400;
         text-transform: uppercase;
 
-        margin-bottom: 58px;
+        margin-bottom: 50px;
     }
 
     &__instagram {
@@ -323,7 +325,7 @@
         flex-direction: row;
         gap: 10px;
 
-        margin-bottom: 58px;
+        margin-bottom: 40px;
     }
 
 
@@ -400,6 +402,11 @@
 
         margin-top: 100px;
         margin-bottom: 50px;
+    }
+
+    &__left-title {
+        font-size: 20px;
+        font-weight: 400;
     }
 
     &__container {
@@ -519,7 +526,13 @@
 
 // contacts-end
 
-
+.top__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px;
+    padding-bottom: 40px;
+}
 
 .footer {
     background: rgba(0, 147, 221, 0.30);
@@ -527,6 +540,7 @@
 
 .bottom {
     display: flex;
+    padding-bottom: 50px;
 
     &__privacy {
         margin-right: 170px;
