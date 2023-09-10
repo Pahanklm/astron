@@ -1626,12 +1626,12 @@
 					</div>
 					<div class="lookmore__images">
 						<div class="lookmore__img">
-							<img src="@img/lookmore/1.png" alt="images" class="lookmore__images-img">
-							<img src="@img/lookmore/2.png" alt="images" class="lookmore__images-img">
-							<img src="@img/lookmore/3.png" alt="images" class="lookmore__images-img">
-							<img src="@img/lookmore/4.png" alt="images" class="lookmore__images-img">
-							<img src="@img/lookmore/5.png" alt="images" class="lookmore__images-img">
-							<img src="@img/lookmore/6.png" alt="images" class="lookmore__images-img">
+							<a href=""><img src="@img/lookmore/1.png" alt="images" class="lookmore__images-img"></a>
+							<a href=""><img src="@img/lookmore/2.png" alt="images" class="lookmore__images-img"></a>
+							<a href=""><img src="@img/lookmore/3.png" alt="images" class="lookmore__images-img"></a>
+							<a href=""><img src="@img/lookmore/4.png" alt="images" class="lookmore__images-img"></a>
+							<a href=""><img src="@img/lookmore/5.png" alt="images" class="lookmore__images-img"></a>
+							<a href=""><img src="@img/lookmore/6.png" alt="images" class="lookmore__images-img"></a>
 						</div>
 						<img class="lookmore__img-images" src="@img/lookmore/images.png" alt="images">
 					</div>
@@ -1850,13 +1850,23 @@
 								узгодження
 								замовлення</h4>
 							<form class="send__message-form">
-								<p class="send__message-text">Вкажіть своє ім'я</p>
-								<input id="nameInput" type="text" class="send__message-input" placeholder="ім'я">
-								<p id="nameError" class="send__message-error">Невірне ім'я</p>
-								<p class="send__message-text">Вкажіть свій телефон</p>
-								<input id="phoneInput" type="text" class="send__message-input"
-									placeholder="+(380) 444-61-80-61">
-								<p id="phoneError" class="send__message-error">Невірний номер телефону</p>
+								<p class="send__message-text">Вкажіть своє ім'я*</p>
+								<div class="input__container">
+									<input id="nameInput" type="text" class="send__message-input" placeholder="ім'я">
+									<p id="nameError" class="send__message-error">Допустимі тільки кириличні символи</p>
+									<p id="nameErrorlength" class="send__message-error">Повинно бути від 3-ох до 15-ти
+										символів</p>
+									<p id="nameErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
+									</p>
+								</div>
+								<p class="send__message-text">Вкажіть свій телефон*</p>
+								<div class="input__container">
+									<input id="phoneInput" type="text" class="send__message-input"
+										placeholder="+38 (098) *** ** **">
+									<p id="phoneErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
+									</p>
+									<p id="phoneError" class="send__message-error">Неправильна кількість цифр</p>
+								</div>
 								<p class="send__message-text">Оберіть послугу</p>
 								<select id="Select">
 									<option value="option1">Круглі печатки</option>

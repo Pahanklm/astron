@@ -57,6 +57,7 @@
 
     &__container {
         display: flex;
+        justify-content: space-between;
     }
 
     &__controls {
@@ -80,7 +81,7 @@
     padding: 10px 62px 10px 20px;
 
     &:not(:last-child) {
-        margin-bottom: 12px;
+        margin-bottom: 6px;
     }
 
     &:hover {
@@ -92,6 +93,7 @@
 
 .images__container {
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
     max-width: 906px;
     max-height: 670px;
@@ -107,12 +109,12 @@
     transition: border-color 1s;
     cursor: pointer;
     width: 282px;
-    height: 320px;
+    height: 310px;
 }
 
 .filtr-item img {
     position: absolute;
-    top: 78px;
+    top: 67px;
     right: 39px;
     transition: opacity 0.3s;
     width: 202px;
@@ -127,8 +129,9 @@
     font-size: 20px;
     font-weight: 400;
 
+    padding: 0 20px;
     margin-bottom: 10px;
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .card-button {
@@ -149,7 +152,7 @@
 
 .mix:hover .image-border {
     border-color: #0093DD;
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: transform 0.5s ease-in-out;
 }
 
@@ -207,7 +210,7 @@
 /* Стилизация картинки и показ выбора */
 .radio-container img {
     padding: 10px 35px;
-    height: 40px;
+    height: 50px;
     width: 100px;
 
     transition: background-color 0.5s ease-in-out;
@@ -238,7 +241,7 @@
 
 .choices {
     border-radius: 20px;
-    border: 1px solid #0093DD;
+    border: 1px solid var(--light-Blue, #B3DFF5);
     margin-bottom: 20px !important;
 
     &::after {
@@ -274,7 +277,7 @@
 }
 
 .choices__list--single {
-    padding-left: 30px !important;
+    padding-left: 20px !important;
     margin: 0 !important;
     display: flex !important;
     align-items: center;
@@ -315,7 +318,6 @@
     width: 330px;
     font-size: 16px;
     padding: 10px 0 10px 20px !important;
-    margin-left: 10px;
 }
 
 .choices__item--choice:hover {
@@ -378,7 +380,7 @@
     display: inline-block;
     height: 40px;
     padding: 0px 20px;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 .pagination-in {
@@ -614,3 +616,24 @@
 
 
 // swiper2-end
+
+/* Изменение цвета полосы прокрутки */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 365.636px;
+    border-radius: 20px;
+    background: rgba(0, 147, 221, 0.10);
+}
+
+
+
+/* Изменение цвета полосы прокрутки */
+::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: var(--Default-Button, #FFF500);
+}
+
+/* Изменение цвета при наведении на полосу прокрутки */
+::-webkit-scrollbar-thumb:hover {
+    background: var(--Default-Button, #A6A000);
+}

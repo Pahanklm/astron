@@ -241,6 +241,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   function checkAndAddExtraItems() {
+    const emptyItems = document.querySelectorAll('.empty');
+    emptyItems.forEach((emptyItem) => {
+      emptyItem.remove();
+    });
     const currentItems = Array.from(filteredItems()); // Преобразуем NodeList в массив
     const totalCurrentItems = currentItems.length;
     const nextMultiple = findNextMultipleOfItemsPerPage(totalCurrentItems);
@@ -261,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
           extraItem.classList.add('mix');
           extraItem.classList.add(extraItemClass); // Добавляем класс из первого элемента с классом "current"
           extraItem.classList.add('filtr-item');
+          extraItem.classList.add('empty');
           // Здесь вы можете настроить содержимое дополнительных элементов, например, изображение
           extraItem.innerHTML = `
             <div class="image-border">
@@ -310,7 +315,10 @@ const nameInput = document.getElementById('nameInput');
 const phoneInput = document.getElementById('phoneInput');
 const submitButton = document.getElementById('submitButton');
 const nameError = document.getElementById('nameError');
+const nameErrorlength = document.getElementById('nameErrorlength');
+const nameErrorEmpty = document.getElementById('nameErrorEmpty');
 const phoneError = document.getElementById('phoneError');
+const phoneErrorEmpty = document.getElementById('phoneErrorEmpty');
 
 function showErrorMessage(inputElement, errorMessage) {
   inputElement.classList.add('error');
@@ -321,32 +329,153 @@ function hideErrorMessage(inputElement, errorMessage) {
   inputElement.classList.remove('error');
   errorMessage.style.display = 'none';
 }
+phoneInput.addEventListener('mousedown', function (event) {
+  // Предотвращаем начало выделения текста при клике
+  event.preventDefault();
+});
+
+
+phoneInput.addEventListener('keydown', function (event) {
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+    event.preventDefault();
+  }
+});
+
+phoneInput.addEventListener('click', function () {
+  placeCursorAtEnd(phoneInput);
+});
+
+function placeCursorAtEnd(input) {
+  input.focus(); // Устанавливаем фокус на поле ввода
+  const length = input.value.length; // Получаем длину значения в поле
+  input.setSelectionRange(length, length); // Устанавливаем курсор в конец строки
+}
+
+let lastValue = ''; // Сохраняем последнее введенное значение
+
+function addPrefix() {
+  if (!phoneInput.value.startsWith('+38 (')) {
+    phoneInput.value = '+38 (';
+    phoneInput.setSelectionRange(6, 6); // Помещаем курсор после открывающей скобки
+  }
+}
+
+function formatePhone(event) {
+  const phoneLength = phoneInput.value.length;
+  let phoneValue = phoneInput.value;
+  console.log(phoneLength);
+
+  phoneValue = phoneValue.replace(/[^0-9+ ()]/g, '');
+
+  if (phoneLength === 9 && event.key !== ' ') {
+    phoneValue = phoneValue.slice(0, 9) + ' ' + phoneValue.slice(9);
+  }
+
+
+  if (event.key === 'Backspace' && phoneLength === 10) {
+    phoneValue = phoneValue.slice(0, -2);
+  }
+  if (event.key === 'Backspace' && (phoneLength === 14 || phoneLength === 17)) {
+    phoneValue = phoneValue.slice(0, -1);
+  }
+  if (phoneLength === 5) {
+    if (event.key !== '0') {
+      event.preventDefault();
+    }
+  }
+  if (phoneLength === 8) {
+    phoneValue += ') ';
+  }
+  if (phoneLength === 13) {
+    phoneValue += ' ';
+  }
+  if (phoneLength === 16) {
+    phoneValue += ' ';
+  }
+
+
+  if (phoneLength > 19) {
+    phoneValue = phoneValue.slice(0, 19);
+  }
+
+
+  phoneInput.value = phoneValue;
+}
+
+
+
+function preventRemovalOfPrefix(event) {
+  const phoneValue = phoneInput.value;
+
+  const prefix = '+38 (';
+
+  if (!phoneValue.startsWith(prefix)) {
+    phoneInput.value = prefix;
+  }
+}
+
+phoneInput.addEventListener('input', preventRemovalOfPrefix);
+
+
+
+phoneInput.addEventListener('keydown', formatePhone);
+
+phoneInput.addEventListener('input', function (event) {
+
+  formatePhone(event); // Передаем объект события event
+  if (phoneInput.value.length < lastValue.length) {
+    // Пользователь удалил символ, не обновляем форматирование
+    lastValue = phoneInput.value;
+    return;
+  }
+
+  checkFields();
+});
+
+phoneInput.addEventListener('focus', addPrefix);
 
 function checkFields() {
   const nameValue = nameInput.value.trim();
   const phoneValue = phoneInput.value.trim();
 
-  const nameValid = /^[а-яА-ЯёЁіІїЇґҐ\s'-]{3,15}$/u.test(nameValue);
-  const phoneValid = /^(?:(?:\+?380)|(?:380)|(?:0))(?:(\d{9})|(?:9\d{8}))$/.test(phoneValue);
+  const noEnglish = /^[а-яА-ЯёЁіІїЇґҐ\s'-]+$/u.test(nameValue);
+  const nameLength = /^.{3,15}$/.test(nameValue)
+  const phoneValid = /^\+38 \(\d{3}\) \d{3} \d{2} \d{2}$/.test(phoneValue);
+
+
+
 
   if (!nameValue) {
-    showErrorMessage(nameInput, nameError);
+    showErrorMessage(nameInput, nameErrorEmpty);
   }
-  else if (!nameValid) {
+  else {
+    hideErrorMessage(nameInput, nameErrorEmpty);
+  }
+
+  if (!noEnglish && nameValue) {
     showErrorMessage(nameInput, nameError);
   }
   else {
     hideErrorMessage(nameInput, nameError);
   }
+  if (!nameLength && nameValue && noEnglish) {
+    showErrorMessage(nameInput, nameErrorlength);
+  }
+  else {
+    hideErrorMessage(nameInput, nameErrorlength);
+  }
 
   if (!phoneValue) {
-    hideErrorMessage(phoneInput, phoneError);
-  } else if (!phoneValid) {
+    showErrorMessage(phoneInput, phoneErrorEmpty);
+  }
+  else {
+    hideErrorMessage(phoneInput, phoneErrorEmpty);
+  }
+  if (!phoneValid) {
     showErrorMessage(phoneInput, phoneError);
   } else {
     hideErrorMessage(phoneInput, phoneError);
   }
-
 
   if (!nameValue || !phoneValue || !nameValid || !phoneValid) {
     submitButton.setAttribute('disabled', 'disabled');
@@ -356,8 +485,6 @@ function checkFields() {
 }
 
 nameInput.addEventListener('input', checkFields);
-phoneInput.addEventListener('input', checkFields);
-
 
 
 

@@ -9,4 +9,16 @@
     border-radius: 20px;
     text-transform: uppercase;
     cursor: pointer;
+
+    &:hover {
+        background: #FFFF69;
+    }
+
+    &:active {
+        background: #E2D800;
+    }
+
+    &:disabled {
+        background: rgba(0, 0, 0, 0.10);
+    }
 }

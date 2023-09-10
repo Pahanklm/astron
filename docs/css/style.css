@@ -145,6 +145,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .mixer__controls {
@@ -170,7 +173,7 @@ a {
 }
 
 .control:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 }
 
 .control:hover {
@@ -184,6 +187,9 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   max-width: 906px;
@@ -199,12 +205,12 @@ a {
   transition: border-color 1s;
   cursor: pointer;
   width: 282px;
-  height: 320px;
+  height: 310px;
 }
 
 .filtr-item img {
   position: absolute;
-  top: 78px;
+  top: 67px;
   right: 39px;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
@@ -223,8 +229,9 @@ a {
   color: #29166F;
   font-size: 20px;
   font-weight: 400;
+  padding: 0 20px;
   margin-bottom: 10px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .card-button {
@@ -245,9 +252,9 @@ a {
 
 .mix:hover .image-border {
   border-color: #0093DD;
-  -webkit-transform: scale(1.1);
-      -ms-transform: scale(1.1);
-          transform: scale(1.1);
+  -webkit-transform: scale(1.05);
+      -ms-transform: scale(1.05);
+          transform: scale(1.05);
   -webkit-transition: -webkit-transform 0.5s ease-in-out;
   transition: -webkit-transform 0.5s ease-in-out;
   transition: transform 0.5s ease-in-out;
@@ -308,7 +315,7 @@ a {
 
 .radio-container img {
   padding: 10px 35px;
-  height: 40px;
+  height: 50px;
   width: 100px;
   -webkit-transition: background-color 0.5s ease-in-out;
   transition: background-color 0.5s ease-in-out;
@@ -336,7 +343,7 @@ a {
 
 .choices {
   border-radius: 20px;
-  border: 1px solid #0093DD;
+  border: 1px solid var(--light-Blue, #B3DFF5);
   margin-bottom: 20px !important;
   /* Изменение при активном состоянии списка */
 }
@@ -376,7 +383,7 @@ a {
 }
 
 .choices__list--single {
-  padding-left: 30px !important;
+  padding-left: 20px !important;
   margin: 0 !important;
   display: -webkit-box !important;
   display: -ms-flexbox !important;
@@ -427,7 +434,6 @@ a {
   width: 330px;
   font-size: 16px;
   padding: 10px 0 10px 20px !important;
-  margin-left: 10px;
 }
 
 .choices__item--choice:hover {
@@ -484,7 +490,7 @@ a {
   display: inline-block;
   height: 40px;
   padding: 0px 20px;
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 .pagination-in {
@@ -701,6 +707,28 @@ a {
   height: 20px !important;
 }
 
+/* Изменение цвета полосы прокрутки */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 365.636px;
+  border-radius: 20px;
+  background: rgba(0, 147, 221, 0.1);
+}
+
+/* Изменение цвета полосы прокрутки */
+
+::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background: var(--Default-Button, #FFF500);
+}
+
+/* Изменение цвета при наведении на полосу прокрутки */
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--Default-Button, #A6A000);
+}
+
 .top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -711,7 +739,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .top__nav-list {
@@ -804,7 +832,7 @@ a {
 }
 
 .about__left-item:not(:last-child) {
-  padding-bottom: 36px;
+  padding-bottom: 30px;
 }
 
 .about__left-btn {
@@ -824,12 +852,25 @@ a {
   text-transform: uppercase;
   cursor: pointer;
   padding: 20px 165px;
-  margin-top: 70px;
+  margin-top: 60px;
+}
+
+.about__left-btn:hover {
+  background: #FFFF69;
+}
+
+.about__left-btn:active {
+  background: #E2D800;
+}
+
+.about__left-btn:disabled {
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .about__right-img {
   position: absolute;
   left: 548px;
+  top: -20px;
 }
 
 .astron__container {
@@ -874,6 +915,18 @@ a {
   padding: 20px 165px;
 }
 
+.astron__left-btn:hover {
+  background: #FFFF69;
+}
+
+.astron__left-btn:active {
+  background: #E2D800;
+}
+
+.astron__left-btn:disabled {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .request__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -893,11 +946,15 @@ a {
   margin-right: 30px;
 }
 
+.input__container {
+  margin-bottom: 15px;
+}
+
 .send__message {
   width: 490px;
   padding: 0 45px;
   border-radius: 20px;
-  border: 1px solid #0093DD;
+  border: 1px solid var(--light-Blue, #B3DFF5);
 }
 
 .send__message-title {
@@ -928,11 +985,26 @@ a {
 }
 
 .send__message-input {
-  padding: 14.5px;
-  margin-bottom: 15px;
+  padding: 15px 20px;
+  margin-bottom: 5px;
   width: 100%;
   border-radius: 20px;
   border: 1px solid rgba(0, 147, 221, 0.3);
+}
+
+.send__message-input:focus-within {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
+}
+
+.send__message-input:focus-visible {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
+}
+
+.send__message-input:focus {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
 }
 
 .send__message-textarea {
@@ -942,6 +1014,21 @@ a {
   margin-bottom: 20px;
   border-radius: 20px;
   border: 1px solid rgba(0, 147, 221, 0.3);
+}
+
+.send__message-textarea:focus-within {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
+}
+
+.send__message-textarea:focus-visible {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
+}
+
+.send__message-textarea:focus {
+  border: 1px solid var(--Blue, #0093DD);
+  outline: none;
 }
 
 .send__message-btn {
@@ -968,9 +1055,20 @@ a {
   font-weight: 400;
 }
 
+.send__message-btn:hover {
+  background: #FFFF69;
+}
+
+.send__message-btn:active {
+  background: #E2D800;
+}
+
+.send__message-btn:disabled {
+  background: rgba(0, 0, 0, 0.1);
+}
+
 .send__message-btn:disabled {
   border-radius: 20px;
-  background: rgba(0, 0, 0, 0.3);
   cursor: not-allowed;
   color: rgba(0, 0, 0, 0.3);
   font-size: 20px;
@@ -1269,24 +1367,38 @@ a {
 
 .footer {
   background: rgba(0, 147, 221, 0.3);
+  margin-top: 50px;
 }
 
 .bottom {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding-bottom: 50px;
 }
 
 .bottom__privacy {
-  margin-right: 170px;
+  margin-right: 163px;
 }
 
 .bottom__img {
-  margin-right: 55px;
+  margin-right: 30px;
 }
 
 .bottom__text {
-  margin-left: 28px;
+  margin-left: 36px;
   margin-right: 114px;
+}
+
+.bottom__dev {
+  color: #000;
+}
+
+.bottom__dev:hover {
+  color: #0093dd;
+  -webkit-transition: 0.5s all;
+  transition: 0.5s all;
 }
