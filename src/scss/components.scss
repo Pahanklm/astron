@@ -190,7 +190,7 @@
 .radio {
     display: flex;
     border-radius: 50px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     overflow: hidden;
     width: 400px;
     border: 1px solid rgba(0, 147, 221, 0.30);
@@ -242,7 +242,7 @@
 .choices {
     border-radius: 20px;
     border: 1px solid var(--light-Blue, #B3DFF5);
-    margin-bottom: 20px !important;
+    margin-bottom: 15px !important;
 
     &::after {
         content: url('../img/request/arrow-down.svg') !important;
@@ -280,7 +280,6 @@
     padding-left: 20px !important;
     margin: 0 !important;
     display: flex !important;
-    align-items: center;
 }
 
 .choices[data-type*='select-one']::after {
@@ -617,23 +616,74 @@
 
 // swiper2-end
 
-/* Изменение цвета полосы прокрутки */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 365.636px;
-    border-radius: 20px;
-    background: rgba(0, 147, 221, 0.10);
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
 }
 
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
 
-
-/* Изменение цвета полосы прокрутки */
-::-webkit-scrollbar-thumb {
-    border-radius: 20px;
-    background: var(--Default-Button, #FFF500);
+    100% {
+        opacity: 0;
+    }
 }
 
-/* Изменение цвета при наведении на полосу прокрутки */
-::-webkit-scrollbar-thumb:hover {
-    background: var(--Default-Button, #A6A000);
+.modal {
+    display: flex;
+    opacity: 0;
+    /* Set initial opacity to 0 */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.30);
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+    /* Disable pointer events when opacity is 0 */
+}
+
+.modal-btn {
+    margin-bottom: 0 !important;
+}
+
+.modal-send {
+    padding: 15px 45px !important;
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+.close {
+    position: absolute;
+    right: 5px;
+    top: 15px;
+
+    cursor: pointer;
+}
+
+.modal-open {
+    animation: fadeIn 0.3s ease-in-out forwards;
+    pointer-events: auto;
+    display: flex;
+}
+
+.modal-closed {
+    animation: fadeOut 0.3s ease-in-out forwards;
+    /* Use forwards to keep the final state */
+    pointer-events: none;
+    /* Disable pointer events when opacity is 0 */
 }
