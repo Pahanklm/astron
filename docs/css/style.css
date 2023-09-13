@@ -62,6 +62,16 @@ img {
   background: var(--Default-Button, #A6A000);
 }
 
+.container-up {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 20px;
+  /* Можете настроить отступ от нижнего края экрана по вашему усмотрению */
+  margin-right: 20px;
+  /* Можете настроить отступ от правого края экрана по вашему усмотрению */
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -439,11 +449,18 @@ a {
   border: none;
 }
 
-.choices__list--dropdown .choices__item--selectable.is-highlighted,
-.choices__list[aria-expanded] .choices__item--selectable.is-highlighted {
+.choices__list--dropdown.choices__item--selectable.is-highlighted,
+.choices__list[aria-expanded].choices__item--selectable.is-highlighted {
   background-color: #0fa958;
   color: white;
   border-radius: 10px;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+}
+
+.choices__list--single {
+  font-size: 16px !important;
+  font-weight: 400 !important;
 }
 
 .choices__list[aria-expanded] .choices__item {
@@ -452,7 +469,7 @@ a {
   display: flex;
   font-weight: 400;
   width: 330px;
-  font-size: 16px;
+  font-size: 16px !important;
   padding: 10px 0 10px 20px !important;
 }
 

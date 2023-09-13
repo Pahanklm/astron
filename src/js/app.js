@@ -500,8 +500,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!nameValue || !phoneValue || !noEnglish || !nameLength || !phoneValid) {
         submitButton.setAttribute('disabled', 'disabled');
+        submitButton.style.backgroundColor = 'white'
+        submitButton.style.border = '1px solid red'
+        submitButton.style.fontSize = '19px'
+        submitButton.style.color = 'red'
       } else {
         submitButton.removeAttribute('disabled');
+        submitButton.style.backgroundColor = '#FFF500'
+        submitButton.style.border = 'none'
+        submitButton.style.fontSize = '20px'
+        submitButton.style.color = 'black'
+
       }
     }
 
@@ -676,3 +685,37 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+document.addEventListener("DOMContentLoaded", function () {
+  var scrollToTopButton = document.getElementById("scrollToTop");
+  var lastScrollTop = 0;
+  scrollToTopButton.style.display = "none";
+
+  // Функция для плавной прокрутки к верхней части страницы
+  function scrollToTop() {
+    if (window.scrollY !== 0) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }
+
+  // Назначение обработчика события на клик по стрелке "вверх"
+  if (scrollToTopButton) {
+    scrollToTopButton.addEventListener("click", function (e) {
+      e.preventDefault();
+      scrollToTop();
+    });
+  }
+
+  // Отслеживание прокрутки страницы для показа/скрытия кнопки
+  window.addEventListener("scroll", function () {
+    var currentScroll = window.scrollY;
+    if (currentScroll > 0) {
+      // При прокрутке вниз
+      if (scrollToTopButton.style.display !== "block") {
+        scrollToTopButton.style.display = "block";
+      }
+    } else {
+      // Когда достигнута вершина страницы
+      scrollToTopButton.style.display = "none";
+    }
+  });
+});
