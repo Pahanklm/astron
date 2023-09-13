@@ -520,6 +520,39 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
+
+      function getCookie(name) {
+        const cookieValue = document.cookie
+          .split('; ')
+          .find((row) => row.startsWith(`${name}=`));
+
+        if (cookieValue) {
+          return cookieValue.split('=')[1];
+        }
+
+        return null;
+      }
+
+      const lastSubmitTime = getCookie('lastSubmitTime');
+
+      if (lastSubmitTime) {
+        const currentTime = new Date();
+        const timeDifference = (currentTime - new Date(lastSubmitTime)) / 1000; // Разница в секундах
+
+        if (timeDifference < 300) { // 300 секунд = 5 минут
+          iziToast.error({
+            title: 'Помилка',
+            message: 'Ви можете відправляти форму не раніше ніж за 5 хвилин після відправки останньої',
+            position: 'topCenter',
+            icon: 'fa fa-times',
+            timeout: 3000,
+            color: 'red',
+          })
+          return; // Не отправляем форму
+        }
+      }
+
+
       let selectedElement;
       if (form.id === 'form1') {
         selectedElement = choices.itemList.element.innerText
@@ -557,6 +590,12 @@ document.addEventListener("DOMContentLoaded", function () {
           document.body.style.overflow = 'auto';
           iziToast.show()
 
+
+          // Обновляем куки с временем последней отправки формы
+          const expirationTime = new Date();
+          expirationTime.setSeconds(expirationTime.getSeconds() + 300); // Устанавливаем срок действия куки на 5 минут
+          document.cookie = `lastSubmitTime=${new Date()}; expires=${expirationTime.toUTCString()}`;
+
         })
         .catch((error) => {
           modal.style.opacity = "0";
@@ -566,9 +605,9 @@ document.addEventListener("DOMContentLoaded", function () {
           iziToast.error({
             title: 'Ошибка',
             message: 'Ошибка при отправке сообщения',
-            position: 'topCenter',
+            position: 'bottomRight',
             icon: 'fa fa-times',
-            timeout: 3000,
+            timeout: 5000,
             color: 'red',
           })
         });
