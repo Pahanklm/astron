@@ -1,28 +1,36 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close"><img src="@img/modal/close.svg" alt=""></span>
-        <div class="request__right  ">
+        <div class="request__right">
             <div class="send__message modal-send">
+                <h1 class="send__message-title send__message-title-modal">Відправити заявку</h1>
                 <h4 class="send__message-subtitle">Введіть свої дані і ми з вами зв'яжемося <br> для
                     узгодження
                     замовлення</h4>
                 <form id="form2" class="send__message-form">
-                    <p class="send__message-text">Вкажіть своє ім'я*</p>
-                    <div class="input__container">
-                        <input id="nameInput" type="text" class="send__message-input name-input" placeholder="ім'я">
-                        <p id="nameError" class="send__message-error">Допустимі тільки кириличні символи</p>
-                        <p id="nameErrorlength" class="send__message-error">Повинно бути від 3-ох до 15-ти
-                            символів</p>
-                        <p id="nameErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
-                        </p>
-                    </div>
-                    <p class="send__message-text">Вкажіть свій телефон*</p>
-                    <div class="input__container">
-                        <input id="phoneInput" type="text" class="send__message-input phone-input"
-                            placeholder="+38 (098) *** ** **">
-                        <p id="phoneErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
-                        </p>
-                        <p id="phoneError" class="send__message-error">Неправильна кількість цифр</p>
+                    <div class="inputs__container">
+                        <div class="input__container-modal">
+                            <p class="send__message-text">Вкажіть своє ім'я*</p>
+                            <div class="input__container">
+                                <input id="nameInput" type="text" class="send__message-input name-input"
+                                    placeholder="ім'я">
+                                <p id="nameError" class="send__message-error">Допустимі тільки кириличні символи</p>
+                                <p id="nameErrorlength" class="send__message-error">Повинно бути від 3-ох до 15-ти
+                                    символів</p>
+                                <p id="nameErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
+                                </p>
+                            </div>
+                        </div>
+                        <div class="input__container-modal">
+                            <p class="send__message-text">Вкажіть свій телефон*</p>
+                            <div class="input__container">
+                                <input id="phoneInput" type="text" class="send__message-input phone-input"
+                                    placeholder="+38 (098) *** ** **">
+                                <p id="phoneErrorEmpty" class="send__message-error">Поле обов'язкове для заповнення
+                                </p>
+                                <p id="phoneError" class="send__message-error">Неправильна кількість цифр</p>
+                            </div>
+                        </div>
                     </div>
                     <p class="send__message-text">Оберіть послугу</p>
                     <select id="Select-modal">
@@ -57,19 +65,18 @@
                             <input type="radio" name="image-radio" value="viber">
                             <img src="@img/request/viber.svg" alt="viber">
                         </label>
-
-                        <label class="radio-container">
-                            <input type="radio" name="image-radio" value="gmail">
-                            <img src="@img/request/gmail.svg" alt="gmail">
-                        </label>
                     </div>
                     <p class="send__message-text">Коментар</p>
-                    <textarea class="send__message-textarea" style="resize: none;"
+                    <textarea class="send__message-textarea send__message-textarea-modal" style="resize: none;"
                         placeholder="Напишіть ваш комментар..."></textarea>
 
 
                     <button id="submitButton" type="submit" disabled class="send__message-btn modal-btn">Хочу
                         замовити</button>
+                    <p class="send__message-accept send__message-accept-modal">Натискаючи кнопку ви погоджуєтесь <br> із
+                        правилами
+                        обробки
+                        даних</p>
                 </form>
             </div>
         </div>

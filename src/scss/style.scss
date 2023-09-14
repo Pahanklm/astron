@@ -182,6 +182,16 @@
     margin-bottom: 15px;
 }
 
+.input__container-modal {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs__container {
+    display: flex;
+    gap: 15px;
+}
+
 .send {
 
     &__message {
@@ -189,6 +199,10 @@
         padding: 0 45px;
         border-radius: 20px;
         border: 1px solid var(--light-Blue, #B3DFF5);
+    }
+
+    &__message-textarea-modal {
+        height: 80px !important;
     }
 
     &__message-title {
@@ -201,6 +215,10 @@
 
         margin-top: 30px;
         margin-bottom: 15px;
+    }
+
+    &__message-title-modal {
+        margin-top: 15px;
     }
 
     &__message-subtitle {
@@ -286,6 +304,7 @@
 
 
 
+
     &__message-text {
         font-size: 16px;
         font-weight: 400;
@@ -305,6 +324,10 @@
         margin-bottom: 30px;
     }
 
+    &__message-accept-modal {
+        margin-bottom: 5px;
+    }
+
     &__message-error {
         display: none;
         color: red;
@@ -315,6 +338,17 @@
         border-color: red;
     }
 
+}
+
+.modal-btn {
+    margin-bottom: 5px !important;
+}
+
+.btn-error {
+    background-color: #fff !important;
+    border: 1px solid #F00;
+    font-size: 19px !important;
+    color: red !important;
 }
 
 // request-end

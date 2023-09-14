@@ -500,17 +500,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
       if (!nameValue || !phoneValue || !noEnglish || !nameLength || !phoneValid) {
         submitButton.setAttribute('disabled', 'disabled');
-        submitButton.style.backgroundColor = 'white'
-        submitButton.style.border = '1px solid red'
-        submitButton.style.fontSize = '19px'
-        submitButton.style.color = 'red'
+
+        submitButton.classList.add('btn-error')
+
       } else {
         submitButton.removeAttribute('disabled');
-        submitButton.style.backgroundColor = '#FFF500'
-        submitButton.style.border = 'none'
-        submitButton.style.fontSize = '20px'
-        submitButton.style.color = 'black'
-
+        submitButton.classList.remove('btn-error')
       }
     }
 
