@@ -704,9 +704,30 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 })
 
+// якоря
+
+document.addEventListener('DOMContentLoaded', function () {
+	const anchorLinks = document.querySelectorAll('.anchor-link')
+
+	anchorLinks.forEach(function (link) {
+		link.addEventListener('click', function (e) {
+			e.preventDefault()
+
+			const targetId = this.getAttribute('data-target')
+			const targetElement = document.getElementById(targetId)
+
+			if (targetElement) {
+				targetElement.scrollIntoView({
+					behavior: 'smooth',
+				})
+			}
+		})
+	})
+})
+
 // парсинг
 
-fetch('http://localhost:3001')
+fetch('http://localhost:3002')
 	.then(response => response.json()) // Важно: используйте response.json(), так как вы ожидаете JSON данные
 	.then(data => {
 		const data1 = data.data1 // Получаем первый массив данных

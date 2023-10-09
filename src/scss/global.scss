@@ -2,6 +2,7 @@ html,
 body {
 	height: 100%;
 	font-family: 'Exo 2', sans-serif;
+	scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -28,27 +29,24 @@ img {
 	max-width: none !important;
 }
 
-
 /* Изменение цвета полосы прокрутки */
 ::-webkit-scrollbar {
 	width: 10px;
 	height: 0;
 	border-radius: 20px;
-	background: rgba(0, 147, 221, 0.10);
+	background: rgba(0, 147, 221, 0.1);
 	overflow-x: hidden;
 }
-
-
 
 /* Изменение цвета полосы прокрутки */
 ::-webkit-scrollbar-thumb {
 	border-radius: 20px;
-	background: var(--Default-Button, #FFF500);
+	background: var(--Default-Button, #fff500);
 }
 
 /* Изменение цвета при наведении на полосу прокрутки */
 ::-webkit-scrollbar-thumb:hover {
-	background: var(--Default-Button, #A6A000);
+	background: var(--Default-Button, #a6a000);
 }
 
 // scroll-end

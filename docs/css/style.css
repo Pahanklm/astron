@@ -4,6 +4,7 @@ html,
 body {
   height: 100%;
   font-family: "Exo 2", sans-serif;
+  scroll-behavior: smooth;
 }
 
 .wrapper {
@@ -53,13 +54,13 @@ img {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  background: var(--Default-Button, #FFF500);
+  background: var(--Default-Button, #fff500);
 }
 
 /* Изменение цвета при наведении на полосу прокрутки */
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--Default-Button, #A6A000);
+  background: var(--Default-Button, #a6a000);
 }
 
 .container-up {
@@ -870,7 +871,7 @@ a {
 }
 
 .top__nav-text:hover {
-  color: #0093DD;
+  color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
@@ -905,7 +906,7 @@ a {
 }
 
 .top__contacts-link:hover {
-  color: #0093DD;
+  color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
@@ -923,7 +924,7 @@ a {
   font-weight: 500;
   text-transform: uppercase;
   margin-bottom: 30px;
-  color: #29166F;
+  color: #29166f;
 }
 
 .about__left-subtitle {
@@ -1085,7 +1086,7 @@ a {
   width: 490px;
   padding: 0 45px;
   border-radius: 20px;
-  border: 1px solid var(--light-Blue, #B3DFF5);
+  border: 1px solid var(--light-Blue, #b3dff5);
 }
 
 .send__message-textarea-modal {
@@ -1132,17 +1133,17 @@ a {
 }
 
 .send__message-input:focus-within {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
 .send__message-input:focus-visible {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
 .send__message-input:focus {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
@@ -1156,17 +1157,17 @@ a {
 }
 
 .send__message-textarea:focus-within {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
 .send__message-textarea:focus-visible {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
 .send__message-textarea:focus {
-  border: 1px solid var(--Blue, #0093DD);
+  border: 1px solid var(--Blue, #0093dd);
   outline: none;
 }
 
@@ -1256,7 +1257,7 @@ a {
 
 .btn-error {
   background-color: #fff !important;
-  border: 1px solid #F00;
+  border: 1px solid #f00;
   font-size: 19px !important;
   color: red !important;
 }
@@ -1297,6 +1298,10 @@ a {
           flex-direction: row;
   gap: 10px;
   margin-bottom: 40px;
+}
+
+.lookmore__instagram-link {
+  color: black;
 }
 
 .lookmore__img {
@@ -1411,7 +1416,7 @@ a {
 }
 
 .contacts__left-text:hover {
-  color: #0093DD;
+  color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
@@ -1422,7 +1427,7 @@ a {
 }
 
 .contacts__left-number:hover {
-  color: #0093DD;
+  color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
@@ -1442,7 +1447,7 @@ a {
 }
 
 .contacts__left-scheduletitle {
-  color: #29166F;
+  color: #29166f;
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 20px;
@@ -1496,7 +1501,7 @@ a {
 }
 
 .contacts__right-text:hover {
-  color: #0093DD;
+  color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
 }
