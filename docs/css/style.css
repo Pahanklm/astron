@@ -160,7 +160,7 @@ a {
 }
 
 .mixitup-control-active {
-  background: #FFF500 !important;
+  background: #fff500 !important;
   border-radius: 10px;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
@@ -197,7 +197,7 @@ a {
 .control {
   font-size: 16px;
   font-weight: 400;
-  color: #29166F;
+  color: #29166f;
   background-color: white;
   border: none;
   cursor: pointer;
@@ -211,7 +211,7 @@ a {
 
 .control:hover {
   border-radius: 10px;
-  background: #FFF500;
+  background: #fff500;
   -webkit-transition: 0.5s ease-in-out;
   transition: 0.5s ease-in-out;
 }
@@ -259,7 +259,7 @@ a {
       -ms-flex-pack: center;
           justify-content: center;
   text-align: center;
-  color: #29166F;
+  color: #29166f;
   font-size: 20px;
   font-weight: 400;
   padding: 0 20px;
@@ -273,7 +273,7 @@ a {
   left: 0;
   width: 100%;
   padding: 10px 0;
-  background-color: #FFF500;
+  background-color: #fff500;
   color: black;
   border: none;
   pointer-events: none;
@@ -284,7 +284,7 @@ a {
 }
 
 .mix:hover .image-border {
-  border-color: #0093DD;
+  border-color: #0093dd;
   -webkit-transform: scale(1.05);
       -ms-transform: scale(1.05);
           transform: scale(1.05);
@@ -357,12 +357,12 @@ a {
 /* Показ выбора при выбранной радиокнопке */
 
 .radio-container input[type=radio]:checked + img {
-  background-color: #FFF500;
+  background-color: #fff500;
 }
 
 .choices.is-focused {
   border-radius: 20px;
-  border: 1px solid #0093DD;
+  border: 1px solid #0093dd;
 }
 
 .is-open .choices__inner {
@@ -376,7 +376,7 @@ a {
 
 .choices {
   border-radius: 20px;
-  border: 1px solid var(--light-Blue, #B3DFF5);
+  border: 1px solid var(--light-Blue, #b3dff5);
   margin-bottom: 15px !important;
   /* Изменение при активном состоянии списка */
 }
@@ -475,7 +475,7 @@ a {
 }
 
 .choices__item--choice:hover {
-  background: #FFF500 !important;
+  background: #fff500 !important;
   color: black !important;
   border-radius: 20px;
 }
@@ -483,7 +483,7 @@ a {
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
   border-radius: 20px !important;
-  border: 1px solid --blue, #0093DD !important;
+  border: 1px solid --blue, #0093dd !important;
 }
 
 .is-focuse .choices__inner,
@@ -508,12 +508,12 @@ a {
 
 .choices__list--dropdown .choices__list::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #0093DD;
+  background: #0093dd;
 }
 
 .choices__list--dropdown .choices__list:hover::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: #0093DD;
+  background: #0093dd;
 }
 
 .pagination {
@@ -564,7 +564,7 @@ a {
 
 .button-animation.active {
   border-radius: 10px;
-  background: var(--Yellow, #FFF500);
+  background: var(--Yellow, #fff500);
   color: black;
 }
 
@@ -610,7 +610,7 @@ a {
 }
 
 .ac-title {
-  color: var(--Dark-blue, #29166F) !important;
+  color: var(--Dark-blue, #29166f) !important;
   font-size: 20px;
   font-weight: 400;
   padding: 30px;
@@ -651,11 +651,11 @@ a {
 
 .ac-text {
   padding: 0 30px 30px 30px !important;
-  color: var(--Dark-blue, #29166F) !important;
+  color: var(--Dark-blue, #29166f) !important;
 }
 
 .ac.js-enabled.is-active {
-  border: 1px solid var(--Blue, #0093DD) !important;
+  border: 1px solid var(--Blue, #0093dd) !important;
 }
 
 .ac .ac-trigger::after {
@@ -668,10 +668,6 @@ a {
   text-transform: uppercase;
   margin-top: 100px;
   margin-bottom: 50px;
-}
-
-.swiper-wrapper {
-  gap: 30px;
 }
 
 .swiper-slide {
@@ -693,7 +689,7 @@ a {
 }
 
 .swiper-slide-title {
-  color: #29166F;
+  color: #29166f;
   font-size: 20px;
   font-weight: 400;
   margin-bottom: 15px;
