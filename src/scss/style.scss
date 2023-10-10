@@ -3,13 +3,25 @@
 @import 'reset';
 @import 'fonts';
 @import 'components';
+@import 'media';
+
+.container-header {
+	max-width: 1248px;
+	margin: 0 auto;
+	padding: 0 15px;
+	padding-bottom: 10px;
+	z-index: 15;
+	position: relative;
+	background-color: #fff;
+	border-radius: 0 0 20px 20px;
+}
 
 .top {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 
-	margin-top: 10px;
+	padding-top: 10px;
 
 	&__nav-list {
 		display: flex;
@@ -63,7 +75,7 @@
 .about {
 	&__container {
 		display: flex;
-		margin-top: 50px;
+		margin-top: 40px;
 
 		position: relative;
 	}

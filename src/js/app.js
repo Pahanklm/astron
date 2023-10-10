@@ -728,15 +728,11 @@ document.addEventListener('DOMContentLoaded', function () {
 // парсинг
 
 fetch('http://localhost:3002')
-	.then(response => response.json()) // Важно: используйте response.json(), так как вы ожидаете JSON данные
+	.then(response => response.json())
 	.then(data => {
-		const data1 = data.data1 // Получаем первый массив данных
-		const data2 = data.data2 // Получаем второй массив данных
-		const data3 = data.data3 // Получаем второй массив данных
-
-		console.log('имена:', data1)
-		console.log('время:', data2)
-		console.log('комментарии:', data3)
+		const data1 = data.data1
+		const data2 = data.data2
+		const data3 = data.data3
 
 		const container = document.querySelector('.swiper-wrapper')
 
@@ -767,11 +763,65 @@ fetch('http://localhost:3002')
 			slide.appendChild(comment)
 			container.appendChild(slide)
 		})
-
-		// Далее, вы можете обрабатывать оба массива данных по вашему усмотрению
 	})
 	.catch(error => {
 		console.error('Произошла ошибка:', error)
 	})
 
-// Получаем ссылку на элемент, в который будем добавлять данные
+// burger
+const burger = document.querySelector('.burger')
+const overlay = document.querySelector('.overlay')
+const contacts = document.querySelector('.top__contacts')
+let isAnimating = false
+
+function clickHandler() {
+	if (isAnimating) {
+		return
+	}
+
+	isAnimating = true
+
+	if (burger.classList.contains('burger-active')) {
+		burger.classList.add('burger-fade')
+
+		setTimeout(() => {
+			isAnimating = false
+		}, 700)
+
+		setTimeout(() => {
+			burger.classList.remove('burger-active')
+			burger.classList.remove('burger-fade')
+			contacts.classList.remove('contacts-active')
+			overlay.style.display = 'none' // Скрываем оверлей
+		}, 300)
+	} else {
+		burger.classList.add('burger-fade')
+		overlay.style.display = 'block' // Показываем оверлей
+
+		setTimeout(() => {
+			isAnimating = false
+		}, 700)
+
+		setTimeout(() => {
+			burger.classList.add('burger-active')
+			burger.classList.remove('burger-fade')
+			contacts.classList.add('contacts-active')
+		}, 300)
+	}
+}
+function closeBurger() {
+	if (burger.classList.contains('burger-active')) {
+		burger.classList.add('burger-fade')
+
+		setTimeout(() => {
+			isAnimating = false
+			burger.classList.remove('burger-active')
+			burger.classList.remove('burger-fade')
+		}, 300)
+		contacts.classList.remove('contacts-active')
+		overlay.style.display = 'none'
+	}
+}
+
+burger.addEventListener('click', clickHandler)
+overlay.addEventListener('click', closeBurger)

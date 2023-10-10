@@ -1,0 +1,121 @@
+@media screen and (max-width: 1420px) {
+	.lookmore__img-images {
+		display: none;
+	}
+	.lookmore__images {
+		justify-content: center;
+	}
+}
+
+@media screen and (max-width: 1250px) {
+	.top__contacts-item:not(:last-child) {
+		margin-bottom: 33px;
+	}
+	.top__contacts-list:not(:last-child) {
+		margin-right: 0;
+	}
+
+	.top__contacts {
+		position: absolute;
+		flex-direction: column;
+		right: 0;
+		top: -1000px;
+		gap: 33px;
+		transition: top 0.3s ease-in-out;
+		padding: 40px 32px 40px 20px;
+		align-items: center;
+		border-radius: 20px;
+		border: 1px solid var(--Blue, #0093dd);
+		background: #fff;
+		align-items: flex-start;
+	}
+
+	.contacts-active {
+		position: absolute;
+		flex-direction: column;
+		right: 0;
+		top: 105px;
+		gap: 33px;
+		transition: top 0.3s ease-in-out;
+		padding: 40px 32px 40px 20px;
+		align-items: center;
+		border-radius: 20px;
+		border: 1px solid var(--Blue, #0093dd);
+		background: #fff;
+		align-items: flex-start;
+	}
+
+	@keyframes slideIn {
+		from {
+			top: -1000px;
+		}
+		to {
+			top: 135px;
+		}
+	}
+
+	@keyframes slideOut {
+		from {
+			top: 135px;
+		}
+		to {
+			top: -1000px;
+		}
+	}
+
+	.top__contacts.slide-in {
+		animation: slideIn 0.3s ease-in-out forwards;
+	}
+
+	.top__contacts.slide-out {
+		animation: slideOut 0.3s ease-in-out forwards;
+	}
+
+	.top__nav-list {
+		gap: 80px;
+	}
+	@keyframes fadeOut {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	/* Определяем анимацию появления */
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+
+	.burger {
+		display: block;
+		z-index: 11;
+		animation: fadeIn 0.3s ease-in-out forwards;
+	}
+	/* Применяем анимацию к классу burger-active */
+	.burger-active {
+		content: url(../img/header/close.svg);
+		animation: fadeIn 0.3s ease-in-out forwards;
+	}
+
+	/* Применяем анимацию к классу burger-fade */
+	.burger-fade {
+		animation: fadeOut 0.3s ease-in-out forwards;
+	}
+	.overlay {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.5); /* Цвет и прозрачность оверлея */
+		display: none;
+		z-index: 10;
+	}
+}

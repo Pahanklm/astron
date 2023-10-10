@@ -844,6 +844,21 @@ a {
   /* Disable pointer events when opacity is 0 */
 }
 
+.burger {
+  display: none;
+}
+
+.container-header {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 0 15px;
+  padding-bottom: 10px;
+  z-index: 15;
+  position: relative;
+  background-color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
 .top {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -854,7 +869,7 @@ a {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 10px;
+  padding-top: 10px;
 }
 
 .top__nav-list {
@@ -915,7 +930,7 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 50px;
+  margin-top: 40px;
   position: relative;
 }
 
@@ -1560,4 +1575,202 @@ a {
   color: #0093dd;
   -webkit-transition: 0.5s all;
   transition: 0.5s all;
+}
+
+@media screen and (max-width: 1420px) {
+  .lookmore__img-images {
+    display: none;
+  }
+
+  .lookmore__images {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .top__contacts-item:not(:last-child) {
+    margin-bottom: 33px;
+  }
+
+  .top__contacts-list:not(:last-child) {
+    margin-right: 0;
+  }
+
+  .top__contacts {
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    right: 0;
+    top: -1000px;
+    gap: 33px;
+    -webkit-transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out;
+    padding: 40px 32px 40px 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 20px;
+    border: 1px solid var(--Blue, #0093dd);
+    background: #fff;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  .contacts-active {
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    right: 0;
+    top: 105px;
+    gap: 33px;
+    -webkit-transition: top 0.3s ease-in-out;
+    transition: top 0.3s ease-in-out;
+    padding: 40px 32px 40px 20px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    border-radius: 20px;
+    border: 1px solid var(--Blue, #0093dd);
+    background: #fff;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+@-webkit-keyframes slideIn {
+    from {
+      top: -1000px;
+    }
+
+    to {
+      top: 135px;
+    }
+}
+
+@keyframes slideIn {
+    from {
+      top: -1000px;
+    }
+
+    to {
+      top: 135px;
+    }
+}
+
+@-webkit-keyframes slideOut {
+    from {
+      top: 135px;
+    }
+
+    to {
+      top: -1000px;
+    }
+}
+
+@keyframes slideOut {
+    from {
+      top: 135px;
+    }
+
+    to {
+      top: -1000px;
+    }
+}
+
+  .top__contacts.slide-in {
+    -webkit-animation: slideIn 0.3s ease-in-out forwards;
+            animation: slideIn 0.3s ease-in-out forwards;
+  }
+
+  .top__contacts.slide-out {
+    -webkit-animation: slideOut 0.3s ease-in-out forwards;
+            animation: slideOut 0.3s ease-in-out forwards;
+  }
+
+  .top__nav-list {
+    gap: 80px;
+  }
+
+@-webkit-keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+}
+
+  /* Определяем анимацию появления */
+
+@-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+}
+
+  .burger {
+    display: block;
+    z-index: 11;
+    -webkit-animation: fadeIn 0.3s ease-in-out forwards;
+            animation: fadeIn 0.3s ease-in-out forwards;
+  }
+
+  /* Применяем анимацию к классу burger-active */
+
+  .burger-active {
+    content: url(../img/header/close.svg);
+    -webkit-animation: fadeIn 0.3s ease-in-out forwards;
+            animation: fadeIn 0.3s ease-in-out forwards;
+  }
+
+  /* Применяем анимацию к классу burger-fade */
+
+  .burger-fade {
+    -webkit-animation: fadeOut 0.3s ease-in-out forwards;
+            animation: fadeOut 0.3s ease-in-out forwards;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Цвет и прозрачность оверлея */
+    display: none;
+    z-index: 10;
+  }
 }
