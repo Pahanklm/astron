@@ -6,15 +6,76 @@ import * as flsFunctions from './modules/functions.js'
 flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
-	const swiper = new Swiper('.swiper', {
-		slidesPerView: 3,
-		spaceBetween: 36.55,
-		loop: false,
-		navigation: {
-			nextEl: '.swiper-button-next',
-			prevEl: '.swiper-button-prev',
-		},
+
+const slidesPerView = 3
+// парсинг
+function fetchDataAndInitializeSwiper() {
+fetch('http://localhost:3002')
+	.then(response => response.json())
+	.then(data => {
+		const data1 = data.data1
+		const data2 = data.data2
+		const data3 = data.data3
+
+		const container = document.querySelector('.swiper-wrapper')
+
+		// Замените 'data1', 'data2' и 'data3' на ваши фактические данные
+		data1.forEach((item1, index) => {
+			const item2 = data2[index]
+			const item3 = data3[index]
+
+			// Создаем элементы для каждого массива
+			const slide = document.createElement('div')
+			slide.className = 'swiper-slide'
+
+			const title = document.createElement('h4')
+			title.className = 'swiper-slide-title'
+			title.textContent = item1
+
+			const date = document.createElement('p')
+			date.className = 'swiper-slide-date'
+			date.textContent = item2
+
+			const comment = document.createElement('p')
+			comment.className = 'swiper-slide-comment'
+			comment.textContent = item3
+
+			// Добавляем элементы в родительский контейнер
+			slide.appendChild(title)
+			slide.appendChild(date)
+			slide.appendChild(comment)
+			container.appendChild(slide)
+			
+			
+		})
+		const feedbackCard = document.querySelector('.swiper-slide')
+		const CardWidth = feedbackCard.getBoundingClientRect().width
+		const swiperWrapper = document.querySelector('.swiper-wrapper')
+		const swiperWidth = swiperWrapper.getBoundingClientRect().width
+		
+
+
+	  const swiperGap = (((swiperWidth - CardWidth * 3) / 2));
+		if(swiperGap < 0){
+			swiperGap = 0;
+		}
+		const swiper = new Swiper('.swiper', {
+			slidesPerView: slidesPerView,
+			spaceBetween: swiperGap,
+			loop: false,
+			navigation: {
+				nextEl: '.swiper-button-next',
+				prevEl: '.swiper-button-prev',
+			},
+		})
 	})
+	.catch(error => {
+		console.error('Произошла ошибка:', error)
+		fetchDataAndInitializeSwiper();
+	})
+}
+	fetchDataAndInitializeSwiper();
+
 
 	// swiper-end
 
@@ -795,54 +856,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 })
 
-// парсинг
 
-fetch('http://localhost:3002')
-	.then(response => response.json())
-	.then(data => {
-		const data1 = data.data1
-		const data2 = data.data2
-		const data3 = data.data3
-
-		const container = document.querySelector('.swiper-wrapper')
-
-		// Замените 'data1', 'data2' и 'data3' на ваши фактические данные
-		data1.forEach((item1, index) => {
-			const item2 = data2[index]
-			const item3 = data3[index]
-
-			// Создаем элементы для каждого массива
-			const slide = document.createElement('div')
-			slide.className = 'swiper-slide'
-
-			const title = document.createElement('h4')
-			title.className = 'swiper-slide-title'
-			title.textContent = item1
-
-			const date = document.createElement('p')
-			date.className = 'swiper-slide-date'
-			date.textContent = item2
-
-			const comment = document.createElement('p')
-			comment.className = 'swiper-slide-comment'
-			comment.textContent = item3
-
-			// Добавляем элементы в родительский контейнер
-			slide.appendChild(title)
-			slide.appendChild(date)
-			slide.appendChild(comment)
-			container.appendChild(slide)
-		})
-	})
-	.catch(error => {
-		console.error('Произошла ошибка:', error)
-	})
 
 // burger
-const burger = document.querySelector('.burger')
 const overlay = document.querySelector('.overlay')
 const contacts = document.querySelector('.top__contacts')
 let isAnimating = false
+const burger = document.querySelector('.burger')
 
 function clickHandler() {
 	if (isAnimating) {

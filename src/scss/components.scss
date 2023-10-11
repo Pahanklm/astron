@@ -254,7 +254,7 @@
 }
 
 .choices__list--single {
-	padding-left: 30px !important;
+	padding-left: 20px !important;
 	margin: 0 !important;
 	display: flex !important;
 }
@@ -300,7 +300,6 @@
 	width: 330px;
 	font-size: 16px !important;
 	padding: 10px 0 10px 20px !important;
-	margin-left: 15px;
 }
 
 .choices__item--choice:hover {
@@ -312,7 +311,8 @@
 .choices__list--dropdown,
 .choices__list[aria-expanded] {
 	border-radius: 20px !important;
-	border: 1px solid (--blue, #0093dd) !important;
+	border: 1px solid#0093dd !important;
+	margin-top: 5px;
 }
 
 .is-focuse .choices__inner,
@@ -502,10 +502,6 @@
 	max-width: 300px !important;
 	max-height: 212px !important;
 
-	&:hover {
-		transform: scale(1.05);
-		transition: transform 0.5s ease-in-out;
-	}
 }
 
 .swiper-slide-title {

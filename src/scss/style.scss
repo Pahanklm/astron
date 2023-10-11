@@ -202,6 +202,9 @@
 		padding: 0 45px;
 		border-radius: 20px;
 		border: 1px solid var(--light-Blue, #b3dff5);
+		background-color: #fff;
+		z-index: 2;
+
 	}
 
 	&__message-textarea-modal {

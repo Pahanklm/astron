@@ -148,4 +148,89 @@
 	.astron__left{
 		gap: 62px !important;
 	}
+	// astron-end
+
+	.mixer__container{
+		justify-content:space-evenly;
+	}
+
+	.images__container{
+		max-width: 584px;
+	}
+
+	// mixer-end
+
+	.readystamps__img{
+		content: url(../img/readyStamps/stamps1250.png);
+		margin-left: 0;
+	}
+
+	// readystamps-end
+
+	.faq{
+		position: relative;
+		justify-content: flex-end;
+	}
+
+	.faq__img{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.accordion-container{
+		max-width: 500px;
+	}
+	.ac{
+		opacity: 0.96;
+	}
+	// faq-end
+
+	.contacts__right-map{
+		width: 630px;
+	height: 411px;
+	}
+	.contacts__left-schedule{
+		padding: 20px 50px 20px 20px;
+	}
+
+	// contacts-end
+
+	.swiper-slide{
+		width: 235px !important;
+	}
+
+	// swiper-end
+
+	.request__container{
+		position: relative;
+		justify-content: flex-end;
+	}
+	.request__left{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.send__message{
+		opacity: 0.9;
+	}
+
+	// request-end
+
+	.top__footer{
+		justify-content: space-around;
+	}
+
+	.bottom{
+		justify-content: space-evenly;
+	}
+
+	.bottom__privacy{
+		margin-right: 0;
+	}
+	.bottom__text{
+		margin: 0;
+	}
+	.bottom__img{
+		margin: 0;
+	}
 }
