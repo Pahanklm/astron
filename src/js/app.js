@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 
 	// Настройки
-	const itemsPerPage = 6 // Количество элементов на одной странице
+	const itemsPerPage = window.innerWidth <= 1250 ? 4 : 6; // Количество элементов на одной странице
 	let currentPage = 1 // Текущая страница
 
 	// Элементы списка и кнопки
@@ -145,34 +145,92 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// добавляем нумерацию страниц
 	function updatePageNumbers() {
-		const currentItems = filteredItems()
-		const totalPages = Math.ceil(currentItems.length / itemsPerPage)
-		const pageNumbersContainer = document.getElementById('page-numbers')
+    const currentItems = filteredItems();
+    const totalPages = Math.ceil(currentItems.length / itemsPerPage);
+    const pageNumbersContainer = document.getElementById('page-numbers');
 
-		pageNumbersContainer.innerHTML = ''
+    pageNumbersContainer.innerHTML = '';
 
-		// Создаем кнопки для каждой страницы
-		for (let i = 1; i <= totalPages; i++) {
-			const pageNumberButton = document.createElement('button')
-			pageNumberButton.textContent = i
-			pageNumberButton.addEventListener('click', event => {
-				const clickedPage = parseInt(event.target.textContent, 10)
-				currentPage = clickedPage // Назначаем значение currentPage
-				showItemsOnPage(currentPage)
-				toggleButtons()
-			})
+    // Максимальное количество кнопок, которое вы хотите отображать
+    const maxVisibleButtons = 3 ;
 
-			// Добавляем класс для анимации
-			pageNumberButton.classList.add('button-animation')
+    // Рассчитываем начальную и конечную страницы для отображения
+    let startPage = currentPage - Math.floor(maxVisibleButtons / 2);
+    let endPage = currentPage + Math.floor(maxVisibleButtons / 2);
 
-			// Добавляем класс "active" для текущей страницы
-			if (i === currentPage) {
-				pageNumberButton.classList.add('active')
-			}
-
-			pageNumbersContainer.appendChild(pageNumberButton)
-		}
+		function createEllipsisElement() {
+			const ellipsisElement = document.createElement('span');
+			ellipsisElement.textContent = '...';
+			ellipsisElement.classList.add('ellipsis');
+			return ellipsisElement;
 	}
+	
+
+    if (startPage < 1) {
+        startPage = 1;
+        endPage = Math.min(totalPages, maxVisibleButtons);
+    }
+
+    if (endPage > totalPages) {
+        endPage = totalPages;
+        startPage = Math.max(1, totalPages - maxVisibleButtons + 1);
+    }
+
+    // Создаем кнопки только для отображаемых страниц
+    for (let i = startPage; i <= endPage; i++) {
+        const pageNumberButton = document.createElement('button');
+        pageNumberButton.textContent = i;
+        pageNumberButton.addEventListener('click', event => {
+            const clickedPage = parseInt(event.target.textContent, 10);
+            currentPage = clickedPage; // Назначаем значение currentPage
+            showItemsOnPage(currentPage);
+            toggleButtons();
+        });
+
+        // Добавляем класс для анимации
+        pageNumberButton.classList.add('button-animation');
+
+        // Добавляем класс "active" для текущей страницы
+        if (i === currentPage) {
+            pageNumberButton.classList.add('active');
+        }
+				pageNumbersContainer.appendChild(pageNumberButton);
+
+				
+			}
+			if ( startPage > 1) {
+				const firstPageButton = document.createElement('button');
+				firstPageButton.classList.add('button-animation');
+				firstPageButton.textContent = '1';
+				firstPageButton.addEventListener('click', event => {
+						currentPage = 1;
+						showItemsOnPage(currentPage);
+						toggleButtons();
+						updatePageNumbers(); // Обновляем кнопки после смены страницы
+				});
+				if(startPage -1 > 1 ){
+					pageNumbersContainer.insertBefore(createEllipsisElement(), pageNumbersContainer.firstChild)
+				}
+				pageNumbersContainer.insertBefore(firstPageButton, pageNumbersContainer.firstChild)
+			}
+			
+			if ( endPage < totalPages) {
+				const lastPageButton = document.createElement('button');
+				lastPageButton.classList.add('button-animation');
+				lastPageButton.textContent = totalPages;
+				lastPageButton.addEventListener('click', event => {
+						currentPage = totalPages;
+						showItemsOnPage(currentPage);
+						toggleButtons();
+						updatePageNumbers(); // Обновляем кнопки после смены страницы
+				});
+				if(endPage + 1 < totalPages){
+					pageNumbersContainer.appendChild(createEllipsisElement());
+				}
+				pageNumbersContainer.appendChild(lastPageButton)
+			}
+}
+
 
 	// из всех current елементов выбираем первые itemsPerPage и даем им display flex
 
@@ -298,6 +356,18 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	}
 
+
+
+
+
+
+
+
+
+
+
+
+	
 	// робота с аккордионом
 	const acElements = document.querySelectorAll('.ac')
 
@@ -825,3 +895,7 @@ function closeBurger() {
 
 burger.addEventListener('click', clickHandler)
 overlay.addEventListener('click', closeBurger)
+
+
+
+

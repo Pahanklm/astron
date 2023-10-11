@@ -118,4 +118,34 @@
 		display: none;
 		z-index: 10;
 	}
+
+	/* top-end */
+
+	.about__container {
+		margin-top: 60px;
+	}
+
+	.about__right-img {
+		content: url(../img/about/stamp1250.png);
+		top: 55px;
+		right: 0;
+	}
+	.about__left-btn {
+		margin-top: 80px;
+	}
+
+	/* about-end */
+
+	.quality__container{
+		overflow-x: scroll;
+	}
+
+	// quality-end
+
+	.astron__right-img{
+		content: url(../img/astron/stamp1250.png);
+	}
+	.astron__left{
+		gap: 62px !important;
+	}
 }

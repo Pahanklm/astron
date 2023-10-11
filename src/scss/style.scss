@@ -120,7 +120,7 @@
 
 	&__right-img {
 		position: absolute;
-		left: 548px;
+		right: 0;
 		top: -20px;
 	}
 }
@@ -148,12 +148,17 @@
 		max-width: 594px;
 		max-height: 408px;
 
-		margin-bottom: 50px;
+	}
+	.astron__left{
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		gap: 50px;
 	}
 
 	&__left-btn {
 		@include button;
-
+		
 		padding: 20px 165px;
 	}
 }

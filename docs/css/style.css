@@ -47,7 +47,6 @@ img {
   height: 0;
   border-radius: 20px;
   background: rgba(0, 147, 221, 0.1);
-  overflow-x: hidden;
 }
 
 /* Изменение цвета полосы прокрутки */
@@ -848,6 +847,16 @@ a {
   display: none;
 }
 
+.ellipsis {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
+  padding: 13px 21px;
+}
+
 .container-header {
   max-width: 1248px;
   margin: 0 auto;
@@ -976,6 +985,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   color: #29166F;
+  max-width: 490px;
+  max-height: 64px;
   background-color: #FFF500;
   border: none;
   border-radius: 20px;
@@ -999,7 +1010,7 @@ a {
 
 .about__right-img {
   position: absolute;
-  left: 548px;
+  right: 0;
   top: -20px;
 }
 
@@ -1023,7 +1034,20 @@ a {
   font-weight: 400;
   max-width: 594px;
   max-height: 408px;
-  margin-bottom: 50px;
+}
+
+.astron .astron__left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 50px;
 }
 
 .astron__left-btn {
@@ -1037,6 +1061,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   color: #29166F;
+  max-width: 490px;
+  max-height: 64px;
   background-color: #FFF500;
   border: none;
   border-radius: 20px;
@@ -1197,6 +1223,8 @@ a {
       -ms-flex-align: center;
           align-items: center;
   color: #29166F;
+  max-width: 490px;
+  max-height: 64px;
   background-color: #FFF500;
   border: none;
   border-radius: 20px;
@@ -1772,5 +1800,35 @@ a {
     /* Цвет и прозрачность оверлея */
     display: none;
     z-index: 10;
+  }
+
+  /* top-end */
+
+  .about__container {
+    margin-top: 60px;
+  }
+
+  .about__right-img {
+    content: url(../img/about/stamp1250.png);
+    top: 55px;
+    right: 0;
+  }
+
+  .about__left-btn {
+    margin-top: 80px;
+  }
+
+  /* about-end */
+
+  .quality__container {
+    overflow-x: scroll;
+  }
+
+  .astron__right-img {
+    content: url(../img/astron/stamp1250.png);
+  }
+
+  .astron__left {
+    gap: 62px !important;
   }
 }
