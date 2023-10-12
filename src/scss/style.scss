@@ -95,8 +95,15 @@
 		font-weight: 500;
 
 		margin-bottom: 60px;
+		width: 550px;
 
 		text-transform: uppercase;
+	}
+
+	&__left-items{
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
 	}
 
 	&__left-item {
@@ -106,9 +113,7 @@
 		font-size: 20px;
 		font-weight: 400;
 
-		&:not(:last-child) {
-			padding-bottom: 30px;
-		}
+
 	}
 
 	&__left-btn {

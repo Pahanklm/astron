@@ -7,7 +7,6 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
-const slidesPerView = 3
 // парсинг
 function fetchDataAndInitializeSwiper() {
 fetch('http://localhost:3002')
@@ -51,7 +50,8 @@ fetch('http://localhost:3002')
 		const feedbackCard = document.querySelector('.swiper-slide')
 		const CardWidth = feedbackCard.getBoundingClientRect().width
 		const swiperWrapper = document.querySelector('.swiper-wrapper')
-		const swiperWidth = swiperWrapper.getBoundingClientRect().width
+		let swiperWidth = swiperWrapper.getBoundingClientRect().width
+    const slidesPerView = 3
 		
 
 
@@ -70,7 +70,6 @@ fetch('http://localhost:3002')
 		})
 	})
 	.catch(error => {
-		console.error('Произошла ошибка:', error)
 		fetchDataAndInitializeSwiper();
 	})
 }
@@ -213,7 +212,7 @@ fetch('http://localhost:3002')
     pageNumbersContainer.innerHTML = '';
 
     // Максимальное количество кнопок, которое вы хотите отображать
-    const maxVisibleButtons = 3 ;
+    const maxVisibleButtons = window.innerWidth <= 1000 ? 1 : 3 ;
 
     // Рассчитываем начальную и конечную страницы для отображения
     let startPage = currentPage - Math.floor(maxVisibleButtons / 2);

@@ -51,12 +51,13 @@
 	&__container {
 		display: flex;
 		justify-content: space-between;
+
+		gap: 30px;
 	}
 
 	&__controls {
 		display: flex;
 		flex-direction: column;
-		margin-right: 30px;
 	}
 }
 

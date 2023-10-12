@@ -181,7 +181,7 @@
 		max-width: 500px;
 	}
 	.ac{
-		opacity: 0.96;
+		opacity: 0.955;
 	}
 	// faq-end
 
@@ -195,9 +195,6 @@
 
 	// contacts-end
 
-	.swiper-slide{
-		width: 235px !important;
-	}
 
 	// swiper-end
 
@@ -233,4 +230,184 @@
 	.bottom__img{
 		margin: 0;
 	}
+}
+@media screen and (max-width: 1200px) {
+
+.swiper-slide{
+	width: 280px !important;
+}
+}
+
+@media screen and (max-width: 1150px) {
+	.swiper-slide{
+		width: 250px !important;
+	}
+}
+
+@media screen and (max-width: 1050px) {
+	.swiper-slide{
+		width: 230px !important;
+	}
+}
+@media screen and (max-width: 999px) {
+	.swiper-slide{
+		width: 210px !important;
+	}
+}
+@media screen and (max-width: 950px) {
+	.swiper-slide{
+		width: 190px !important;
+	}
+}
+@media screen and (max-width: 900px) {
+	.swiper-slide{
+		width: 170px !important;
+	}
+}
+@media screen and (max-width: 850px) {
+	.swiper-slide{
+		width: 150px !important;
+	}
+}
+
+
+@media screen and (max-width: 1000px) {
+
+.top__nav-list{
+	gap: 50px;
+}
+
+// top-end
+
+.about__container{
+	margin-top: 30px;
+}
+
+.about__left-title{
+	margin-bottom: 20px;
+}
+
+.about__left-subtitle{
+	width: 720px;
+}
+
+.about__left-items{
+	gap: 40px;
+}
+
+.about__left-btn {
+	margin-top: 100px;
+}
+
+.about__right-img{
+	content: url(../img/about/stamp1000.png);
+	top: 143px;;
+}
+
+// about-end
+
+.astron__container{
+	flex-direction: column-reverse;
+	gap: 42px;
+}
+
+.astron__left-text{
+	max-width: 100%;
+}
+
+.astron__right-img{
+	content: url(../img/astron/stamp1000.png);
+}
+
+// astron-end
+
+.image-border{
+	width: 226px;
+}
+
+.filtr-item img {
+	right: 12px;
+}
+
+.pagination-in__numbers {
+	gap: 13px;
+}
+.mixer__container{
+	gap: 25px;
+	
+}
+.images__container{
+	max-width: 477px;
+}
+.control{
+	padding: 10px 13px 10px 20px;
+}
+
+// mixer-end
+
+.readystamps__img{
+	content: url(../img/readyStamps/stamps1000.png);
+}
+
+// readystamps-end
+
+.lookmore__images-img{
+	width: 226px;
+	height: 226px;
+}
+
+.lookmore__img{
+	gap: 25px;
+	width: 728px;
+}
+
+// lookmore-end
+
+.faq{
+	height: 1030px;
+	align-items: center;
+	flex-direction: column;
+	justify-content: start;
+}
+
+.faq__img{
+	content: url(../img/faq/faq1000.png);
+	position: relative;
+	
+}
+
+.accordion-container{
+	margin-top: -187px;
+	max-width: 594px;
+}
+
+// accordion-end
+
+.contacts__container{
+	flex-direction: column;
+}
+
+.contacts__left{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	gap: 30px;
+}
+
+.contacts__container{
+	gap: 30px;
+}
+
+.contacts__right-map{
+	width: 728px;
+	height: 411px;
+}
+
+// contacts-end
+
+.swiper-slide{
+	max-height: 400px;
+	min-height: 250px;
+}
+
 }

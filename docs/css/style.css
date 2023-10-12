@@ -181,6 +181,7 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 30px;
 }
 
 .mixer__controls {
@@ -191,7 +192,6 @@ a {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-right: 30px;
 }
 
 .control {
@@ -945,7 +945,19 @@ a {
   font-size: 24px;
   font-weight: 500;
   margin-bottom: 60px;
+  width: 550px;
   text-transform: uppercase;
+}
+
+.about__left-items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 30px;
 }
 
 .about__left-item {
@@ -958,10 +970,6 @@ a {
   gap: 10px;
   font-size: 20px;
   font-weight: 400;
-}
-
-.about__left-item:not(:last-child) {
-  padding-bottom: 30px;
 }
 
 .about__left-btn {
@@ -1857,7 +1865,7 @@ a {
   }
 
   .ac {
-    opacity: 0.96;
+    opacity: 0.955;
   }
 
   .contacts__right-map {
@@ -1867,10 +1875,6 @@ a {
 
   .contacts__left-schedule {
     padding: 20px 50px 20px 20px;
-  }
-
-  .swiper-slide {
-    width: 235px !important;
   }
 
   .request__container {
@@ -1911,5 +1915,189 @@ a {
 
   .bottom__img {
     margin: 0;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .swiper-slide {
+    width: 280px !important;
+  }
+}
+
+@media screen and (max-width: 1150px) {
+  .swiper-slide {
+    width: 250px !important;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .swiper-slide {
+    width: 230px !important;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .top__nav-list {
+    gap: 50px;
+  }
+
+  .about__container {
+    margin-top: 30px;
+  }
+
+  .about__left-title {
+    margin-bottom: 20px;
+  }
+
+  .about__left-subtitle {
+    width: 720px;
+  }
+
+  .about__left-items {
+    gap: 40px;
+  }
+
+  .about__left-btn {
+    margin-top: 100px;
+  }
+
+  .about__right-img {
+    content: url(../img/about/stamp1000.png);
+    top: 143px;
+  }
+
+  .astron__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+    gap: 42px;
+  }
+
+  .astron__left-text {
+    max-width: 100%;
+  }
+
+  .astron__right-img {
+    content: url(../img/astron/stamp1000.png);
+  }
+
+  .image-border {
+    width: 226px;
+  }
+
+  .filtr-item img {
+    right: 12px;
+  }
+
+  .pagination-in__numbers {
+    gap: 13px;
+  }
+
+  .mixer__container {
+    gap: 25px;
+  }
+
+  .images__container {
+    max-width: 477px;
+  }
+
+  .control {
+    padding: 10px 13px 10px 20px;
+  }
+
+  .readystamps__img {
+    content: url(../img/readyStamps/stamps1000.png);
+  }
+
+  .lookmore__images-img {
+    width: 226px;
+    height: 226px;
+  }
+
+  .lookmore__img {
+    gap: 25px;
+    width: 728px;
+  }
+
+  .faq {
+    height: 1030px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: start;
+  }
+
+  .faq__img {
+    content: url(../img/faq/faq1000.png);
+    position: relative;
+  }
+
+  .accordion-container {
+    margin-top: -187px;
+    max-width: 594px;
+  }
+
+  .contacts__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .contacts__left {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: 30px;
+  }
+
+  .contacts__container {
+    gap: 30px;
+  }
+
+  .contacts__right-map {
+    width: 728px;
+    height: 411px;
+  }
+
+  .swiper-slide {
+    max-height: 400px;
+    min-height: 250px;
+  }
+}
+
+@media screen and (max-width: 999px) {
+  .swiper-slide {
+    width: 210px !important;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .swiper-slide {
+    width: 190px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .swiper-slide {
+    width: 170px !important;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .swiper-slide {
+    width: 150px !important;
   }
 }
