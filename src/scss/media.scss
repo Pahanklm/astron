@@ -283,12 +283,12 @@
 	margin-top: 30px;
 }
 
-.about__left-title{
+.about__title{
 	margin-bottom: 20px;
 }
 
-.about__left-subtitle{
-	width: 720px;
+.about__subtitle{
+	width: 725px;
 }
 
 .about__left-items{
@@ -410,4 +410,169 @@
 	min-height: 250px;
 }
 
+}
+
+@media screen and (max-width: 768px) {
+
+	.top__nav-list{
+		position: absolute;
+		flex-direction: column;
+		right: 0;
+		top: -1000px;
+		gap: 33px;
+		width: 323px;
+		transition: top 0.3s ease-in-out;
+		padding: 40px 32px 40px 20px;
+		align-items: center;
+		border-radius: 20px 20px 0 0;
+		padding: 40px 32px 0 20px !important;
+		border: 1px solid var(--Blue, #0093dd);
+		border-bottom: none;
+		background: #fff;
+		align-items: flex-start;
+	}
+
+	.nav-active{
+		position: absolute;
+		flex-direction: column;
+		right: 0;
+		top: 105px;
+		gap: 33px;
+		width: 323px;
+		transition: top 0.3s ease-in-out;
+		padding: 40px 32px 40px 20px;
+		align-items: center;
+		border-radius: 20px 20px 0 0;
+		padding: 40px 32px 0 20px !important;
+		border: 1px solid var(--Blue, #0093dd);
+		border-bottom: none;
+		background: #fff;
+		align-items: flex-start;
+
+	}
+	.contacts-active {
+		top: 321px;
+		border-radius: 0 0 20px 20px;
+		border-top: none;
+		padding-top: 31px;
+	}
+	
+	// contacts-end
+
+.about__right-img{
+	position: relative;
+	top: 0;
+}
+
+.about__left{
+	display: flex;
+	flex-direction: column;
+}
+
+.about__layout{
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+}
+
+.about__left-items{
+	align-items: center;
+}
+
+.about__subtitle{
+	margin-bottom: 25px;
+}
+
+.about__left-btn{
+	margin-top: 50px;
+	max-width: 440px;
+	padding: 20px 138px;
+}
+
+.modal-send{ 	
+	width: 450px !important;
+	padding: 15px 20px!important;
+}
+
+.radio{
+	width: auto;
+}
+
+.modal-btn{
+	width: auto;
+}
+
+// modal-end
+
+.quality__title{
+	font-size: 16px;
+}
+
+// quality-end
+
+.astron__left-title{
+	font-size: 16px;
+}
+
+.astron__right-img{
+	content: url('../img/astron/stamp768.png');
+}
+
+.astron__container{
+	align-items: center;
+}
+.astron__left{
+	align-items: center;
+}
+
+.astron__left-text{
+	font-size: 16px;
+}
+
+.astron__left-btn{
+	font-size: 16px;
+	padding: 20px 139px;
+}
+
+// astron-end
+
+.mixer__title{
+	font-size: 16px;
+}
+
+.mixer__container{
+	flex-direction: column;
+}
+
+}
+@media screen and (max-width: 700px) {
+	.about__title{
+		font-size: 25px;
+		font-weight: 500;
+
+		width: 550px;
+	}
+	.about__subtitle{
+		font-size: 20px;
+		font-weight: 500;
+
+		width: 500px;
+	}
+}
+
+@media screen and (max-width: 580px) {
+
+	.about__title{
+		font-size: 20px;
+		font-weight: 500;
+
+		width: 450px;
+	}
+
+	.about__subtitle{
+		font-size: 16px;
+		font-weight: 500;
+
+		width: 440px;
+	}
 }

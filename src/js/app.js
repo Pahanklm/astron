@@ -8,72 +8,87 @@ flsFunctions.isWebp()
 document.addEventListener('DOMContentLoaded', function () {
 
 // парсинг
-function fetchDataAndInitializeSwiper() {
-fetch('http://localhost:3002')
-	.then(response => response.json())
-	.then(data => {
-		const data1 = data.data1
-		const data2 = data.data2
-		const data3 = data.data3
+const container = document.querySelector('.swiper-wrapper');
+const spinnerContainer = document.createElement('div');
+spinnerContainer.className = 'spinner-container';
+const spinner = document.createElement('span');
+spinnerContainer.appendChild(spinner);
+spinner.className = 'loader';
+container.appendChild(spinnerContainer);
 
-		const container = document.querySelector('.swiper-wrapper')
+const swiperNavigation = document.querySelector('.swiper-navigation');
 
-		// Замените 'data1', 'data2' и 'data3' на ваши фактические данные
-		data1.forEach((item1, index) => {
-			const item2 = data2[index]
-			const item3 = data3[index]
+async function fetchDataAndInitializeSwiper() {
+  try {
+    spinner.style.display = 'flex';
+		swiperNavigation.style.display = 'none';
 
-			// Создаем элементы для каждого массива
-			const slide = document.createElement('div')
-			slide.className = 'swiper-slide'
+    const response = await axios.get('http://localhost:3002');
+    const data = response.data;
+    const data1 = data.data1;
+    const data2 = data.data2;
+    const data3 = data.data3;
 
-			const title = document.createElement('h4')
-			title.className = 'swiper-slide-title'
-			title.textContent = item1
+    container.innerHTML = '';
 
-			const date = document.createElement('p')
-			date.className = 'swiper-slide-date'
-			date.textContent = item2
+    data1.forEach((item1, index) => {
+      const item2 = data2[index];
+      const item3 = data3[index];
 
-			const comment = document.createElement('p')
-			comment.className = 'swiper-slide-comment'
-			comment.textContent = item3
+      const slide = document.createElement('div');
+      slide.className = 'swiper-slide';
 
-			// Добавляем элементы в родительский контейнер
-			slide.appendChild(title)
-			slide.appendChild(date)
-			slide.appendChild(comment)
-			container.appendChild(slide)
-			
-			
-		})
-		const feedbackCard = document.querySelector('.swiper-slide')
-		const CardWidth = feedbackCard.getBoundingClientRect().width
-		const swiperWrapper = document.querySelector('.swiper-wrapper')
-		let swiperWidth = swiperWrapper.getBoundingClientRect().width
-    const slidesPerView = 3
-		
+      const title = document.createElement('h4');
+      title.className = 'swiper-slide-title';
+      title.textContent = item1;
 
+      const date = document.createElement('p');
+      date.className = 'swiper-slide-date';
+      date.textContent = item2;
 
-	  const swiperGap = (((swiperWidth - CardWidth * 3) / 2));
-		if(swiperGap < 0){
-			swiperGap = 0;
-		}
-		const swiper = new Swiper('.swiper', {
-			slidesPerView: slidesPerView,
-			spaceBetween: swiperGap,
-			loop: false,
-			navigation: {
-				nextEl: '.swiper-button-next',
-				prevEl: '.swiper-button-prev',
-			},
-		})
-	})
-	.catch(error => {
-		fetchDataAndInitializeSwiper();
-	})
+      const comment = document.createElement('p');
+      comment.className = 'swiper-slide-comment';
+      comment.textContent = item3;
+
+      slide.appendChild(title);
+      slide.appendChild(date);
+      slide.appendChild(comment);
+      container.appendChild(slide);
+    });
+
+    const feedbackCard = document.querySelector('.swiper-slide');
+    const CardWidth = feedbackCard.getBoundingClientRect().width;
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+    let swiperWidth = swiperWrapper.getBoundingClientRect().width;
+    const slidesPerView = 3;
+
+    let swiperGap = ((swiperWidth - CardWidth * 3) / 2);
+    if (swiperGap < 0) {
+      swiperGap = 0;
+    }
+
+    const swiper = new Swiper('.swiper', {
+      slidesPerView: slidesPerView,
+      spaceBetween: swiperGap,
+      loop: false,
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+		swiperNavigation.style.display = 'flex';
+  } catch (error) {
+		setTimeout(fetchDataAndInitializeSwiper, 1); 
+  }
+	finally {
+    spinner.style.display = 'none';
+  }
 }
-	fetchDataAndInitializeSwiper();
+
+fetchDataAndInitializeSwiper();
+
+
 
 
 	// swiper-end
@@ -105,6 +120,44 @@ fetch('http://localhost:3002')
 		itemSelectText: '',
 		shouldSort: false,
 	})
+
+
+// Функция, создающая и добавляющая выпадающий список на основе кнопок
+// function createSelect() {
+//   const controls = document.querySelector('.mixer__controls');
+// 	const mixerContainer = document.querySelector('.mixer__container');
+//   const select = document.createElement('select');
+//   select.classList.add('control-select');
+// 	select.id = 'services'
+	
+// 	controls.style.display = 'none'
+//   // Перебор каждой кнопки и добавление соответствующей опции в выпадающий список
+//   const buttons = Array.from(controls.children); // Преобразуем в массив, чтобы использовать метод map
+//   buttons.map(button => {
+//     if (button.tagName === 'BUTTON') {
+//       const option = document.createElement('option');
+//       option.setAttribute.dataFilter = button.getAttribute('data-filter');
+//       option.textContent = button.textContent;
+//       select.appendChild(option);
+//     }
+//   });
+
+//   // Добавление выпадающего списка
+//   mixerContainer.insertBefore(select, mixerContainer.firstChild);
+// 	select.addEventListener('change', function () {
+//     const selectedValue = select.value;
+
+
+
+//   });
+// }
+
+// // Вызов функции createSelect при загрузке страницы, если размер экрана изначально меньше 480 пикселей
+// if (window.innerWidth < 768) {
+//   createSelect();
+// }
+
+
 	// choices-end
 
 	new Accordion('.accordion-container', {})
@@ -473,13 +526,11 @@ fetch('http://localhost:3002')
 			errorMessage.style.display = 'block'
 		}
 
-		function hideErrorMessage(inputElement, errorMessage) {
-			inputElement.classList.remove('error')
+		function hideErrorMessage( errorMessage) {
 			errorMessage.style.display = 'none'
 		}
 
 		phoneInput.addEventListener('mousedown', function (event) {
-			// Предотвращаем начало выделения текста при клике
 			event.preventDefault()
 		})
 
@@ -582,32 +633,43 @@ fetch('http://localhost:3002')
 			const nameLength = /^.{3,15}$/.test(nameValue)
 			const phoneValid = /^\+38 \(\d{3}\) \d{3} \d{2} \d{2}$/.test(phoneValue)
 
-			if (!nameValue) {
-				showErrorMessage(nameInput, nameErrorEmpty)
-			} else {
-				hideErrorMessage(nameInput, nameErrorEmpty)
-			}
-
-			if (!noEnglish && nameValue) {
-				showErrorMessage(nameInput, nameError)
-			} else {
-				hideErrorMessage(nameInput, nameError)
-			}
 			if (!nameLength && nameValue && noEnglish) {
 				showErrorMessage(nameInput, nameErrorlength)
 			} else {
-				hideErrorMessage(nameInput, nameErrorlength)
+				hideErrorMessage( nameErrorlength)
+			}
+
+			
+			if (!noEnglish && nameValue) {
+				showErrorMessage(nameInput, nameError)
+			} else {
+				hideErrorMessage( nameError)
+			}
+
+			if (!nameValue) {
+				showErrorMessage(nameInput, nameErrorEmpty)
+			} else {
+				hideErrorMessage( nameErrorEmpty)
+			}
+
+			if(nameValue && nameLength && noEnglish){
+				nameInput.classList.remove('error')
 			}
 
 			if (!phoneValue) {
 				showErrorMessage(phoneInput, phoneErrorEmpty)
 			} else {
-				hideErrorMessage(phoneInput, phoneErrorEmpty)
+				hideErrorMessage( phoneErrorEmpty)
 			}
+
 			if (!phoneValid && phoneValue) {
 				showErrorMessage(phoneInput, phoneError)
 			} else {
-				hideErrorMessage(phoneInput, phoneError)
+				hideErrorMessage(phoneError)
+			}
+
+			if (phoneValue && phoneValid) {
+				phoneInput.classList.remove('error')
 			}
 
 			if (
@@ -842,6 +904,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	anchorLinks.forEach(function (link) {
 		link.addEventListener('click', function (e) {
 			e.preventDefault()
+			closeBurger()
 
 			const targetId = this.getAttribute('data-target')
 			const targetElement = document.getElementById(targetId)
@@ -860,6 +923,8 @@ document.addEventListener('DOMContentLoaded', function () {
 // burger
 const overlay = document.querySelector('.overlay')
 const contacts = document.querySelector('.top__contacts')
+const navList = document.querySelector('.top__nav-list')
+
 let isAnimating = false
 const burger = document.querySelector('.burger')
 
@@ -882,6 +947,10 @@ function clickHandler() {
 			burger.classList.remove('burger-fade')
 			contacts.classList.remove('contacts-active')
 			overlay.style.display = 'none' // Скрываем оверлей
+			
+			if (window.innerWidth <= 768 ){
+				navList.classList.remove('nav-active')
+			}
 		}, 300)
 	} else {
 		burger.classList.add('burger-fade')
@@ -895,6 +964,9 @@ function clickHandler() {
 			burger.classList.add('burger-active')
 			burger.classList.remove('burger-fade')
 			contacts.classList.add('contacts-active')
+			if (window.innerWidth <= 768 ){
+				navList.classList.add('nav-active')
+			}
 		}, 300)
 	}
 }
@@ -909,6 +981,9 @@ function closeBurger() {
 		}, 300)
 		contacts.classList.remove('contacts-active')
 		overlay.style.display = 'none'
+		if (window.innerWidth <= 768 ){
+			navList.classList.remove('nav-active')
+		}
 	}
 }
 
