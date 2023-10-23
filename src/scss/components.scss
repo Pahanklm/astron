@@ -38,6 +38,10 @@
 	transition: 0.5s ease-in-out;
 }
 
+.mixer__controls-select {
+	display: none;
+}
+
 .mixer {
 	&__title {
 		font-size: 20px;
@@ -201,7 +205,7 @@
 
 /* Показ выбора при выбранной радиокнопке */
 
-.radio-container input[type='radio']:checked + img {
+.radio-container input[type='radio']:checked+img {
 	background-color: #fff500;
 }
 
@@ -633,11 +637,12 @@
 	pointer-events: none;
 	/* Disable pointer events when opacity is 0 */
 }
+
 .burger {
 	display: none;
 }
 
-.ellipsis{
+.ellipsis {
 	display: flex;
 	align-items: end;
 	padding: 13px 21px;
@@ -646,42 +651,45 @@
 // spinner
 
 .loader {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid #007bff;
-  border-right: 4px solid transparent;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	display: inline-block;
+	border-top: 4px solid #007bff;
+	border-right: 4px solid transparent;
+	box-sizing: border-box;
+	animation: rotation 1s linear infinite;
 }
+
 .loader::after {
-  content: '';  
-  box-sizing: border-box;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  border-left: 4px solid #fff500;
-  border-bottom: 4px solid transparent;
-  animation: rotation 0.5s linear infinite reverse;
+	content: '';
+	box-sizing: border-box;
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 48px;
+	height: 48px;
+	border-radius: 50%;
+	border-left: 4px solid #fff500;
+	border-bottom: 4px solid transparent;
+	animation: rotation 0.5s linear infinite reverse;
 }
+
 @keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} 
-		
-.spinner-container{
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.spinner-container {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	
+
 	height: 100px;
 	width: 100%;
 }

@@ -166,6 +166,10 @@ a {
   transition: 0.5s ease-in-out;
 }
 
+.mixer__controls-select {
+  display: none;
+}
+
 .mixer__title {
   font-size: 20px;
   font-weight: 400;
@@ -2350,6 +2354,16 @@ a {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .mixer__controls {
+    display: none;
+  }
+
+  .mixer__controls-select {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 }
 

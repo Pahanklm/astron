@@ -5,88 +5,89 @@ import * as flsFunctions from './modules/functions.js'
 
 flsFunctions.isWebp()
 
+
 document.addEventListener('DOMContentLoaded', function () {
 
-// парсинг
-const container = document.querySelector('.swiper-wrapper');
-const spinnerContainer = document.createElement('div');
-spinnerContainer.className = 'spinner-container';
-const spinner = document.createElement('span');
-spinnerContainer.appendChild(spinner);
-spinner.className = 'loader';
-container.appendChild(spinnerContainer);
+	// парсинг
+	const container = document.querySelector('.swiper-wrapper');
+	const spinnerContainer = document.createElement('div');
+	spinnerContainer.className = 'spinner-container';
+	const spinner = document.createElement('span');
+	spinnerContainer.appendChild(spinner);
+	spinner.className = 'loader';
+	container.appendChild(spinnerContainer);
 
-const swiperNavigation = document.querySelector('.swiper-navigation');
+	const swiperNavigation = document.querySelector('.swiper-navigation');
 
-async function fetchDataAndInitializeSwiper() {
-  try {
-    spinner.style.display = 'flex';
-		swiperNavigation.style.display = 'none';
+	async function fetchDataAndInitializeSwiper() {
+		try {
+			spinner.style.display = 'flex';
+			swiperNavigation.style.display = 'none';
 
-    const response = await axios.get('http://localhost:3002');
-    const data = response.data;
-    const data1 = data.data1;
-    const data2 = data.data2;
-    const data3 = data.data3;
+			const response = await axios.get('http://localhost:3002');
+			const data = response.data;
+			const data1 = data.data1;
+			const data2 = data.data2;
+			const data3 = data.data3;
 
-    container.innerHTML = '';
+			container.innerHTML = '';
 
-    data1.forEach((item1, index) => {
-      const item2 = data2[index];
-      const item3 = data3[index];
+			data1.forEach((item1, index) => {
+				const item2 = data2[index];
+				const item3 = data3[index];
 
-      const slide = document.createElement('div');
-      slide.className = 'swiper-slide';
+				const slide = document.createElement('div');
+				slide.className = 'swiper-slide';
 
-      const title = document.createElement('h4');
-      title.className = 'swiper-slide-title';
-      title.textContent = item1;
+				const title = document.createElement('h4');
+				title.className = 'swiper-slide-title';
+				title.textContent = item1;
 
-      const date = document.createElement('p');
-      date.className = 'swiper-slide-date';
-      date.textContent = item2;
+				const date = document.createElement('p');
+				date.className = 'swiper-slide-date';
+				date.textContent = item2;
 
-      const comment = document.createElement('p');
-      comment.className = 'swiper-slide-comment';
-      comment.textContent = item3;
+				const comment = document.createElement('p');
+				comment.className = 'swiper-slide-comment';
+				comment.textContent = item3;
 
-      slide.appendChild(title);
-      slide.appendChild(date);
-      slide.appendChild(comment);
-      container.appendChild(slide);
-    });
+				slide.appendChild(title);
+				slide.appendChild(date);
+				slide.appendChild(comment);
+				container.appendChild(slide);
+			});
 
-    const feedbackCard = document.querySelector('.swiper-slide');
-    const CardWidth = feedbackCard.getBoundingClientRect().width;
-    const swiperWrapper = document.querySelector('.swiper-wrapper');
-    let swiperWidth = swiperWrapper.getBoundingClientRect().width;
-    const slidesPerView = 3;
+			const feedbackCard = document.querySelector('.swiper-slide');
+			const CardWidth = feedbackCard.getBoundingClientRect().width;
+			const swiperWrapper = document.querySelector('.swiper-wrapper');
+			let swiperWidth = swiperWrapper.getBoundingClientRect().width;
+			const slidesPerView = 3;
 
-    let swiperGap = ((swiperWidth - CardWidth * 3) / 2);
-    if (swiperGap < 0) {
-      swiperGap = 0;
-    }
+			let swiperGap = ((swiperWidth - CardWidth * 3) / 2);
+			if (swiperGap < 0) {
+				swiperGap = 0;
+			}
 
-    const swiper = new Swiper('.swiper', {
-      slidesPerView: slidesPerView,
-      spaceBetween: swiperGap,
-      loop: false,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+			const swiper = new Swiper('.swiper', {
+				slidesPerView: slidesPerView,
+				spaceBetween: swiperGap,
+				loop: false,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+			});
 
-		swiperNavigation.style.display = 'flex';
-  } catch (error) {
-		setTimeout(fetchDataAndInitializeSwiper, 1); 
-  }
-	finally {
-    spinner.style.display = 'none';
-  }
-}
+			swiperNavigation.style.display = 'flex';
+		} catch (error) {
+			setTimeout(fetchDataAndInitializeSwiper, 1);
+		}
+		finally {
+			spinner.style.display = 'none';
+		}
+	}
 
-fetchDataAndInitializeSwiper();
+	fetchDataAndInitializeSwiper();
 
 
 
@@ -122,44 +123,11 @@ fetchDataAndInitializeSwiper();
 	})
 
 
-// Функция, создающая и добавляющая выпадающий список на основе кнопок
-// function createSelect() {
-//   const controls = document.querySelector('.mixer__controls');
-// 	const mixerContainer = document.querySelector('.mixer__container');
-//   const select = document.createElement('select');
-//   select.classList.add('control-select');
-// 	select.id = 'services'
-	
-// 	controls.style.display = 'none'
-//   // Перебор каждой кнопки и добавление соответствующей опции в выпадающий список
-//   const buttons = Array.from(controls.children); // Преобразуем в массив, чтобы использовать метод map
-//   buttons.map(button => {
-//     if (button.tagName === 'BUTTON') {
-//       const option = document.createElement('option');
-//       option.setAttribute.dataFilter = button.getAttribute('data-filter');
-//       option.textContent = button.textContent;
-//       select.appendChild(option);
-//     }
-//   });
-
-//   // Добавление выпадающего списка
-//   mixerContainer.insertBefore(select, mixerContainer.firstChild);
-// 	select.addEventListener('change', function () {
-//     const selectedValue = select.value;
-
-
-
-//   });
-// }
-
-// // Вызов функции createSelect при загрузке страницы, если размер экрана изначально меньше 480 пикселей
-// if (window.innerWidth < 768) {
-//   createSelect();
-// }
-
 
 	// choices-end
 
+
+	
 	new Accordion('.accordion-container', {})
 	// accordion-end
 
@@ -214,6 +182,8 @@ fetchDataAndInitializeSwiper();
 		},
 	})
 
+
+
 	function disableFilterButtons() {
 		filterButtons.forEach(button => {
 			button.disabled = true
@@ -225,6 +195,9 @@ fetchDataAndInitializeSwiper();
 			button.disabled = false
 		})
 	}
+
+	
+
 
 	// Настройки
 	const itemsPerPage = window.innerWidth <= 1250 ? 4 : 6; // Количество элементов на одной странице
@@ -258,91 +231,91 @@ fetchDataAndInitializeSwiper();
 
 	// добавляем нумерацию страниц
 	function updatePageNumbers() {
-    const currentItems = filteredItems();
-    const totalPages = Math.ceil(currentItems.length / itemsPerPage);
-    const pageNumbersContainer = document.getElementById('page-numbers');
+		const currentItems = filteredItems();
+		const totalPages = Math.ceil(currentItems.length / itemsPerPage);
+		const pageNumbersContainer = document.getElementById('page-numbers');
 
-    pageNumbersContainer.innerHTML = '';
+		pageNumbersContainer.innerHTML = '';
 
-    // Максимальное количество кнопок, которое вы хотите отображать
-    const maxVisibleButtons = window.innerWidth <= 1000 ? 1 : 3 ;
+		// Максимальное количество кнопок, которое вы хотите отображать
+		const maxVisibleButtons = window.innerWidth <= 1000 ? 1 : 3;
 
-    // Рассчитываем начальную и конечную страницы для отображения
-    let startPage = currentPage - Math.floor(maxVisibleButtons / 2);
-    let endPage = currentPage + Math.floor(maxVisibleButtons / 2);
+		// Рассчитываем начальную и конечную страницы для отображения
+		let startPage = currentPage - Math.floor(maxVisibleButtons / 2);
+		let endPage = currentPage + Math.floor(maxVisibleButtons / 2);
 
 		function createEllipsisElement() {
 			const ellipsisElement = document.createElement('span');
 			ellipsisElement.textContent = '...';
 			ellipsisElement.classList.add('ellipsis');
 			return ellipsisElement;
+		}
+
+
+		if (startPage < 1) {
+			startPage = 1;
+			endPage = Math.min(totalPages, maxVisibleButtons);
+		}
+
+		if (endPage > totalPages) {
+			endPage = totalPages;
+			startPage = Math.max(1, totalPages - maxVisibleButtons + 1);
+		}
+
+		// Создаем кнопки только для отображаемых страниц
+		for (let i = startPage; i <= endPage; i++) {
+			const pageNumberButton = document.createElement('button');
+			pageNumberButton.textContent = i;
+			pageNumberButton.addEventListener('click', event => {
+				const clickedPage = parseInt(event.target.textContent, 10);
+				currentPage = clickedPage; // Назначаем значение currentPage
+				showItemsOnPage(currentPage);
+				toggleButtons();
+			});
+
+			// Добавляем класс для анимации
+			pageNumberButton.classList.add('button-animation');
+
+			// Добавляем класс "active" для текущей страницы
+			if (i === currentPage) {
+				pageNumberButton.classList.add('active');
+			}
+			pageNumbersContainer.appendChild(pageNumberButton);
+
+
+		}
+		if (startPage > 1) {
+			const firstPageButton = document.createElement('button');
+			firstPageButton.classList.add('button-animation');
+			firstPageButton.textContent = '1';
+			firstPageButton.addEventListener('click', event => {
+				currentPage = 1;
+				showItemsOnPage(currentPage);
+				toggleButtons();
+				updatePageNumbers(); // Обновляем кнопки после смены страницы
+			});
+			if (startPage - 1 > 1) {
+				pageNumbersContainer.insertBefore(createEllipsisElement(), pageNumbersContainer.firstChild)
+			}
+			pageNumbersContainer.insertBefore(firstPageButton, pageNumbersContainer.firstChild)
+		}
+
+		if (endPage < totalPages) {
+			const lastPageButton = document.createElement('button');
+			lastPageButton.classList.add('button-animation');
+			lastPageButton.textContent = totalPages;
+			lastPageButton.addEventListener('click', event => {
+				currentPage = totalPages;
+				showItemsOnPage(currentPage);
+				toggleButtons();
+				updatePageNumbers(); // Обновляем кнопки после смены страницы
+			});
+			if (endPage + 1 < totalPages) {
+				pageNumbersContainer.appendChild(createEllipsisElement());
+			}
+			pageNumbersContainer.appendChild(lastPageButton)
+		}
 	}
-	
-
-    if (startPage < 1) {
-        startPage = 1;
-        endPage = Math.min(totalPages, maxVisibleButtons);
-    }
-
-    if (endPage > totalPages) {
-        endPage = totalPages;
-        startPage = Math.max(1, totalPages - maxVisibleButtons + 1);
-    }
-
-    // Создаем кнопки только для отображаемых страниц
-    for (let i = startPage; i <= endPage; i++) {
-        const pageNumberButton = document.createElement('button');
-        pageNumberButton.textContent = i;
-        pageNumberButton.addEventListener('click', event => {
-            const clickedPage = parseInt(event.target.textContent, 10);
-            currentPage = clickedPage; // Назначаем значение currentPage
-            showItemsOnPage(currentPage);
-            toggleButtons();
-        });
-
-        // Добавляем класс для анимации
-        pageNumberButton.classList.add('button-animation');
-
-        // Добавляем класс "active" для текущей страницы
-        if (i === currentPage) {
-            pageNumberButton.classList.add('active');
-        }
-				pageNumbersContainer.appendChild(pageNumberButton);
-
-				
-			}
-			if ( startPage > 1) {
-				const firstPageButton = document.createElement('button');
-				firstPageButton.classList.add('button-animation');
-				firstPageButton.textContent = '1';
-				firstPageButton.addEventListener('click', event => {
-						currentPage = 1;
-						showItemsOnPage(currentPage);
-						toggleButtons();
-						updatePageNumbers(); // Обновляем кнопки после смены страницы
-				});
-				if(startPage -1 > 1 ){
-					pageNumbersContainer.insertBefore(createEllipsisElement(), pageNumbersContainer.firstChild)
-				}
-				pageNumbersContainer.insertBefore(firstPageButton, pageNumbersContainer.firstChild)
-			}
-			
-			if ( endPage < totalPages) {
-				const lastPageButton = document.createElement('button');
-				lastPageButton.classList.add('button-animation');
-				lastPageButton.textContent = totalPages;
-				lastPageButton.addEventListener('click', event => {
-						currentPage = totalPages;
-						showItemsOnPage(currentPage);
-						toggleButtons();
-						updatePageNumbers(); // Обновляем кнопки после смены страницы
-				});
-				if(endPage + 1 < totalPages){
-					pageNumbersContainer.appendChild(createEllipsisElement());
-				}
-				pageNumbersContainer.appendChild(lastPageButton)
-			}
-}
 
 
 	// из всех current елементов выбираем первые itemsPerPage и даем им display flex
@@ -469,18 +442,42 @@ fetchDataAndInitializeSwiper();
 		}
 	}
 
-
-
-
-
-
-
-
-
-
-
+	
 
 	
+	
+	
+	
+	// Функция, создающая и добавляющая выпадающий список на основе кнопок
+		const select = document.querySelector('.mixer__controls-select')
+		select.addEventListener('change', function () {
+			const selectedOption = this.options[this.selectedIndex];
+			const dataFilterValue = selectedOption.getAttribute('data-filter');
+			
+			mixer.filter(dataFilterValue);
+			currentPage = 1
+			const items = containerEl.querySelectorAll('.mix')
+			items.forEach(item => item.classList.remove('current'))
+			checkAndAddExtraItems()
+			filteredItems()
+			showItemsOnPage(currentPage)
+			toggleButtons()
+			enableFilterButtons()
+		});
+
+
+
+		
+
+
+
+
+
+
+
+
+
+
 	// робота с аккордионом
 	const acElements = document.querySelectorAll('.ac')
 
@@ -526,7 +523,7 @@ fetchDataAndInitializeSwiper();
 			errorMessage.style.display = 'block'
 		}
 
-		function hideErrorMessage( errorMessage) {
+		function hideErrorMessage(errorMessage) {
 			errorMessage.style.display = 'none'
 		}
 
@@ -636,30 +633,30 @@ fetchDataAndInitializeSwiper();
 			if (!nameLength && nameValue && noEnglish) {
 				showErrorMessage(nameInput, nameErrorlength)
 			} else {
-				hideErrorMessage( nameErrorlength)
+				hideErrorMessage(nameErrorlength)
 			}
 
-			
+
 			if (!noEnglish && nameValue) {
 				showErrorMessage(nameInput, nameError)
 			} else {
-				hideErrorMessage( nameError)
+				hideErrorMessage(nameError)
 			}
 
 			if (!nameValue) {
 				showErrorMessage(nameInput, nameErrorEmpty)
 			} else {
-				hideErrorMessage( nameErrorEmpty)
+				hideErrorMessage(nameErrorEmpty)
 			}
 
-			if(nameValue && nameLength && noEnglish){
+			if (nameValue && nameLength && noEnglish) {
 				nameInput.classList.remove('error')
 			}
 
 			if (!phoneValue) {
 				showErrorMessage(phoneInput, phoneErrorEmpty)
 			} else {
-				hideErrorMessage( phoneErrorEmpty)
+				hideErrorMessage(phoneErrorEmpty)
 			}
 
 			if (!phoneValid && phoneValue) {
@@ -947,8 +944,8 @@ function clickHandler() {
 			burger.classList.remove('burger-fade')
 			contacts.classList.remove('contacts-active')
 			overlay.style.display = 'none' // Скрываем оверлей
-			
-			if (window.innerWidth <= 768 ){
+
+			if (window.innerWidth <= 768) {
 				navList.classList.remove('nav-active')
 			}
 		}, 300)
@@ -964,7 +961,7 @@ function clickHandler() {
 			burger.classList.add('burger-active')
 			burger.classList.remove('burger-fade')
 			contacts.classList.add('contacts-active')
-			if (window.innerWidth <= 768 ){
+			if (window.innerWidth <= 768) {
 				navList.classList.add('nav-active')
 			}
 		}, 300)
@@ -981,7 +978,7 @@ function closeBurger() {
 		}, 300)
 		contacts.classList.remove('contacts-active')
 		overlay.style.display = 'none'
-		if (window.innerWidth <= 768 ){
+		if (window.innerWidth <= 768) {
 			navList.classList.remove('nav-active')
 		}
 	}
