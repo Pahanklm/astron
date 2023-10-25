@@ -116,15 +116,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 			const leftLayoutSwiper = new Swiper(leftLayout, {
 				autoplay: {
-					delay: 1000, 
+					delay: 1500, 
 					loop: true,
-			},
-			spaceBetween: 30,
-				breakpoints: {
-					768: {
-						slidesPerView: 1,
-						spaceBetween: 0,
-					}
+					slidesPerView: 'auto',
+					spaceBetween: 30,
 				}
 			});
 
