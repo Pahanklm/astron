@@ -8,8 +8,24 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
+	// map-size
+
+	const map = document.querySelector('.contacts__right-map')
+	const contactsRight = document.querySelector('.contacts__right')
+	
+	
+	function mapSize() {
+    if (window.innerWidth <= 1000) {
+        const contactsWidth = contactsRight.clientWidth;
+        map.style.width = `${contactsWidth}px`;
+    }
+}
+
+	
+	mapSize()
+
 	// парсинг
-	const container = document.querySelector('.swiper-wrapper');
+	const container = document.querySelector('.swiper-wrapper-comments');
 	const spinnerContainer = document.createElement('div');
 	spinnerContainer.className = 'spinner-container';
 	const spinner = document.createElement('span');
@@ -20,6 +36,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	const swiperNavigation = document.querySelector('.swiper-navigation');
 
 	async function fetchDataAndInitializeSwiper() {
+		let feedbackCard; 
+    let swiperWidth;
 		try {
 			spinner.style.display = 'flex';
 			swiperNavigation.style.display = 'none';
@@ -37,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				const item3 = data3[index];
 
 				const slide = document.createElement('div');
-				slide.className = 'swiper-slide';
+				slide.className = 'swiper-slide swiper-slide-main';
 
 				const title = document.createElement('h4');
 				title.className = 'swiper-slide-title';
@@ -57,20 +75,24 @@ document.addEventListener('DOMContentLoaded', function () {
 				container.appendChild(slide);
 			});
 
-			const feedbackCard = document.querySelector('.swiper-slide');
+			feedbackCard = document.querySelector('.swiper-slide-main');
 			const CardWidth = feedbackCard.getBoundingClientRect().width;
-			const swiperWrapper = document.querySelector('.swiper-wrapper');
-			let swiperWidth = swiperWrapper.getBoundingClientRect().width;
-			const slidesPerView = 3;
+			const swiperWrapper = document.querySelector('.swiper-wrapper-comments');
+			swiperWidth = swiperWrapper.getBoundingClientRect().width;
+			const slidesPerView = window.innerWidth <= 768 ? 1 : 3;
+
+
 
 			let swiperGap = ((swiperWidth - CardWidth * 3) / 2);
 			if (swiperGap < 0) {
-				swiperGap = 0;
+				swiperGap = 20;
 			}
 
+
 			const swiper = new Swiper('.swiper', {
-				slidesPerView: slidesPerView,
+				slidesPerView: 'auto',
 				spaceBetween: swiperGap,
+				freeMode: true,
 				loop: false,
 				navigation: {
 					nextEl: '.swiper-button-next',
@@ -78,9 +100,10 @@ document.addEventListener('DOMContentLoaded', function () {
 				},
 			});
 
+
 			swiperNavigation.style.display = 'flex';
 		} catch (error) {
-			setTimeout(fetchDataAndInitializeSwiper, 1);
+			setTimeout(fetchDataAndInitializeSwiper, 10);
 		}
 		finally {
 			spinner.style.display = 'none';
@@ -89,8 +112,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	fetchDataAndInitializeSwiper();
 
+		const leftLayout = document.querySelector('.swiper__items');
+	
+			const leftLayoutSwiper = new Swiper(leftLayout, {
+				autoplay: {
+					delay: 1000, 
+					loop: true,
+			},
+			spaceBetween: 30,
+				breakpoints: {
+					768: {
+						slidesPerView: 1,
+						spaceBetween: 0,
+					}
+				}
+			});
 
-
+	
+	
 
 	// swiper-end
 
@@ -115,12 +154,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	})
 
 	const selectElementModal = document.getElementById('Select-modal')
-	let choicesModal = new Choices(selectElementModal, {
+	const choicesModal = new Choices(selectElementModal, {
 		allowHTML: true,
 		searchEnabled: false,
 		itemSelectText: '',
 		shouldSort: false,
 	})
+
+
 
 
 
@@ -448,12 +489,35 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	
 	
-	// Функция, создающая и добавляющая выпадающий список на основе кнопок
-		const select = document.querySelector('.mixer__controls-select')
+
+
+
+	if (window.innerWidth <= 768) {
+		const select = document.querySelector('.mixer__controls-select');
+
+		const dataFilterAttributes = {};
+
+		select.querySelectorAll('option').forEach(option => {
+				const filterValue = option.getAttribute('data-filter');
+				if (filterValue) {
+						dataFilterAttributes[option.value] = filterValue;
+				}
+		});
+
+		const choicesDropdown = new Choices(select, {
+				allowHTML: true,
+				searchEnabled: false,
+				itemSelectText: '',
+				shouldSort: false,
+		});
+
 		select.addEventListener('change', function () {
-			const selectedOption = this.options[this.selectedIndex];
-			const dataFilterValue = selectedOption.getAttribute('data-filter');
-			
+    const selectedOption = this.options[this.selectedIndex];
+    const selectedValue = selectedOption.value;
+    const dataFilterValue = dataFilterAttributes[selectedValue];
+
+  
+
 			mixer.filter(dataFilterValue);
 			currentPage = 1
 			const items = containerEl.querySelectorAll('.mix')
@@ -464,15 +528,15 @@ document.addEventListener('DOMContentLoaded', function () {
 			toggleButtons()
 			enableFilterButtons()
 		});
-
-
-
-		
+	}
+	
 
 
 
 
+	const choicesItem = document.querySelector('.choices__inner');
 
+	choicesItem.classList.add('choices__inner-mixer');
 
 
 
@@ -809,6 +873,8 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	})
 
+	
+
 	modalButtonsWithContent.forEach(function (button) {
 		button.onclick = function () {
 			modal.style.opacity = '1'
@@ -824,14 +890,12 @@ document.addEventListener('DOMContentLoaded', function () {
 			const choicesItems = Array.from(choicesDropdown.children[0].children).map(
 				item => item.textContent
 			)
-			console.log(choicesItems)
 
 			const controlItem = document.querySelector('.mixitup-control-active')
 			const controlItemText = controlItem.textContent
 				.replace(/<br>/g, '')
 				.replace(/\s+/g, ' ')
 				.trim()
-			console.log(controlItemText)
 			if (choicesItems.includes(controlItemText)) {
 				choicesModal.itemList.element.innerText = controlItemText.trim()
 			} else {
@@ -986,6 +1050,7 @@ function closeBurger() {
 
 burger.addEventListener('click', clickHandler)
 overlay.addEventListener('click', closeBurger)
+
 
 
 

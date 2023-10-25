@@ -77,7 +77,12 @@
 
 // top-end
 
+.swiper__items{
+	display: none;
+}
+
 .about {
+	
 
 	&__layout{
 		display: block;
@@ -113,6 +118,7 @@
 		text-transform: uppercase;
 	}
 
+
 	&__left-items{
 		display: flex;
 		flex-direction: column;
@@ -120,7 +126,7 @@
 	}
 
 	&__left-item {
-		display: flex;
+		display: flex !important;
 		align-items: center;
 		gap: 10px;
 		font-size: 20px;
@@ -462,7 +468,7 @@
 .faq {
 	display: flex;
 	flex-direction: row;
-	gap: 30px;
+	gap: 5px;
 
 	&__img {
 		max-height: 576px;
@@ -609,6 +615,7 @@
 .footer {
 	background: rgba(0, 147, 221, 0.3);
 	margin-top: 50px;
+	
 }
 
 .bottom {
@@ -618,6 +625,10 @@
 
 	&__privacy {
 		margin-right: 163px;
+	}
+
+	&__social{
+		display: flex;
 	}
 
 	&__img {
