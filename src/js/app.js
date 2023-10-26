@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
 					delay: 1500, 
 					loop: true,
 					slidesPerView: 'auto',
-					spaceBetween: 30,
+					spaceBetween: 40,
 				}
 			});
 
@@ -856,8 +856,15 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 	)
 	const textarea = form2.querySelector('.send__message-textarea') // Используйте form2 для получения textarea
 	const modal = document.getElementById('myModal')
-	modal.style.opacity = '0' // Устанавливаем начальную прозрачность на 0
-
+	const aboutLayout = document.querySelector('.about__layout')
+	const aboutLayoutWidth = aboutLayout.offsetWidth
+	modal.style.opacity = '0' 
+	// Устанавливаем начальную прозрачность на 0
+		modalButtons.forEach(function (button) {
+			if (window.innerWidth <= 768) {
+			button.style.width = aboutLayoutWidth + 'px'
+			}
+		})
 	modalButtons.forEach(function (button) {
 		button.onclick = function () {
 			modal.style.opacity = '1' // Устанавливаем прозрачность на 1, чтобы сделать его видимым

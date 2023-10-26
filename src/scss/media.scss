@@ -555,7 +555,7 @@
 
 	.about__left-btn {
 		margin-top: 50px;
-		max-width: 440px;
+		max-width: none;
 		padding: 20px 138px;
 	}
 
@@ -603,6 +603,7 @@
 	.astron__left-btn {
 		font-size: 16px;
 		padding: 20px 139px;
+		max-width: none;
 	}
 
 	// astron-end
@@ -847,7 +848,6 @@
 	}
 
 	.astron__left-btn{
-		width: 260px;
 		font-size: 16px !important;
 		padding: 15px 59px;
 	}
