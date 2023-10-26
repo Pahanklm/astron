@@ -8,9 +8,13 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
-	window.addEventListener("orientationchange", function() {
-		location.reload();
-	});
+	window.addEventListener('orientationchange', () => {
+    const orientation = window.matchMedia('(orientation: landscape)')
+
+    if (orientation.matches) {
+        window.location.reload()
+    }
+})
 	
 	// map-size
 
