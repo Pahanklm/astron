@@ -330,7 +330,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				toggleButtons();
 				updatePageNumbers(); // Обновляем кнопки после смены страницы
 			});
-			if (startPage - 1 > 1) {
+			if (startPage - 1 > 1 && window.innerWidth >= 480) {
 				pageNumbersContainer.insertBefore(createEllipsisElement(), pageNumbersContainer.firstChild)
 			}
 			pageNumbersContainer.insertBefore(firstPageButton, pageNumbersContainer.firstChild)
@@ -346,7 +346,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				toggleButtons();
 				updatePageNumbers(); // Обновляем кнопки после смены страницы
 			});
-			if (endPage + 1 < totalPages) {
+			if (endPage + 1 < totalPages && window.innerWidth >= 480) {
 				pageNumbersContainer.appendChild(createEllipsisElement());
 			}
 			pageNumbersContainer.appendChild(lastPageButton)
@@ -505,7 +505,7 @@ document.addEventListener('DOMContentLoaded', function () {
 				itemSelectText: '',
 				shouldSort: false,
 		});
-
+		
 		select.addEventListener('change', function () {
     const selectedOption = this.options[this.selectedIndex];
     const selectedValue = selectedOption.value;
@@ -528,11 +528,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-
 	const choicesItem = document.querySelector('.choices__inner');
-
 	choicesItem.classList.add('choices__inner-mixer');
 
+	const choicesItemSingle = document.querySelector('.choices__list');
+choicesItemSingle.classList.add('choices__list--single-mixer');
 
 
 
@@ -800,7 +800,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			}
 
 			const botToken = '6405324996:AAHLBZFVoohzrqeSfC43aSFGdakbo2bkJQA'
-			const chatId = '1386471978' // Замените на свой chat_id
+			const chatId = '1386471978'
 			const message = `
       Нове замовлення
 
@@ -862,6 +862,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		button.onclick = function () {
 			modal.style.opacity = '1' // Устанавливаем прозрачность на 1, чтобы сделать его видимым
 			modal.classList.add('modal-open')
+			modal.style.zIndex = '20'
 			modal.classList.remove('modal-closed')
 			textarea.value = ''
 			document.body.style.overflow = 'hidden'
@@ -904,6 +905,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		modal.style.opacity = '0'
 		modal.classList.remove('modal-open')
 		modal.classList.add('modal-closed')
+		modal.style.zIndex = '1'
 		document.body.style.overflow = 'auto'
 	}
 
@@ -918,8 +920,8 @@ document.addEventListener('DOMContentLoaded', function () {
 })
 
 document.addEventListener('DOMContentLoaded', function () {
-	var scrollToTopButton = document.getElementById('scrollToTop')
-	var lastScrollTop = 0
+	const scrollToTopButton = document.getElementById('scrollToTop')
+	const lastScrollTop = 0
 	scrollToTopButton.style.display = 'none'
 
 	// Функция для плавной прокрутки к верхней части страницы
@@ -939,7 +941,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	// Отслеживание прокрутки страницы для показа/скрытия кнопки
 	window.addEventListener('scroll', function () {
-		var currentScroll = window.scrollY
+		const currentScroll = window.scrollY
 		if (currentScroll > 0) {
 			// При прокрутке вниз
 			if (scrollToTopButton.style.display !== 'block') {

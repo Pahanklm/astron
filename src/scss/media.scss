@@ -39,7 +39,7 @@
 		top: 105px;
 		gap: 33px;
 		transition: top 0.3s ease-in-out;
-		padding: 40px 32px 40px 20px;
+		padding: 40px 15px 40px 20px;
 		align-items: center;
 		border-radius: 20px;
 		border: 1px solid var(--Blue, #0093dd);
@@ -497,7 +497,7 @@
 		right: 0;
 		top: 105px;
 		gap: 33px;
-		width: 323px;
+		width: 306.5px;
 		transition: top 0.3s ease-in-out;
 		padding: 40px 32px 40px 20px;
 		align-items: center;
@@ -727,9 +727,7 @@
 	}
 	.swiper-slide-main{
 		max-width: none !important;
-		padding: 0;
-		padding-left: 40px;
-		padding-top: 40px;
+
 		width: 50% !important;
 	} 
 
@@ -788,4 +786,156 @@
 	.ac-title{
 		width: 420px;
 	}
+}
+
+
+@media screen and (max-width: 480px) {
+
+	.about__title{
+		width: 430px;
+	}
+
+	.send__message-subtitle{
+		display: none;
+	}
+
+	.about__right-img{
+		content: url('../img/about/stamp320.png');
+	}
+
+	.about__left-btn{
+		margin-top: 20px;
+		padding: 15px 59px;
+	}
+
+// about-end
+
+	.send__message{
+		width: 300px !important;
+		padding: 10px 20px !important;
+	}
+
+	.send__message-btn{
+		width: 260px;
+		font-size: 16px !important;
+		padding: 15px 59px;
+	}
+
+	.send__message-title{
+		font-size: 16px;
+	}
+
+	.inputs__container{
+		flex-direction: column;
+		gap: 0;
+	}
+
+	.inputs__container{
+		margin-bottom: 0;
+	}
+
+	.radio-container img{
+		width: 86px;
+		padding: 10px 28px;
+	}
+
+	// modal-end
+
+
+	.astron__right-img{
+		content: url('../img/astron/stamp480.png');
+	}
+
+	.astron__left-btn{
+		width: 260px;
+		font-size: 16px !important;
+		padding: 15px 59px;
+	}
+
+	.astron__left{
+		height: 538px;
+	}
+
+	// astron-end
+
+	.choices__inner-mixer{
+		width: 280px !important;
+	}
+
+	.image-border{
+		width: 280px ;
+		height: 320px ;
+	}
+
+	.images__container{
+		justify-content: center;
+	}
+
+	.filtr-item img{
+		width: 202px;
+		height: 202px;
+		right: 39px;
+	}
+
+	.choices__list--single-mixer{
+		width: 95% !important;
+	}
+
+	// mixer-end
+
+	.readystamps__img{
+		content: url('../img/readyStamps/stamps480.png');
+	}
+
+	// readystamps-end
+
+	.lookmore__images-img{
+		width: 125px;
+		height: 125px;
+	}
+
+	// lookmore-end
+
+	.faq__img{
+		content: url('../img/faq/faq480.png');
+	}
+
+	.accordion-container{
+		max-width: 300px;
+	}
+
+	.ac-title{
+		width: 260px;
+	}
+
+	// faq-end
+
+	.contacts__left-schedule{
+		width: 280px;
+	}
+
+	// contacts-end
+
+	.request__img{
+		content: url('../img/request/man_with_mail480.png');
+	}
+}
+
+@media screen and (max-width: 420px) {
+
+.about__titles{
+	display: flex;
+	text-align: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+
+.about__title{
+	width: 320px;
+}
+
+.about__subtitle{
+	width: 360px;
+}
 }
