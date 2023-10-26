@@ -1133,7 +1133,6 @@ a {
   font-size: 20px;
   font-weight: 400;
   max-width: 594px;
-  max-height: 408px;
 }
 
 .astron .astron__left {
@@ -2651,10 +2650,6 @@ a {
   .astron__left-btn {
     font-size: 16px !important;
     padding: 15px 59px;
-  }
-
-  .astron__left {
-    height: 538px;
   }
 
   .choices__inner-mixer {
