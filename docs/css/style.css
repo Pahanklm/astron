@@ -2692,6 +2692,7 @@ a {
 
   .accordion-container {
     max-width: 300px;
+    max-width: -100px;
   }
 
   .ac-title {

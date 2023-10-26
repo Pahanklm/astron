@@ -1057,5 +1057,8 @@ overlay.addEventListener('click', closeBurger)
 
 
 
+window.addEventListener("orientationchange", function() {
+	location.reload();
+});
 
 
