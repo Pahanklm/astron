@@ -8,6 +8,10 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
+	window.addEventListener("orientationchange", function() {
+		location.reload();
+	});
+	
 	// map-size
 
 	const map = document.querySelector('.contacts__right-map')
@@ -1057,8 +1061,5 @@ overlay.addEventListener('click', closeBurger)
 
 
 
-window.addEventListener("orientationchange", function() {
-	location.reload();
-});
 
 
