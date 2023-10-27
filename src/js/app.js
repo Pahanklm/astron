@@ -597,6 +597,8 @@ modalUp.addEventListener("click", function () {
 	}
 	
 
+	const choicesMixer = document.querySelector('.choices');
+	choicesMixer.classList.add('choices-mixer');
 
 
 	const choicesItem = document.querySelector('.choices__inner');
