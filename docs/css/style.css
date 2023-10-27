@@ -2005,7 +2005,7 @@ a {
   }
 
   .astron__right-img {
-    content: url(../img/astron/stamp1250.png);
+    content: url(../img/astron/stamp1250.svg);
   }
 
   .astron .astron__left {
@@ -2205,7 +2205,8 @@ a {
   }
 
   .astron__right-img {
-    content: url(../img/astron/stamp1000.png);
+    content: url(../img/astron/stamp1000.svg);
+    width: 100%;
   }
 
   .image-border {
@@ -2462,13 +2463,8 @@ a {
   }
 
   .astron__right-img {
-    content: url("../img/astron/stamp768.png");
-  }
-
-  .astron__container {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    content: url("../img/astron/stamp768.svg");
+    width: 100%;
   }
 
   .astron__left {
@@ -2729,7 +2725,7 @@ a {
   }
 
   .astron__right-img {
-    content: url("../img/astron/stamp480.png");
+    content: url("../img/astron/stamp480.svg");
   }
 
   .astron__left-btn {
