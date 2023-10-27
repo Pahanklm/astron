@@ -2450,6 +2450,10 @@ a {
     font-size: 16px;
   }
 
+  .quality__container {
+    gap: 0;
+  }
+
   .astron__left-title {
     font-size: 16px;
   }
