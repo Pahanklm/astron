@@ -157,8 +157,8 @@
 		content: url(../img/astron/stamp1250.png);
 	}
 
-	.astron__left {
-		gap: 62px !important;
+	.astron .astron__left {
+		gap: 62px;
 	}
 
 	// astron-end
@@ -480,10 +480,7 @@
 		top: 160px;
 	}
 
-	.send__message{
-		width: 440px;
-		padding: 0 20px;
-	}
+
 
 	// send-end
 
@@ -595,7 +592,7 @@
 	}
 
 	.modal-btn {
-		width: auto;
+		width: 100%;
 	}
 
 	// modal-end
@@ -679,6 +676,9 @@
 
 	.choices-mixer{
 		width: 100%;
+	}
+	.pagination{
+		margin-top: 20px;
 	}
 
 	// mixer-end
@@ -793,9 +793,6 @@
 
 		width: 500px;
 	}
-	.ac-title{
-		width: 500px;
-	}
 
 
 }
@@ -814,9 +811,6 @@
 		font-weight: 500;
 
 		width: 440px;
-	}
-	.ac-title{
-		width: 420px;
 	}
 }
 
@@ -888,6 +882,9 @@
 		padding: 15px 59px;
 	}
 
+	.astron .astron__left{
+		gap: 30px;
+	}
 
 
 	// astron-end
@@ -936,14 +933,11 @@
 	}
 
 	.accordion-container{
-		max-width: 300px;
+		max-width: 417px;
 		max-width: -100px;
 		margin-top: -100px;
 	}
 
-	.ac-title{
-		width: 260px;
-	}
 
 	// faq-end
 

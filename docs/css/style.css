@@ -443,6 +443,7 @@ a {
   position: relative;
   padding-right: 6px;
   padding-top: 10px;
+  word-break: normal;
 }
 
 .choices__list:last-child {
@@ -470,11 +471,8 @@ a {
 }
 
 .choices__list[aria-expanded] .choices__item {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: block;
   font-weight: 400;
-  width: 330px;
   font-size: 16px !important;
   padding: 10px 0 10px 20px !important;
 }
@@ -620,8 +618,7 @@ a {
   color: var(--Dark-blue, #29166f) !important;
   font-size: 20px;
   font-weight: 400;
-  padding: 30px;
-  width: 600px;
+  padding: 30px 60px 30px 30px;
 }
 
 .ac-title::after {
@@ -633,6 +630,7 @@ a {
   right: 30px !important;
   -webkit-transition: 0.6s ease-in-out;
   transition: 0.6s ease-in-out;
+  top: 35px;
 }
 
 .ac-title.active::after {
@@ -649,10 +647,6 @@ a {
           transform: rotate(180deg);
 }
 
-.ac-title::after {
-  top: 35px;
-}
-
 .ac-trigger {
   position: absolute !important;
   top: 0;
@@ -660,6 +654,7 @@ a {
   bottom: 0;
   left: 0;
   padding: 0 !important;
+  z-index: 100;
 }
 
 .ac-text {
@@ -813,7 +808,7 @@ a {
 }
 
 .modal-send {
-  padding: 15px 20px !important;
+  padding: 15px 45px !important;
   opacity: 1 !important;
 }
 
@@ -1990,8 +1985,8 @@ a {
     content: url(../img/astron/stamp1250.png);
   }
 
-  .astron__left {
-    gap: 62px !important;
+  .astron .astron__left {
+    gap: 62px;
   }
 
   .mixer__container {
@@ -2283,11 +2278,6 @@ a {
     top: 160px;
   }
 
-  .send__message {
-    width: 440px;
-    padding: 0 20px;
-  }
-
   .bottom__text {
     display: none;
   }
@@ -2452,7 +2442,7 @@ a {
   }
 
   .modal-btn {
-    width: auto;
+    width: 100%;
   }
 
   .quality__title {
@@ -2539,6 +2529,10 @@ a {
 
   .choices-mixer {
     width: 100%;
+  }
+
+  .pagination {
+    margin-top: 20px;
   }
 
   .readystamps__title {
@@ -2655,10 +2649,6 @@ a {
     font-weight: 500;
     width: 500px;
   }
-
-  .ac-title {
-    width: 500px;
-  }
 }
 
 @media screen and (max-width: 580px) {
@@ -2672,10 +2662,6 @@ a {
     font-size: 16px;
     font-weight: 500;
     width: 440px;
-  }
-
-  .ac-title {
-    width: 420px;
   }
 }
 
@@ -2743,6 +2729,10 @@ a {
     padding: 15px 59px;
   }
 
+  .astron .astron__left {
+    gap: 30px;
+  }
+
   .image-border {
     width: 280px;
     height: 320px;
@@ -2782,13 +2772,9 @@ a {
   }
 
   .accordion-container {
-    max-width: 300px;
+    max-width: 417px;
     max-width: -100px;
     margin-top: -100px;
-  }
-
-  .ac-title {
-    width: 260px;
   }
 
   .contacts__left-schedule {

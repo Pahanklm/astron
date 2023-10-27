@@ -395,7 +395,14 @@ modalUp.addEventListener("click", function () {
 			}
 			pageNumbersContainer.appendChild(pageNumberButton);
 
+		}
 
+		if (currentPage === 1 && window.innerWidth <= 480) {
+			pageNumbersContainer.appendChild(createEllipsisElement())
+		}
+		
+		if ( endPage === totalPages && window.innerWidth <= 480) {
+			pageNumbersContainer.insertBefore(createEllipsisElement() , pageNumbersContainer.firstChild)
 		}
 		if (startPage > 1) {
 			const firstPageButton = document.createElement('button');
