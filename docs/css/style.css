@@ -2377,6 +2377,10 @@ a {
     padding-top: 31px;
   }
 
+  .contacts__right-title {
+    width: 260px;
+  }
+
   .swiper__items {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -2626,8 +2630,8 @@ a {
   }
 
   .footer__logo {
-    width: 120px;
-    height: 120px;
+    width: 100px;
+    height: 100px;
   }
 
   .bottom {
@@ -2676,6 +2680,11 @@ a {
 }
 
 @media screen and (max-width: 480px) {
+  .top__logo {
+    width: 60px;
+    height: 60px;
+  }
+
   .about__title {
     width: 430px;
   }

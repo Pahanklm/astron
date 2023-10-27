@@ -8,6 +8,12 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
+	if	(window.innerHeight <= 740){
+		const sendMessage = document.querySelector('.send__message-accept-modal')
+		sendMessage.style.display = 'none'
+	}
+
+
 	screen.orientation.addEventListener("change", () => {
     location.reload();
 });
@@ -307,7 +313,7 @@ modalUp.addEventListener("click", function () {
 
 
 	// Настройки
-	const itemsPerPage = window.innerWidth <= 1250 ? 4 : 6; // Количество элементов на одной странице
+	const itemsPerPage = window.innerWidth <= 768 ? 3 : window.innerWidth <= 1250 ? 4  : 6; // Количество элементов на одной странице
 	let currentPage = 1 // Текущая страница
 
 	// Элементы списка и кнопки
