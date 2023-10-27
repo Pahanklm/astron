@@ -213,6 +213,14 @@
 
 	// contacts-end
 
+	.quality__slick__img-case{
+		display: none !important;
+	}
+
+	.quality__container{
+		justify-content: space-around;
+	}
+
 
 	// swiper-end
 
@@ -271,6 +279,20 @@
 	.swiper-slide-main {
 		max-width: 230px !important;
 	}
+
+	.quality__slick__img-resolution{
+		max-width: 100% !important;
+		min-width: 10% !important;
+		max-height: 100% !important;
+		min-height: 10% !important;
+	}
+	.quality__slick__img-certificate{
+		max-width: 100% !important;
+		min-width: 10% !important;
+		max-height: 100% !important;
+		min-height: 10% !important;
+	}
+
 }
 
 @media screen and (max-width: 999px) {
@@ -577,6 +599,7 @@
 	.quality__title {
 		font-size: 16px;
 	}
+
 
 	// quality-end
 

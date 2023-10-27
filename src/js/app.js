@@ -126,10 +126,78 @@ document.addEventListener('DOMContentLoaded', function () {
 				}
 			});
 
-	
-	
+	const qualityContainer = document.querySelector('.quality__container');
+
+	if (window.innerWidth <= 768) {
+
+		// Находим все изображения, которые вы хотите обернуть
+const resolutionImg = document.querySelector('.quality__slick__img-resolution');
+resolutionImg.classList.add('swiper-slide');
+const certificateImg = document.querySelector('.quality__slick__img-certificate');
+certificateImg.classList.add('swiper-slide');
+
+// Создаем контейнер для изображений
+const imageContainer = document.createElement('div');
+
+// Добавляем классы и стили к созданному контейнеру
+imageContainer.classList.add('quality-container');
+imageContainer.classList.add('swiper-wrapper');
+imageContainer.style.display = 'flex'; // Пример стиля
+
+// Вставляем контейнер перед первым изображением
+resolutionImg.parentNode.insertBefore(imageContainer, resolutionImg);
+
+// Перемещаем изображения в контейнер
+imageContainer.appendChild(resolutionImg);
+imageContainer.appendChild(certificateImg);
+
+const qualitySwiper = new Swiper(qualityContainer, {
+	slidesPerView: 'auto',
+	spaceBetween: 40,
+	freeMode: true,
+	loop: true,
+	autoplay: {
+		delay: 2000,
+	},
+})
+
+	}
+
 
 	// swiper-end
+	const images = document.querySelectorAll(".quality__container img");
+
+const modalUp = document.createElement("div");
+modalUp.classList.add("quality__img-modal");
+document.body.appendChild(modalUp);
+
+const modalImg = document.createElement("img");
+modalUp.appendChild(modalImg);
+
+images.forEach((img) => {
+    img.addEventListener("click", function () {
+        modalImg.src = this.getAttribute("data-large");
+        document.body.style.overflow = 'hidden';
+        modalUp.style.display = "flex";
+				modalUp.style.alignItems = 'center'; 
+				modalUp.style.justifyContent = 'center'; 
+        setTimeout(function () {
+            modalImg.style.transform = "scale(1)"; // Устанавливаем масштаб 1 с анимацией
+        }, 10);
+    });
+});
+
+modalUp.addEventListener("click", function () {
+    modalImg.style.transform = "scale(0)"; // Устанавливаем масштаб 0 с анимацией
+    setTimeout(function () {
+        modalUp.style.display = "none";
+        document.body.style.overflow = 'auto';
+    }, 300); // Подождать завершения анимации перед скрытием
+});
+
+		
+
+
 
 	iziToast.settings({
 		title: 'Дякуємо!',
