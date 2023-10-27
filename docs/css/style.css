@@ -1017,6 +1017,10 @@ a {
   gap: 50px;
 }
 
+.top__nav-modal {
+  display: none;
+}
+
 .top__nav-text {
   font-size: 16px;
   font-weight: 400;
@@ -1033,6 +1037,10 @@ a {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.top__contacts-modal {
+  display: none;
 }
 
 .top__contacts-list:not(:last-child) {
@@ -1776,7 +1784,7 @@ a {
 
 @media screen and (max-width: 1250px) {
   .top__contacts-item:not(:last-child) {
-    margin-bottom: 33px;
+    margin-bottom: 30px;
   }
 
   .top__contacts-list:not(:last-child) {
@@ -1784,6 +1792,21 @@ a {
   }
 
   .top__contacts {
+    display: none;
+  }
+
+  .top__contacts-modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 30px;
+  }
+
+  .burger-layout {
     position: absolute;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -1806,7 +1829,7 @@ a {
             align-items: flex-start;
   }
 
-  .contacts-active {
+  .burger-layout-active {
     position: absolute;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2061,8 +2084,9 @@ a {
   }
 
   .top__footer {
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
 
   .bottom {
@@ -2081,6 +2105,22 @@ a {
 
   .bottom__img {
     margin: 0;
+  }
+
+  .footer__contacts {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .footer__telephones {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .footer__links {
+    display: none;
   }
 }
 
@@ -2305,66 +2345,30 @@ a {
   .swiper-slide-main {
     max-width: 150px !important;
   }
+
+  .footer__nav {
+    gap: 30px;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .top__nav {
+    display: none;
+  }
+
+  .top__nav-modal {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
   .top__nav-list {
-    position: absolute;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    right: 0;
-    top: -1000px;
-    gap: 33px;
-    width: 323px;
-    -webkit-transition: top 0.3s ease-in-out;
-    transition: top 0.3s ease-in-out;
-    padding: 40px 32px 40px 20px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-radius: 20px 20px 0 0;
-    padding: 40px 32px 0 20px !important;
-    border: 1px solid var(--Blue, #0093dd);
-    border-bottom: none;
-    background: #fff;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-
-  .nav-active {
-    position: absolute;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    right: 0;
-    top: 105px;
-    gap: 33px;
-    width: 306.5px;
-    -webkit-transition: top 0.3s ease-in-out;
-    transition: top 0.3s ease-in-out;
-    padding: 40px 32px 40px 20px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    border-radius: 20px 20px 0 0;
-    padding: 40px 32px 0 20px !important;
-    border: 1px solid var(--Blue, #0093dd);
-    border-bottom: none;
-    background: #fff;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-
-  .contacts-active {
-    top: 321px;
-    border-radius: 0 0 20px 20px;
-    border-top: none;
-    padding-top: 31px;
+    gap: 30px;
+    margin-bottom: 30px;
   }
 
   .contacts__right-title {
@@ -2618,9 +2622,9 @@ a {
   }
 
   .top__footer {
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
   }
 
   .footer__logo {
@@ -2666,6 +2670,10 @@ a {
 }
 
 @media screen and (max-width: 480px) {
+  .burger-layout-active {
+    top: 85px;
+  }
+
   .top__logo {
     width: 60px;
     height: 60px;

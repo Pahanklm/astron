@@ -1073,8 +1073,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // burger
 const overlay = document.querySelector('.overlay')
-const contacts = document.querySelector('.top__contacts')
-const navList = document.querySelector('.top__nav-list')
+const burgerLayout = document.querySelector('.burger-layout')
 
 let isAnimating = false
 const burger = document.querySelector('.burger')
@@ -1096,12 +1095,8 @@ function clickHandler() {
 		setTimeout(() => {
 			burger.classList.remove('burger-active')
 			burger.classList.remove('burger-fade')
-			contacts.classList.remove('contacts-active')
+			burgerLayout.classList.remove('burger-layout-active')
 			overlay.style.display = 'none' // Скрываем оверлей
-
-			if (window.innerWidth <= 768) {
-				navList.classList.remove('nav-active')
-			}
 		}, 300)
 	} else {
 		burger.classList.add('burger-fade')
@@ -1114,10 +1109,7 @@ function clickHandler() {
 		setTimeout(() => {
 			burger.classList.add('burger-active')
 			burger.classList.remove('burger-fade')
-			contacts.classList.add('contacts-active')
-			if (window.innerWidth <= 768) {
-				navList.classList.add('nav-active')
-			}
+			burgerLayout.classList.add('burger-layout-active')
 		}, 300)
 	}
 }
@@ -1130,11 +1122,8 @@ function closeBurger() {
 			burger.classList.remove('burger-active')
 			burger.classList.remove('burger-fade')
 		}, 300)
-		contacts.classList.remove('contacts-active')
+		burgerLayout.classList.remove('burger-layout-active')
 		overlay.style.display = 'none'
-		if (window.innerWidth <= 768) {
-			navList.classList.remove('nav-active')
-		}
 	}
 }
 

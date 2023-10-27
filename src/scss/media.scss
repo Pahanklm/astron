@@ -10,14 +10,24 @@
 
 @media screen and (max-width: 1250px) {
 	.top__contacts-item:not(:last-child) {
-		margin-bottom: 33px;
+		margin-bottom: 30px;
 	}
 
 	.top__contacts-list:not(:last-child) {
 		margin-right: 0;
 	}
 
-	.top__contacts {
+	.top__contacts{
+		display: none;
+	}
+
+	.top__contacts-modal {
+		display: flex;
+		flex-direction: column;
+		gap: 30px;
+	}
+
+	.burger-layout{
 		position: absolute;
 		flex-direction: column;
 		right: 0;
@@ -32,7 +42,7 @@
 		align-items: flex-start;
 	}
 
-	.contacts-active {
+	.burger-layout-active {
 		position: absolute;
 		flex-direction: column;
 		right: 0;
@@ -242,7 +252,7 @@
 	// request-end
 
 	.top__footer {
-		justify-content: space-around;
+		justify-content: space-between;
 	}
 
 	.bottom {
@@ -259,6 +269,18 @@
 
 	.bottom__img {
 		margin: 0;
+	}
+
+	.footer__contacts{
+		display: flex;
+	}
+
+	.footer__telephones{
+		display: flex;
+	}
+
+	.footer__links{
+		display: none;
 	}
 }
 
@@ -316,6 +338,12 @@
 @media screen and (max-width: 850px) {
 	.swiper-slide-main {
 		max-width: 150px !important;
+	}
+}
+
+@media screen and (max-width: 850px) {
+	.footer__nav{
+		gap: 30px;
 	}
 }
 
@@ -492,48 +520,19 @@
 
 @media screen and (max-width: 768px) {
 
-	.top__nav-list {
-		position: absolute;
-		flex-direction: column;
-		right: 0;
-		top: -1000px;
-		gap: 33px;
-		width: 323px;
-		transition: top 0.3s ease-in-out;
-		padding: 40px 32px 40px 20px;
-		align-items: center;
-		border-radius: 20px 20px 0 0;
-		padding: 40px 32px 0 20px !important;
-		border: 1px solid var(--Blue, #0093dd);
-		border-bottom: none;
-		background: #fff;
-		align-items: flex-start;
+	.top__nav{
+		display: none;
 	}
 
-	.nav-active {
-		position: absolute;
-		flex-direction: column;
-		right: 0;
-		top: 105px;
-		gap: 33px;
-		width: 306.5px;
-		transition: top 0.3s ease-in-out;
-		padding: 40px 32px 40px 20px;
-		align-items: center;
-		border-radius: 20px 20px 0 0;
-		padding: 40px 32px 0 20px !important;
-		border: 1px solid var(--Blue, #0093dd);
-		border-bottom: none;
-		background: #fff;
-		align-items: flex-start;
 
+	.top__nav-modal {
+		display: flex;
 	}
 
-	.contacts-active {
-		top: 321px;
-		border-radius: 0 0 20px 20px;
-		border-top: none;
-		padding-top: 31px;
+	.top__nav-list{
+		flex-direction: column;
+		gap: 30px;
+		margin-bottom: 30px;
 	}
 
 .contacts__right-title{
@@ -764,7 +763,7 @@
 	} 
 
 	.top__footer{
-		justify-content: center;
+		justify-content: space-evenly;
 	}
 
 	.footer__logo{
@@ -816,6 +815,10 @@
 
 
 @media screen and (max-width: 480px) {
+
+	.burger-layout-active{
+		top: 85px;
+	}
 
 	.top__logo{
 		width: 60px;
