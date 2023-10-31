@@ -73,6 +73,48 @@ img {
   /* Можете настроить отступ от правого края экрана по вашему усмотрению */
 }
 
+input::-webkit-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+input::-moz-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+input:-ms-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+input::-ms-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+input::placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+/* Измените цвет плейсхолдера для текстового поля */
+
+textarea::-webkit-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+textarea::-moz-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+textarea:-ms-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+textarea::-ms-input-placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
+textarea::placeholder {
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -325,6 +367,19 @@ a {
 
 .fade-in.show {
   opacity: 1 !important;
+}
+
+.lo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 
 .radio {
@@ -1437,6 +1492,7 @@ a {
   text-align: center;
   opacity: 0.7;
   margin-bottom: 30px;
+  color: var(--Gray, rgba(0, 0, 0, 0.3));
 }
 
 .send__message-accept-modal {
@@ -2339,17 +2395,7 @@ a {
   }
 }
 
-@media screen and (max-width: 900px) {
-  .swiper-slide-main {
-    max-width: 170px !important;
-  }
-}
-
 @media screen and (max-width: 850px) {
-  .swiper-slide-main {
-    max-width: 150px !important;
-  }
-
   .footer__nav {
     gap: 30px;
   }
@@ -2490,6 +2536,11 @@ a {
     font-size: 16px;
   }
 
+  .mixer__layout {
+    display: inline-block;
+    width: 100%;
+  }
+
   .mixer__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -2498,6 +2549,7 @@ a {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    text-align: start;
   }
 
   .mixer__controls {

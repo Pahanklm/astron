@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 			let swiperGap = ((swiperWidth - CardWidth * 3) / 2);
-			if (swiperGap < 0) {
+			if (swiperGap < 20) {
 				swiperGap = 20;
 			}
 
