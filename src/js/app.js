@@ -8,7 +8,7 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
-	if	(window.innerHeight <= 740){
+	if	(window.innerHeight <= 690){
 		const sendMessage = document.querySelector('.send__message-accept-modal')
 		sendMessage.style.display = 'none'
 	}
