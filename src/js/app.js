@@ -203,20 +203,6 @@ modalUp.addEventListener("click", function () {
 
 		
 
-
-
-	iziToast.settings({
-		title: 'Дякуємо!',
-		message: "Невдовзі наш менеджер з вами зв'яжеться",
-		color: 'green', // Цвет фона уведомления
-		position: 'bottomRight', // Позиция на экране
-		timeout: 5000, // Время показа (в миллисекундах)
-		pprogressBarColor: 'rgb(173, 216, 230)', // Цвет полосы загрузки
-		// Другие опции и настройки
-	})
-
-	// izi-toast-end
-
 	const selectElement = document.getElementById('Select')
 	const choices = new Choices(selectElement, {
 		allowHTML: true,
@@ -842,8 +828,61 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 			})
 		})
 
+		
+
 		form.addEventListener('submit', function (event) {
 			event.preventDefault()
+
+			function showCongratulationMessage() {
+				const overlay = document.createElement('div');
+				const addText = window.innerWidth >= 480 ? ' для обговорення деталей і відповідей на запитання.' : '.'
+				
+				const containerCongratulationModal = document.createElement('div');
+				containerCongratulationModal.classList.add('container-congratulation-modal');
+				containerCongratulationModal.innerHTML = `
+						<div class="congratulation-modal">
+								<div class="congratulation-modal__content">
+										<img class="congratulation-logo" src="../img/header/logo.svg" alt="Логотип" draggable="false">
+										<div class="congratulation-modal__title">Дякуємо за оформлення заявки на нашому сайті</div>
+										<div class="congratulation-modal__text">Спеціаліст зв'яжеться з вами найближчим часом${addText}</div>
+										<div class="congratulation-modal__thank">Дякуємо за вибір нашої компанії!</div> 
+										<div class="congratulation-modal__help">У разі термінових звернень, зателефонуйте за номером телефону +38 098 303 44 77 або приходьте до нас в офіс м. Кременчук, вул. Перемоги, 4, оф. 101</div> 
+										<span class="congratulation-close"><img src="../img/modal/close.svg" alt="x"></span>
+								</div>
+						</div>`;
+		
+				document.body.appendChild(containerCongratulationModal);
+				document.body.style.overflow = 'hidden'
+
+
+
+				window.onclick = function (event) {
+					if (event.target == containerCongratulationModal) {
+						closeCongratulationMessage(containerCongratulationModal)
+						document.body.style.overflow = 'auto'
+					}
+				}
+					
+			 
+		
+				const closeButton = containerCongratulationModal.querySelector('.congratulation-close');
+				closeButton.addEventListener('click', () => {
+						closeCongratulationMessage(containerCongratulationModal);
+				});
+		}
+		
+		function closeCongratulationMessage(modal) {
+				modal.classList.add('closing');
+				setTimeout(() => {
+						document.body.removeChild(modal);
+						document.body.style.overflow = 'auto';
+				}, 300); 
+		}
+		
+		
+
+			
+
 
 			function getCookie(name) {
 				const cookieValue = document.cookie
@@ -877,6 +916,7 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 					return // Не отправляем форму
 				}
 			}
+			
 
 			let selectedElement
 			if (form.id === 'form1') {
@@ -906,12 +946,15 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 					phoneInput.value = ''
 					textarea.value = ''
 
+					if( modal.classList.contains('modal-open')) {
 					modal.style.opacity = '0'
 					modal.classList.remove('modal-open')
 					modal.classList.add('modal-closed')
 					submitButton.setAttribute('disabled', 'disabled')
 					document.body.style.overflow = 'auto'
-					iziToast.show()
+					}
+
+					showCongratulationMessage()
 
 					// Обновляем куки с временем последней отправки формы
 					const expirationTime = new Date()
@@ -924,8 +967,8 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 					modal.classList.add('modal-closed')
 					document.body.style.overflow = 'auto'
 					iziToast.error({
-						title: 'Ошибка',
-						message: 'Ошибка при отправке сообщения',
+						title: 'Помилка',
+						message: 'Помилка при відправці форми',
 						position: 'bottomRight',
 						icon: 'fa fa-times',
 						timeout: 5000,
@@ -1010,9 +1053,7 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 			document.body.style.overflow = 'auto'
 		}
 	}
-})
 
-document.addEventListener('DOMContentLoaded', function () {
 	const scrollToTopButton = document.getElementById('scrollToTop')
 	const lastScrollTop = 0
 	scrollToTopButton.style.display = 'none'

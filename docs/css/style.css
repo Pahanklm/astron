@@ -115,6 +115,155 @@ textarea::placeholder {
   color: var(--Gray, rgba(0, 0, 0, 0.3));
 }
 
+.container-congratulation-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.congratulation-modal {
+  position: relative;
+  max-width: 938px;
+  padding: 50px 66px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.congratulation-modal__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.congratulation-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.congratulation-logo {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 20px;
+}
+
+.congratulation-modal__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--Dark-blue, #29166F);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.congratulation-modal__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  max-width: 494px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.congratulation-modal__thank {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--Dark-blue, #29166F);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.congratulation-modal__help {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* CSS анимации для открытия модального окна */
+
+.container-congratulation-modal {
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+          animation: fadeIn 0.3s ease-in-out;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.container-congratulation-modal.closing {
+  -webkit-animation: fadeOut 0.3s ease-in-out;
+          animation: fadeOut 0.3s ease-in-out;
+}
+
+@-webkit-keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
 html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -795,16 +944,6 @@ a {
   height: 20px !important;
 }
 
-@-webkit-keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -812,16 +951,6 @@ a {
 
   100% {
     opacity: 1;
-  }
-}
-
-@-webkit-keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-
-  100% {
-    opacity: 0;
   }
 }
 
@@ -1026,6 +1155,135 @@ a {
   top: 15px;
   right: 15px;
   cursor: pointer;
+}
+
+.container-congratulation-modal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 1;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.congratulation-modal {
+  position: relative;
+  max-width: 938px;
+  padding: 50px 66px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.congratulation-modal__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.congratulation-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-size: cover;
+  cursor: pointer;
+}
+
+.congratulation-logo {
+  width: 130px;
+  height: 130px;
+  margin-bottom: 20px;
+}
+
+.congratulation-modal__title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--Dark-blue, #29166F);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.congratulation-modal__text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  max-width: 494px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.congratulation-modal__thank {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--Dark-blue, #29166F);
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.congratulation-modal__help {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  opacity: 0.7;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* CSS анимации для открытия модального окна */
+
+.container-congratulation-modal {
+  -webkit-animation: fadeIn 0.3s ease-in-out;
+          animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.container-congratulation-modal.closing {
+  -webkit-animation: fadeOut 0.3s ease-in-out;
+          animation: fadeOut 0.3s ease-in-out;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
 }
 
 .container-header {
@@ -2381,6 +2639,14 @@ a {
   .bottom__text {
     display: none;
   }
+
+  .congratulation-modal {
+    padding: 50px 50px;
+  }
+
+  .congratulation-modal__help {
+    max-width: 536px;
+  }
 }
 
 @media screen and (max-width: 999px) {
@@ -2690,6 +2956,22 @@ a {
             flex-direction: column;
     gap: 20px;
   }
+
+  .congratulation-modal {
+    padding: 50px 18px;
+  }
+
+  .congratulation-modal__title {
+    max-width: 323px;
+  }
+
+  .congratulation-modal__text {
+    max-width: 404px;
+  }
+
+  .congratulation-modal__help {
+    max-width: 360px;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -2850,6 +3132,35 @@ a {
 
   .request__img {
     content: url("../img/request/man_with_mail480.png");
+  }
+
+  .congratulation-modal {
+    padding: 50px 12px;
+  }
+
+  .congratulation-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .congratulation-modal__title {
+    font-size: 20px;
+    font-weight: 400;
+    max-width: 276px;
+    text-transform: uppercase;
+  }
+
+  .congratulation-modal__text {
+    max-width: 261px;
+  }
+
+  .congratulation-modal__thank {
+    max-width: 167px;
+  }
+
+  .congratulation-modal__help {
+    max-width: 242px;
+    font-size: 16px;
   }
 }
 
