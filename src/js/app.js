@@ -842,12 +842,12 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 				containerCongratulationModal.innerHTML = `
 						<div class="congratulation-modal">
 								<div class="congratulation-modal__content">
-										<img class="congratulation-logo" src="../img/header/logo.svg" alt="Логотип" draggable="false">
+										<img class="congratulation-logo" src="img/header/logo.svg" alt="Логотип" draggable="false">
 										<div class="congratulation-modal__title">Дякуємо за оформлення заявки на нашому сайті</div>
 										<div class="congratulation-modal__text">Спеціаліст зв'яжеться з вами найближчим часом${addText}</div>
 										<div class="congratulation-modal__thank">Дякуємо за вибір нашої компанії!</div> 
 										<div class="congratulation-modal__help">У разі термінових звернень, зателефонуйте за номером телефону +38 098 303 44 77 або приходьте до нас в офіс м. Кременчук, вул. Перемоги, 4, оф. 101</div> 
-										<span class="congratulation-close"><img src="../img/modal/close.svg" alt="x"></span>
+										<span class="congratulation-close"><img src="img/modal/close.svg" alt="x"></span>
 								</div>
 						</div>`;
 		
