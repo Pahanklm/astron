@@ -8,7 +8,7 @@ flsFunctions.isWebp()
 
 document.addEventListener('DOMContentLoaded', function () {
 
-	if	(window.innerHeight <= 690){
+	if	(window.innerHeight <= 650){
 		const sendMessage = document.querySelector('.send__message-accept-modal')
 		sendMessage.style.display = 'none'
 	}
@@ -124,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function () {
 		const leftLayout = document.querySelector('.swiper__items');
 	
 			const leftLayoutSwiper = new Swiper(leftLayout, {
+				loop: true,
+				slidesPerView: 'auto',
 				autoplay: {
 					delay: 1500, 
-					loop: true,
-					slidesPerView: 'auto',
 					spaceBetween: 40,
 				}
 			});
@@ -758,7 +758,7 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 			const nameValue = nameInput.value.trim()
 			const phoneValue = phoneInput.value.trim()
 			const noEnglish = /^[а-яА-ЯёЁіІїЇґҐ\s'-]+$/u.test(nameValue)
-			const nameLength = /^.{3,15}$/.test(nameValue)
+			const nameLength = /^.{2,15}$/.test(nameValue)
 			const phoneValid = /^\+38 \(\d{3}\) \d{3} \d{2} \d{2}$/.test(phoneValue)
 
 			if (!nameLength && nameValue && noEnglish) {
@@ -835,7 +835,7 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 
 			function showCongratulationMessage() {
 				const overlay = document.createElement('div');
-				const addText = window.innerWidth >= 480 ? ' для обговорення деталей і відповідей на запитання.' : '.'
+				const addText = window.innerWidth >= 480 ? ' для обговорення деталей і відповідей на запитання.' : '.'
 				
 				const containerCongratulationModal = document.createElement('div');
 				containerCongratulationModal.classList.add('container-congratulation-modal');
@@ -844,9 +844,9 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 								<div class="congratulation-modal__content">
 										<img class="congratulation-logo" src="img/header/logo.svg" alt="Логотип" draggable="false">
 										<div class="congratulation-modal__title">Дякуємо за оформлення заявки на нашому сайті</div>
-										<div class="congratulation-modal__text">Спеціаліст зв'яжеться з вами найближчим часом${addText}</div>
+										<div class="congratulation-modal__text">Спеціаліст зв'яжеться з вами найближчим часом${addText}</div>
 										<div class="congratulation-modal__thank">Дякуємо за вибір нашої компанії!</div> 
-										<div class="congratulation-modal__help">У разі термінових звернень, зателефонуйте за номером телефону +38 098 303 44 77 або приходьте до нас в офіс м. Кременчук, вул. Перемоги, 4, оф. 101</div> 
+										<div class="congratulation-modal__help">У разі термінових звернень, зателефонуйте за номером телефону +38 098 303 44 77 або приходьте до нас в офіс м. Кременчук, вул. Перемоги 4, оф. 101</div> 
 										<span class="congratulation-close"><img src="img/modal/close.svg" alt="x"></span>
 								</div>
 						</div>`;
