@@ -610,23 +610,32 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 
 
 	// робота с аккордионом
-	const acElements = document.querySelectorAll('.ac')
+	const acElements = document.querySelectorAll('.ac');
 
 	acElements.forEach(acElement => {
-		const triggerButton = acElement.querySelector('.ac-trigger')
-		const acTitle = acElement.querySelector('.ac-title')
-
+		const triggerButton = acElement.querySelector('.ac-trigger');
+		const acTitle = acElement.querySelector('.ac-title');
+	
 		triggerButton.addEventListener('click', function () {
-			const isExpanded = triggerButton.getAttribute('aria-expanded') === 'false'
-
-			// Изменяем атрибут aria-expanded
-			triggerButton.setAttribute('aria-expanded', !isExpanded)
-
-			// Добавляем/удаляем класс active в зависимости от состояния
-			triggerButton.classList.toggle('active', !isExpanded)
-			acTitle.classList.toggle('active', !isExpanded)
-		})
-	})
+			const isExpanded = triggerButton.getAttribute('aria-expanded') === 'false';
+	
+			// Удаляем класс 'active' и устанавливаем 'aria-expanded' в 'false' для всех .ac-trigger
+			acElements.forEach(element => {
+				const otherTriggerButton = element.querySelector('.ac-trigger');
+				const otherAcTitle = element.querySelector('.ac-title');
+	
+				otherTriggerButton.classList.remove('active');
+				otherAcTitle.classList.remove('active');
+				otherTriggerButton.setAttribute('aria-expanded', 'false');
+			});
+	
+			// Изменяем атрибут 'aria-expanded' и добавляем/удаляем класс 'active' только для текущего элемента
+			triggerButton.setAttribute('aria-expanded', !isExpanded);
+			triggerButton.classList.toggle('active', !isExpanded);
+			acTitle.classList.toggle('active', !isExpanded);
+		});
+	});
+	
 
 	const forms = document.querySelectorAll('.send__message-form') // Выбираем обе формы
 
@@ -1086,11 +1095,11 @@ choicesItemSingle.classList.add('choices__list--single-mixer');
 			scrollToTopButton.style.display = 'none'
 		}
 	})
-})
+
+
 
 // якоря
 
-document.addEventListener('DOMContentLoaded', function () {
 	const anchorLinks = document.querySelectorAll('.anchor-link')
 
 	anchorLinks.forEach(function (link) {
