@@ -5,6 +5,12 @@ body {
 	scroll-behavior: smooth;
 }
 
+* {
+  color: inherit !important;
+  background-color: inherit !important;
+}
+
+
 .wrapper {
 	display: flex;
 	flex-direction: column;
