@@ -112,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 			swiperNavigation.style.display = 'flex';
 		} catch (error) {
-			setTimeout(fetchDataAndInitializeSwiper, 10);
+			setTimeout(fetchDataAndInitializeSwiper, 1000);
 		}
 		finally {
 			spinner.style.display = 'none';
