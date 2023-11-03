@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function () {
 			spinner.style.display = 'flex';
 			swiperNavigation.style.display = 'none';
 
-			const response = await axios.get('astron-server-production-aaac.up.railway.app');
+			const response = await axios.get('https://astron-server.onrender.com');
 			const data = response.data;
 			const data1 = data.data1;
 			const data2 = data.data2;
